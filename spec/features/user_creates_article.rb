@@ -10,9 +10,13 @@ feature 'User creates article' do
     fill_in 'Title', with: 'Gotchas, Irritants, and Warts in Go Web Development'
     fill_in 'URL', with: 'https://www.braintreepayments.com/braintrust/gotchas-irritants-and-warts-in-go-web-development'
     click_button 'Create Article'
-        save_and_open_page
     expect(page).to have_content 'Article has been successfully created!'
     expect(page).to have_content 'Gotchas, Irritants, and Warts in Go Web Development'
     expect(page).to have_content 'https://www.braintreepayments.com/braintrust/gotchas-irritants-and-warts-in-go-web-development'
+  end
+
+  scenario 'unsuccessfully due to required fields being blank' do
+    click_button 'Create Article'
+    expect(page).to have_content "Title can't be blank"
   end
 end
