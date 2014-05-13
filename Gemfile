@@ -23,6 +23,7 @@ gem 'devise'
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'faker'
   gem 'pry-nav'
   gem 'pry-stack_explorer'
   gem 'rspec-rails'
@@ -31,7 +32,6 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'faker'
   gem 'launchy'
   gem 'shoulda-matchers'
 end
