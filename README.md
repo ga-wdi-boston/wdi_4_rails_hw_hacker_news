@@ -12,6 +12,13 @@ This project is divided into suggested implementation phases based on the order 
 
 On the real Hacker News, articles can be either a link to another web site or simply a chunk of text (polls are also supported). We'll remove some of that complexity and just say that articles are links. They have a title, which must be present, and a URL, which must be valid. Since we don't have users yet, articles will be submitted anonymously and cannot be edited or deleted. Since we also don't have voting yet, articles will be listed on the front page in descending order of submission date. Article titles should be linked to their external URLs.
 
+  As a user
+  When there are articles in the database
+  When I go to the front page
+  I should see (titles/URLs) for all articles
+
+
+
 ## Phase 2: Comments
 
 The real Hacker News supports threaded discussions where comments can be replies to other comments. Our cheap copy will only support top-level comments directly attached to articles, so we don't have to deal with weird self-referential associations. Since we still don't have users or voting yet, comments are anonymous and should be listed in order of submission date. Comments have only a body, which of course is required.
