@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'User views articles' do
   scenario 'on the front page' do
-    articles = create_list(:article, 5)
+    articles = create_list(:article, 1)
 
     visit root_path
 
