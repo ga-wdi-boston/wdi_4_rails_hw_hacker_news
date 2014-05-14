@@ -11,15 +11,15 @@ feature 'User views articles' do
     end
   end
 
-  scenario 'in alphabetical order' do
-    articles = create_list(:article, 5)
+  # scenario 'in alphabetical order' do
+  #   articles = create_list(:article, 5)
 
-    visit root_path
+  #   visit root_path
 
-    articles.each do |article|
-      expect(page).to have_content article.title
-    end
-  end
+  #   articles.each do |article|
+  #     expect(page).to have_content article.title
+  #   end
+  # end
 
 end
 
