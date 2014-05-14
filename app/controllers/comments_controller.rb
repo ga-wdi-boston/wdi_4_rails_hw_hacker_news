@@ -9,16 +9,18 @@ class CommentsController < ApplicationController
   end
 
   def new
+    @article = Article.find(params[:article_id])
     @comment = Comment.new
   end
 
   def create
-    @comment = Comment.create(comment_params)
-    if @comment.save
+    article = Article.find(params[:article_id])
+    comment = article.comments.new(comment_params)
+    if comment.save
       flash[:notice] = 'Comment received'
       redirect_to root_path
     else
-      flash.now[:alert] = @comment.errors.full_messages.join(', ')
+      flash.now[:alert] = comment.errors.full_messages.join(', ')
       render :new
     end
   end
