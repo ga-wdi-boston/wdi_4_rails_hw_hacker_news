@@ -1,0 +1,7 @@
+<h1>Listing comments for <%= @article.title %></h1><%= link_to 'Back', articles_path %>
+
+<ul>
+  <% @article.comments.each do |comment| %>
+    <li><%= comment.comments %> <!-- | <%= comment.created_at %> --></li>
+  <% end %>
+</ul>

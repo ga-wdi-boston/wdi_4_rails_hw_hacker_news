@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'User can add a new article' do
+feature 'User can comment on an article' do
   scenario 'successfully' do
     visit articles_path
 
@@ -9,7 +9,11 @@ feature 'User can add a new article' do
     fill_in 'Url', with: 'http://inhabitat.com/samsung-releases-solar-powered-phone/'
     click_button 'Create Article'
 
-    expect(page).to have_content 'Article successfully created!'
-    expect(page).to have_content 'Solar Powered Phone'
+    click_link 'Comment'
+    fill_in 'Comments', with: 'It worked!'
+    click_button 'Create Comment'
+
+    expect(page).to have_content 'Comment successfully created!'
+    expect(page).to have_content 'It worked!'
   end
 end
