@@ -1,4 +1,5 @@
 require 'faker'
+
 FactoryGirl.define do
   factory :article do
     title { Faker::Internet.domain_name }
