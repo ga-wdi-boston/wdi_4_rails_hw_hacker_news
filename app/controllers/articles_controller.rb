@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
+    @vote = Vote.new
     @articles = Article.all
   end
 

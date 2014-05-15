@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments
+    resources :votes, defaults: {votable: 'article'}
   end
 
 end
