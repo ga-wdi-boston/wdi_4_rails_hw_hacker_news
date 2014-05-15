@@ -2,7 +2,9 @@ require 'spec_helper'
 
 feature 'User creates article' do
   background do
+    kathy = User.create(email: "kathy@example.com", password: "12345678")
     visit root_path
+    sign_in_as(kathy)
     click_link 'New Article'
   end
 
