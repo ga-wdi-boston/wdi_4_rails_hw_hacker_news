@@ -1,0 +1,12 @@
+<h1><%= @article.title %></h1>
+
+<%= form_for [@article, @comment] do |f| %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
+
+<% @article.comments.each do |comment| %>
+  <div>
+    <%= comment.body %>
+  </div>
+<% end %>

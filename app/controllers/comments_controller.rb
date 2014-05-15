@@ -1,21 +1,10 @@
 class CommentsController < ApplicationController
-
-  # def index
-  #   @comments = Comment.all
-  # end
-
-  # def show
-  #   @comment = Comment.find(params[:id])
-  # end
-
-  def new
-    @article = Article.find(params[:article_id])
-    @comment = Comment.new
-  end
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def create
     article = Article.find(params[:article_id])
-    @comment = article.comments.new(comment_params)
+    @comment = article.comments.new(body: comment_params[:body], user: current_user)
     if @comment.save
       flash[:notice] = 'Comment received'
       redirect_to root_path

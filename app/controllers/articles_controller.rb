@@ -4,13 +4,17 @@ class ArticlesController < ApplicationController
     @articles = Article.order(:title)
   end
 
+  def show
+    @article = Article.find(params[:id])
+    @comment = @article.comments.new
+  end
+
   def new
     @article = Article.new
-    @comment = Comment.new
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
 
     if @article.save
       flash[:notice] = 'Article successfully submitted'

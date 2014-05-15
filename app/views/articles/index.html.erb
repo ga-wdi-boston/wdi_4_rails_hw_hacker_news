@@ -17,9 +17,16 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= link_to article.title, article.url %></td>
+        <td><%= link_to article.title, article.url %>
+          <% if article.comments.present? %>
+            - Comments <%= link_to "(#{article.comments.count})", article_comments_path(article) %>
+          <% else %>
+            <!-- Show nothing -->
+          <% end %>
+        </td>
+
         <td><%= article.user.email %></td>
-        <td><%= link_to 'Comment', new_article_comment_path(article), :class => 'btn btn-mini' %></td>
+        <td><%= link_to 'Discuss', article, :class => 'btn btn-mini' %></td>
       </tr>
     <% end %>
   </tbody>
