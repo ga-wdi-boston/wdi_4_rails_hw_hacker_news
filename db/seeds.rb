@@ -14,5 +14,17 @@ Article.create!(
   url: "http://i.imgur.com/btIZin9.jpg")
 
 Article.create!(
-  title: "Dropbox Webhooks",
+  title: "What's the Deal with Rails' Polymorphic Associations?",
   url: "https://www.dropbox.com/developers/blog/90/announcing-dropbox-webhooks")
+
+Article.create!(
+  title: "Dropbox Webhooks",
+  url: "http://robots.thoughtbot.com/whats-the-deal-with-rails-polymorphic-associations")
+
+Article.create!(
+  title: "Why You Don’t Need Has_and_belongs_to_many Relationships",
+  url: "http://blog.flatironschool.com/post/35346328762/why-you-dont-need-has-and-belongs-to-many")
+
+Article.create!(
+  title: "Shoot to kill; CSS selector intent",
+  url: "http://csswizardry.com/2012/07/shoot-to-kill-css-selector-intent/")

@@ -4,7 +4,7 @@ User Stories
 PHASE 1
 * Can view all articles on index page
 * Anonymous user can create article
-Articles listed in order of submission date
+* Articles listed in order of creation/submission date
 Article has valid URL and must have title (unit test)
 
 PHASE 2
