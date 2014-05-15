@@ -9,6 +9,7 @@ feature 'User views articles' do
     articles.each do |article|
       expect(page).to have_content article.title
       expect(page).to have_content article.url
+      expect(page).to have_content article.created_at
     end
   end
 end
