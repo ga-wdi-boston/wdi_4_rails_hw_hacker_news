@@ -17,4 +17,12 @@ feature 'User submits new article' do
     expect(page).to have_content 'http://www.google.com'
   end
 
+
+  scenario 'unsucessfully due to required fields being blank' do
+    click_button 'Add Article'
+
+    expect(page).to have_content "Title can't be blank"
+    expect(page).to have_content "Url can't be blank"
+  end
+
 end

@@ -17,4 +17,10 @@ feature 'User submits new comment' do
     expect(page).to have_content 'I will repost this article on my twitter account'
   end
 
+  scenario 'unsucessfully due to required fields being blank' do
+  click_button 'Add Comment'
+
+  expect(page).to have_content "Body can't be blank"
+  end
+
 end
