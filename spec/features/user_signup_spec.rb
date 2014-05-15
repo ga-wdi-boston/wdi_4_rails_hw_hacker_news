@@ -20,8 +20,6 @@ feature 'User registers for website' do
 
     expect(page).to have_content "blank"
   end
-
-
 end
 
 

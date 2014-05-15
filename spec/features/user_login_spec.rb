@@ -20,6 +20,4 @@ feature 'User logs into website' do
 
     expect(page).to have_content "Invalid email or password"
   end
-
-
 end

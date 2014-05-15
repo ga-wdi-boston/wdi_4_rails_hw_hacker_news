@@ -28,5 +28,4 @@ feature 'User submits article' do
 
     expect(page).to have_content "invalid"
   end
-
 end
