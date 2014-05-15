@@ -1,15 +1,30 @@
-<h1> Index page for Articles! </h1>
+<br>
+<br>
+
 
 <%= link_to 'New Article', new_article_path %>
 
 
 
-<% @articles.each do |article| %>
-  <div class = 'row'>
-    <%= link_to article.title, article.url %>
-    <strong>Submitted by:</strong> <%= article.user.email %>
-    <%= link_to 'Comment', new_article_comment_path(article) %>
-  </div>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Article</th>
+      <th>Submitted by:</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= link_to article.title, article.url %></td>
+        <td><%= article.user.email %></td>
+        <td><%= link_to 'Comment', new_article_comment_path(article), :class => 'btn btn-mini' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 
 

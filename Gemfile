@@ -18,6 +18,8 @@ gem 'spring', group: :development
 
 # Additional gems for this project
 
+gem 'twitter-bootstrap-rails'
+
 gem 'devise'
 
 group :development, :test do

@@ -8,6 +8,21 @@
 </head>
 <body>
 
+<div class="container">
+
+<%= nav_bar :fixed => :top, :brand => "Hacker News", :brand_link => root_path %>
+  <% if user_signed_in? %>
+    <%= menu_group :pull => :right do %>
+      <%= menu_item 'Edit profile', edit_user_registration_path %>
+      <%= menu_item "Logout", destroy_user_session_path, method: :delete %>
+    <% end %>
+  <% end %>
+
+
+
+<br>
+<br>
+<br>
 
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
@@ -22,7 +37,19 @@
   <%= content_tag :div, message, class: key %>
 <% end %>
 
+
+
+
+
+<% flash.each do |key, message| %>
+  <%= content_tag :div, message, class: key %>
+<% end %>
+
+
+
 <%= yield %>
+
+</div>
 
 </body>
 </html>
