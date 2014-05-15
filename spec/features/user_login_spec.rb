@@ -15,11 +15,11 @@ feature 'User logs into website' do
     expect(page).to have_content 'Signed in successfully'
   end
 
-  # scenario 'unsuccessfully due to required fields being blank' do
-  #   click_button 'Submit Comment'
+  scenario 'unsuccessfully due to required fields being blank' do
+    click_button 'Sign in'
 
-  #   expect(page).to have_content "Invalid email or password."
-  # end
+    expect(page).to have_content "Invalid email or password"
+  end
 
   # Welcome! You have signed up successfully.
 
