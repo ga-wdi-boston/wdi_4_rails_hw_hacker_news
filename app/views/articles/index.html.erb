@@ -1,11 +1,11 @@
 <h1>All Articles</h1>
-
+<%= link_to "New Article", new_article_path %>
 <ul>
 <% @articles.each do |article| %>
   <li>
     <%= article.title %><br>
     <%= link_to article.url, article.url %><br>
-    submitted: <%= article.created_at.strftime('%c') %>
+    submitted: <%= article.created_at.getlocal.strftime('%c') %>
   </li>
 <% end %>
 </ul>
