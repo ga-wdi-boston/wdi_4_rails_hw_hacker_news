@@ -1,5 +1,6 @@
 User.delete_all
 Article.delete_all
+Comment.delete_all
 
 admin = User.create!(email: 'plesko.l@gmail.com', password: 'password')
 
@@ -8,6 +9,14 @@ puts 'Creating Articles'
   article = Article.create!(title: Faker::Lorem.words(rand(1..4)).join(' '), url: Faker::Internet.url)
   admin.articles << article
 end
+
+comment = Comment.create!(body: 'This was a great article!')
+
+article.comments << comment
+
+admin.comments << comment
+
+
 
 
 

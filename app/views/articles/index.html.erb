@@ -6,8 +6,9 @@
 
 <% @articles.each do |article| %>
   <div class = 'row'>
-  <%= link_to article.title, article.url %>
-  <%= link_to 'Comment', new_article_comment_path(article) %>
+    <%= link_to article.title, article.url %>
+    <strong>Submitted by:</strong> <%= article.user.email %>
+    <%= link_to 'Comment', new_article_comment_path(article) %>
   </div>
 <% end %>
 
