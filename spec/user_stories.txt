@@ -1,0 +1,19 @@
+User Stories
+
+PHASE 1
+* Can view all articles on index page
+* Anonymous user can create article
+Article has valid URL and must have title
+Articles listed in order of submission date
+
+PHASE 2
+[Anon] user can add comment to article
+Comments listed in order of submission date
+Comment has body, required
+
+PHASE 3
+User can register
+User can sign in/out
+User has many articles, has many comments
+Article has many comments, belongs to user
+Comment belongs to article, belongs to user
