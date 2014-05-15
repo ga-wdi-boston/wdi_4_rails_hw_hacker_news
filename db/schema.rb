@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140515024125) do
   end
 
   create_table "comments", force: true do |t|
-    t.integer  "author_id"
+    t.integer  "article_id"
     t.string   "title"
     t.string   "body"
     t.datetime "submission_date"
