@@ -29,4 +29,6 @@ ActiveRecord::Schema.define(version: 20140515024125) do
     t.datetime "submission_date"
   end
 
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
+
 end
