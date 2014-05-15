@@ -1,7 +1,12 @@
+User.delete_all
 Article.delete_all
+
+admin = User.create!(email: 'plesko.l@gmail.com', password: 'password')
+
 puts 'Creating Articles'
 33.times do |i|
-  Article.create!(title: Faker::Lorem.words(rand(1..4)).join(' '), url: Faker::Internet.url)
+  article = Article.create!(title: Faker::Lorem.words(rand(1..4)).join(' '), url: Faker::Internet.url)
+  admin.articles << article
 end
 
 
