@@ -1,15 +1,16 @@
 User Stories
+* = done
 
 PHASE 1
 * Can view all articles on index page
 * Anonymous user can create article
-Article has valid URL and must have title
 Articles listed in order of submission date
+Article has valid URL and must have title (unit test)
 
 PHASE 2
-[Anon] user can add comment to article
+Anonymous user can add comment to article
 Comments listed in order of submission date
-Comment has body, required
+Comment has body (required)
 
 PHASE 3
 User can register
