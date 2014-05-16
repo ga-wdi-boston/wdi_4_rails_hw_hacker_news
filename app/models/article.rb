@@ -6,4 +6,8 @@ class Article < ActiveRecord::Base
   validates :title, presence: true
 
   validates_format_of :url, with: URI.regexp
+
+  def score
+    self.votes.sum(:value)
+  end
 end
