@@ -1,0 +1,13 @@
+<h1>New Comment</h1>
+
+<%= form_for @comment do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, include_blank: true %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body, include_blank: true %>
+  </div>
+  <%= f.submit 'Add Comment' %>
+<% end %>

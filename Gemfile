@@ -20,6 +20,8 @@ gem 'spring', group: :development
 
 gem 'devise'
 
+gem 'faker'
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
@@ -31,7 +33,6 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'faker'
   gem 'launchy'
   gem 'shoulda-matchers'
 end
