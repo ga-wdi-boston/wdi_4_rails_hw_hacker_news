@@ -10,15 +10,8 @@
 
 <div class="container">
 
-<%= nav_bar :fixed => :top, :brand => "Hacker News", :brand_link => root_path %>
-  <% if user_signed_in? %>
-    <%= menu_group :pull => :right do %>
-      <%= menu_item 'Edit profile', edit_user_registration_path %>
-      <%= menu_item "Logout", destroy_user_session_path, method: :delete %>
-    <% end %>
-  <% end %>
-
-
+<%= nav_bar :fixed => :top, :brand => "Hacker News", :brand_link => root_path do %>
+<% end %>
 
 <br>
 <br>
@@ -36,6 +29,9 @@
 <% flash.each do |key, message| %>
   <%= content_tag :div, message, class: key %>
 <% end %>
+
+<br>
+<br>
 
 
 <%= yield %>
