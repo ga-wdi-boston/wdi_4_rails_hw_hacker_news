@@ -14,27 +14,23 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">TDD News - Any and all news, as long as its test-driven!</a>
+      <div class="navbar-brand"><%= link_to 'TDD News - Any and all news, as long as its test-driven!', root_path %>
+      </div>
+      <% if user_signed_in? %>
+        Logged in as <%= current_user.email %>.
+        <%= link_to 'Edit profile', edit_user_registration_path %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> |
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
     </div>
   </div>
 </nav>
 
 
 
-  <% if user_signed_in? %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to 'Edit profile', edit_user_registration_path %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> |
-    <%= link_to "Login", new_user_session_path %>
-  <% end %>
+
 
   <% flash.each do |key, message| %>
     <%= content_tag :div, message, class: key %>
