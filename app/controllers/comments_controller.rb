@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   def create
 
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.new(comments: comment_params[:comments], user: current_user)
+    @comment = @article.comments.create(comments: comment_params[:comments], user: current_user)
     flash[:notice] = 'Comment successfully created!'
     redirect_to @article
   end
