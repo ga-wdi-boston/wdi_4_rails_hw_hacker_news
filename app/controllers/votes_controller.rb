@@ -2,7 +2,6 @@ class VotesController < ApplicationController
   before_action :set_votable
 
   def create
-    binding.pry
     @vote = @votable.votes.new(value: vote_params[:score], user: current_user)
     if @vote.save
       redirect_to :back, { notice: 'Vote accepted. Thanks!' }
