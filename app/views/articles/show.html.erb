@@ -1,0 +1,33 @@
+<h1><%= @article.title %></h1>
+<%= link_to nil, @article.url %>
+
+<br>
+<br>
+<br>
+
+<p>Please leave a comment:</p>
+
+<%= form_for [@article, @comment] do |f| %>
+
+<fieldset>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.text_area :body, :class => 'input-large'  %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Comment!', :class => 'btn btn primary' %>
+  </div>
+<% end %>
+
+<% @article.comments.each do |comment| %>
+  <div>
+    <%= comment.created_at %>  &nbsp;&nbsp; <%= comment.body %>
+  </div>
+<% end %>
+
+
+
+
+

@@ -1,0 +1,26 @@
+<br>
+<br>
+
+
+  <!-- <thead>
+    <tr>
+      <th>Article</th>
+      <th>Submitted by:</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody> -->
+<% @article.comments.each do |comment| %>
+  <div class="row">
+    <div class="span7">
+      <%= comment.body %>
+    </div>
+    <div class="span5">
+      Created at: <%= comment.created_at %> by: <%= comment.user.email %>
+    </div>
+  </div>
+  <hr>
+<% end %>
+<!--   </tbody> -->
+
+

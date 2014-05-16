@@ -1,0 +1,38 @@
+<br>
+<br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Article</th>
+      <th>Submitted by:</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= link_to article.title, article.url, :target => :_blank %>
+          <% if article.comments.present? %>
+            - Comments <%= link_to "(#{article.comments.count})", article %>
+          <% else %>
+            <!-- Show nothing -->
+          <% end %>
+        </td>
+
+        <td><%= article.user.email %></td>
+        <td><%= link_to 'Discuss', article, :class => 'btn btn-mini' %>
+          &nbsp;&nbsp;<%= link_to ' Like', article_path(article, direction: true), :class => "icon-thumbs-up" %>
+          &nbsp;&nbsp;<%= link_to ' Dislike', article_path(article), :class => "icon-thumbs-down" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '+ New Article', new_article_path %>
+
+
+

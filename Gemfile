@@ -18,10 +18,12 @@ gem 'spring', group: :development
 
 # Additional gems for this project
 
+gem 'twitter-bootstrap-rails'
 gem 'devise'
 
 group :development, :test do
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'pry-stack_explorer'
@@ -31,7 +33,6 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'faker'
   gem 'launchy'
   gem 'shoulda-matchers'
 end
