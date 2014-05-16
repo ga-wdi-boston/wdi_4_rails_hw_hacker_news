@@ -1,0 +1,21 @@
+<h3>
+<%= link_to 'Submit New Article', new_article_path %>
+<% if user_signed_in? %>
+  | <%= link_to 'View My Articles', (root_path(filter: 'UserArticles')) %> | View My Comments
+<% end %>
+</h3><br />
+
+<% @articles.each do |article| %>
+  <%= link_to article.title, article.url %>
+  <%= button_to 'UpVote', [article, @vote, score: '1'] %>
+  <%= button_to 'Neutral', [article, @vote, score: '0'] %>
+  <%= button_to 'DownVote', [article, @vote, score: '-1'] %> |
+  <%= link_to 'Add Comment', new_article_comment_path(article) %>
+  <ul>
+  <% article.comments.each do |comment| %>
+    <li>
+      <%= comment.content %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

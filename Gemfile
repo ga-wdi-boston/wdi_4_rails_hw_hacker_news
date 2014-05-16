@@ -19,9 +19,11 @@ gem 'spring', group: :development
 # Additional gems for this project
 
 gem 'devise'
+gem 'factory_girl'
+gem 'factory_girl_rails'
+gem 'faker'
 
 group :development, :test do
-  gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'pry-stack_explorer'
@@ -31,9 +33,10 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'faker'
   gem 'launchy'
   gem 'shoulda-matchers'
+  gem 'faker'
+  gem 'factory_girl_rails'
 end
 
 group :production do
