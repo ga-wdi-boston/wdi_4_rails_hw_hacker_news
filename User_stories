@@ -1,0 +1,10 @@
+Setup, Exercise, Verify
+
+<done>  'When user goes to the front page user wants to see a list of all articles'
+<done>  'When user clicks the New Article link on the front page and enters/submits attributes on a form user should see New Article and success message.'
+<done><removed> 'User should be able to see comments attached to articles on comments page'
+<done>'User should be able to register for accounts, sign in, and sign out.'
+<done>'User should be able post comments as themselves'
+<done>'User should be able to view authors of comments'
+<done>'Articles should be able to have a comment count'
+<need more time> 'Articles should have a counter for votes, as with Comments'

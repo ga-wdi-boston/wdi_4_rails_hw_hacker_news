@@ -1,0 +1,19 @@
+
+<table>
+  <tr>
+    <th>New Article</th>
+
+<%= form_for @article do |f| %>
+  <tr>
+    <td>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+    </td>
+  </tr>
+</table>
+<div class="button">
+  <%= f.submit %>
+</div>
+<% end %>

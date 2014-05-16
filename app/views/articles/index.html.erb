@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>
+      Fake Hacker News: <%= link_to 'Add a New Article', new_article_path %><span class="header">Showing All Articles: Linked Title, Date </span>
+    </th>
+  </tr>
+  <% @articles.each do |article| %>
+    <tr>
+      <td>
+        <%= link_to article.title, article.url  %>, <span class="table_body"><%= article.created_at.asctime%>, by <%= @users.find(article.user_id).email%>, Total comments:<strong><%= @comments.where(article_id: article.id).count%></strong> </span><%= link_to "Discuss!", article %>
+      </td>
+    </tr>
+  <% end %>
+</table>

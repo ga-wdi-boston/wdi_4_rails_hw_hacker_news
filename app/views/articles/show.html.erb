@@ -1,0 +1,35 @@
+<table>
+  <tr>
+    <th><%= @article.title %> <%= link_to 'Home', root_path %> </th>
+
+<%= form_for [@article, @comment] do |f| %>
+  <tr>
+    <td>
+      <%= f.label "Comment" %>
+      <%= f.text_area :message %>
+    </td>
+  </tr>
+</table>
+<div class="button">
+  <%= f.submit %>
+</div>
+<% end %>
+
+</br>
+
+<table>
+  <tr>
+    <th>All comments on this post</th>
+  </tr>
+  <% @article.comments.each do |comment| %>
+    <tr>
+      <td>
+        <%= comment.created_at %>
+        <%= comment.message %>
+        <span class="table_body">by <%= @users.find(comment.user_id).email%></span>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+

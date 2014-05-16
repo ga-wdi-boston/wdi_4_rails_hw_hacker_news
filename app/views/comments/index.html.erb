@@ -1,0 +1,15 @@
+<h1>Title with all comments</h1>
+
+<%= link_to 'Home', root_path %>
+
+
+<table>
+  <tr>
+    <th>Comments</th>
+  </tr>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= link_to @articles.find(comment.article_id).title, @articles.find(comment.article_id).url %>, <%= comment.message %>, <%= comment.created_at.asctime %></td>
+    </tr>
+  <% end %>
+</table>
