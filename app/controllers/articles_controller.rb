@@ -1,7 +1,12 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:index,:show]
 
   def index
-    @articles = Article.all.order(created_at: :desc)
+    if current_user
+      @articles = current_user.articles(created_at: :desc)
+    else
+      @articles = Article.all.order(created_at: :desc)
+    end
   end
 
   def show

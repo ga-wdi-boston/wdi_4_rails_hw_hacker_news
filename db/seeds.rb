@@ -4,7 +4,7 @@ puts 'Creating Articles'
 
 20.times do |i|
   Article.create!( title: Faker::Internet.domain_name, url: Faker::Internet.url, created_at: rand(90).days.ago )
-  end
+end
 
 
 article1 = Article.find(1)
@@ -17,7 +17,7 @@ puts 'Creating Comments'
 
 35.times do |i|
   Comment.create!( title: Faker::Lorem.sentence(3, true, 4), body: Faker::Lorem.paragraph(2), submission_date: rand(60).days.ago )
-  end
+end
 
 comment1 = Comment.find(1)
 comment2 = Comment.find(2)
@@ -33,3 +33,14 @@ comment10 = Comment.find(10)
 article1.comments << comment1 << comment4 << comment7 << comment9 << comment10
 article2.comments << comment2 << comment5 << comment8
 article3.comments << comment3 << comment6
+
+
+puts 'Creating Users'
+
+User.create!(email: 'jack@example.com', password: 'password')
+User.create!(email: 'jill@example.com', password: 'password')
+User.create!(email: 'jamie@example.com', password: 'password')
+
+jack = User.first
+
+jack.articles << article1 << article2

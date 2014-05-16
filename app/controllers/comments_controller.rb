@@ -1,7 +1,11 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comment.all.order(submission_date: :desc)
+    if current_user
+      @comments = current_user.comments(created_at: :desc)
+    else
+      @comments = Comment.all.order(created_at: :desc)
+    end
   end
 
   def show
