@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
     # sorts the comments of the given article by created_at
     # descending and assigns it to the @comments instance variable
-    @comments = @article.comments.order(created_at: :desc)
+    @comments = @article.comments.order(score: :desc, created_at: :desc)
 
     # Combines the "new" action into the index, allowing
     # the User to create comments on the same page they view them on

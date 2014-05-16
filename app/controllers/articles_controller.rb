@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @vote = Vote.new
-    @articles = Article.all
+    @articles = Article.all.order(score: :desc, created_at: :desc)
   end
 
   def new

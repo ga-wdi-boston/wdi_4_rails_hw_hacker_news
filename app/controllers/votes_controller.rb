@@ -5,6 +5,8 @@ class VotesController < ApplicationController
   def create
     @vote = @votable.votes.new(value: params[:score], user: current_user)
     if @vote.save
+      @votable.score = @votable.votes.sum(:value)
+      @votable.save
       redirect_to :back, { notice: 'Vote accepted. Thanks!' }
     else
       redirect_to :back
