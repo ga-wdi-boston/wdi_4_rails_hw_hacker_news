@@ -12,7 +12,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= link_to article.title, article.url %>
+        <td><%= link_to article.title, article.url, :target => :_blank %>
           <% if article.comments.present? %>
             - Comments <%= link_to "(#{article.comments.count})", article %>
           <% else %>
@@ -21,12 +21,15 @@
         </td>
 
         <td><%= article.user.email %></td>
-        <td><%= link_to 'Discuss', article, :class => 'btn btn-mini' %></td>
+        <td><%= link_to 'Discuss', article, :class => 'btn btn-mini' %>
+                                      <!-- article_path(article, direction: true) -->
+          &nbsp;&nbsp;<%= link_to ' ', article_path(article), :class => "icon-thumbs-up" %>
+          &nbsp;&nbsp;<%= link_to ' ', article_path(article), :class => "icon-thumbs-down" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 
 <br>
 
