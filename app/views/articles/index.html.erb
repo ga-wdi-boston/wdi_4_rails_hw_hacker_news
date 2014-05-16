@@ -22,9 +22,8 @@
 
         <td><%= article.user.email %></td>
         <td><%= link_to 'Discuss', article, :class => 'btn btn-mini' %>
-                                      <!-- article_path(article, direction: true) -->
-          &nbsp;&nbsp;<%= link_to ' ', article_path(article), :class => "icon-thumbs-up" %>
-          &nbsp;&nbsp;<%= link_to ' ', article_path(article), :class => "icon-thumbs-down" %>
+          &nbsp;&nbsp;<%= link_to ' Like', article_path(article, direction: true), :class => "icon-thumbs-up" %>
+          &nbsp;&nbsp;<%= link_to ' Dislike', article_path(article), :class => "icon-thumbs-down" %>
         </td>
       </tr>
     <% end %>

@@ -1,7 +1,8 @@
 class VotesController < ApplicationController
 
   def create
-    direction = params[:direction]
+    value = params[:direction] ? 1 ; -1
+    redirect_to :back, notice: "Thank you for voting!"
   end
 
 
