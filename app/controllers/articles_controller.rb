@@ -3,6 +3,12 @@ class ArticlesController < ApplicationController
     @articles = Article.order(created_at: :desc).all
   end
 
+  def show
+    @article = Article.find(params[:id])
+    @comments = @article.comments.order(created_at: :desc).all
+    @comment = Comment.new
+  end
+
   def new
     @article = Article.new
   end

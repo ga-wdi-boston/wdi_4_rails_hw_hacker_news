@@ -1,0 +1,6 @@
+<%= form_for([@article, @comment]) do |f| %>
+  <div>
+    <%= f.label :content %>: <%= f.text_area :content %><br />
+  </div>
+  <%= f.submit %>
+<% end %>

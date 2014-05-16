@@ -5,17 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Article.create!(
+a1 = Article.create!(
   title: "So... I filmed strawberry growing (40 days in ~15 seconds)",
   url: "http://i.imgur.com/ReboQ1W.gif")
 
 Article.create!(
   title: "How to fix racism",
   url: "http://i.imgur.com/btIZin9.jpg")
-
-Article.create!(
-  title: "What's the Deal with Rails' Polymorphic Associations?",
-  url: "https://www.dropbox.com/developers/blog/90/announcing-dropbox-webhooks")
 
 Article.create!(
   title: "Dropbox Webhooks",
@@ -28,3 +24,5 @@ Article.create!(
 Article.create!(
   title: "Shoot to kill; CSS selector intent",
   url: "http://csswizardry.com/2012/07/shoot-to-kill-css-selector-intent/")
+
+a1.comments << Comment.new(content: "Awesome")

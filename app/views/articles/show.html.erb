@@ -1,0 +1,18 @@
+<h2><%= @article.title %></h2>
+<h3><%= link_to @article.url, @article.url %></h3>
+
+<ul>
+<% @comments.each do |comment| %>
+  <li>
+    <%= comment.content %><br>
+    <%= comment.created_at.getlocal.strftime('%c') %><br>
+  </li>
+<% end %>
+</ul>
+
+<%= form_for([@article, @comment]) do |f| %>
+  <div>
+    <%= f.label :content %>: <%= f.text_area :content %><br />
+  </div>
+  <%= f.submit %>
+<% end %>
