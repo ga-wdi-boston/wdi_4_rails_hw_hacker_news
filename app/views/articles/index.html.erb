@@ -1,0 +1,12 @@
+<h1>All Articles</h1>
+<%= link_to "New Article", new_article_path %>
+<ul>
+<% @articles.each do |article| %>
+  <li>
+    <%= article.title %><br>
+    <%= link_to article.url, article.url %><br>
+    submitted: <%= article.created_at.getlocal.strftime('%c') %><br>
+    <%= link_to "View Comments", article_path(article) %>
+  </li>
+<% end %>
+</ul>

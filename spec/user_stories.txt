@@ -1,0 +1,18 @@
+User Stories
+* = done
+
+* Can view all articles on index page
+* Anonymous user can create article
+* Articles listed in order of creation/submission date
+* Article has valid URL and must have title (unit test)
+
+* User can register
+* User can sign in/out
+User can add comment to article
+
+Comments listed in order of submission date
+Comment has body (required)
+
+User has many articles, has many comments
+Article has many comments, belongs to user
+Comment belongs to article, belongs to user
