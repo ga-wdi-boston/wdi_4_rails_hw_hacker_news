@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
     # the User to create comments on the same page they view them on
     # (same way the real Hacker News does it!)
     @comment = Comment.new
+    @vote = Vote.new
   end
 
   def create
