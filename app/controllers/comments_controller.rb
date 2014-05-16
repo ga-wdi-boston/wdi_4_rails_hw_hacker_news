@@ -15,10 +15,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    article = Article.find(params[:article_id])
-    comment = article.comments.create(comment_params)
+
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.new(comments: comment_params[:comments], user: current_user)
     flash[:notice] = 'Comment successfully created!'
-    redirect_to article_comment_path(article, comment)
+    redirect_to @article
   end
 
   private
