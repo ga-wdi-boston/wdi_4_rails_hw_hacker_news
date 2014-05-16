@@ -2,13 +2,42 @@
 <html>
 <head>
   <title>Wdi4RailsHwTddHackerNews</title>
+  <!-- CSS -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <div class="navbar-brand"><%= link_to 'TDD Hacker News', root_path %>
+      </div>
+      <% if user_signed_in? %>
+        Logged in as <%= current_user.email %>.
+        <%= link_to 'Edit profile', edit_user_registration_path %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> |
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
+    </div>
+  </div>
+</nav>
 
-<%= yield %>
+
+
+
+
+  <% flash.each do |key, message| %>
+    <%= content_tag :div, message, class: key %>
+  <% end %>
+  <div class='container'>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

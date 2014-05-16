@@ -1,0 +1,19 @@
+<%= link_to 'New Article', new_article_path %>
+
+<!-- target causes the url to open in a seperate tab. -->
+
+<div class = "table-responsive">
+  <table class = "table table-striped">
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= link_to article.title, article.url, target: '_blank' %></td>
+        <td><%= article.created_at %></td>
+        <td><%= link_to "#{article.comments.count} comments", article_comments_path(article) %></td>
+        <td><%= article.score %></td>
+        <td><%= button_to "upvote", [article, @vote, score: 1] %></td>
+        <td><%= button_to "downvote", [article, @vote, score: -1] %></td>
+      </tr>
+    <% end %>
+  </table>
+ </div>
+
