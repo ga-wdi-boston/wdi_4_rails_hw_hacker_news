@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   before_action :set_votable
 
   def create
-    @vote = @votable.votes.new(value: vote_params[:score], user: current_user)
+    @vote = @votable.votes.new(value: params[:score], user: current_user)
     if @vote.save
       redirect_to :back, { notice: 'Vote accepted. Thanks!' }
     else
@@ -12,10 +12,6 @@ class VotesController < ApplicationController
 
 
   private
-
-    def vote_params
-      params.require(:vote).permit(:score)
-    end
     def set_votable
       @votable = params[:votable].classify.constantize.find(votable_id)
     end
