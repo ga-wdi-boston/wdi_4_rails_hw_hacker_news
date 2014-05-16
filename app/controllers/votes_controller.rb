@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
   before_action :set_votable
+  before_action :authenticate_user!
 
   def create
     @vote = @votable.votes.new(value: params[:score], user: current_user)
