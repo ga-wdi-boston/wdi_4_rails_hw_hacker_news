@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @vote.rating %>
+</p>
+
+<%= link_to 'Destroy', [@voteable, @vote], method: :delete %>
+<%= link_to 'Edit', [:edit, @voteable, @vote] %> |
+<%= link_to 'Back', [@voteable, :comments] %>
