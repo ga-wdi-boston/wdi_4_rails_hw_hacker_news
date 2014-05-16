@@ -5,5 +5,18 @@
     <li><%= link_to article.title, article.url %></li>
     <li><%= link_to 'Comment', new_article_comment_path(article) %></li>
     <br>
+
+
+    <%= form_for [article, @vote] do |f| %>
+      <%= f.label :vote, "Vote up (#{article.votes.where(:vote => 1).count})"%>
+      <%= f.hidden_field :vote, :value => 1 %>
+      <%= f.submit %>
+    <% end %>
+
+    <%= form_for [article, @vote] do |f| %>
+      <%= f.label :vote, "Vote down (#{article.votes.where(:vote => -1).count})"%>
+      <%= f.hidden_field :vote, :value => -1 %>
+      <%= f.submit %>
+    <% end %>
   <% end %>
 </ul>

@@ -5,10 +5,10 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @vote = Vote.new
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def new
