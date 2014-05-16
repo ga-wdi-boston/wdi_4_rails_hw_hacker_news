@@ -1,26 +1,28 @@
-<h1><%= @article.title %></h1>
 <%= link_to 'back to articles', root_path %>
+<br>
 
-<%= form_for [@article, @comment] do |f| %>
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <%= f.submit %>
-<% end %>
+<h2><%= @article.title %></h2>
+    <div>
+      <%= form_for [@article, @comment] do |f| %>
+        <%= f.label :body %><br>
+        <%= f.text_area :body %><br>
+        <%= f.submit %><br>
+         <% end %>
+    </div>
 
 
-
-<table>
-  <% @comments.each do |comment| %>
-    <tr>
-      <td><%= comment.user.email %></td>
-      <td><%= comment.body %></td>
-      <td><%= comment.created_at %></td>
-      <td><%= button_to "upvote", [@article, comment, @vote, score: 1] %></td>
-      <td><%= button_to "downvote", [@article, comment, @vote, score: -1] %></td>
-    </tr>
-  <% end %>
-</table>
+<div class = "table-responsive">
+  <table class = "table table-striped">
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.email %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.created_at %></td>
+        <td><%= button_to "upvote", [@article, comment, @vote, score: 1] %></td>
+        <td><%= button_to "downvote", [@article, comment, @vote, score: -1] %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
 
 
