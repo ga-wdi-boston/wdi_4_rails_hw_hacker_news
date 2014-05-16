@@ -9,7 +9,11 @@ class VotesController < ApplicationController
     @vote = @voteable.votes.new(vote_params)
     @vote.user_id = current_user.id
     @vote.save
-    redirect_to articles_path
+    if params[:voteable] == 'comment'
+      redirect_to @voteable.article
+    else
+      redirect_to articles_path
+    end
   end
 
   private

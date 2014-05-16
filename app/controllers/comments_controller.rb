@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def new
+    @vote = Vote.new
     @article = Article.find(params[:article_id])
     @comment = Comment.new
   end
@@ -17,9 +18,16 @@ class CommentsController < ApplicationController
   def create
 
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.create(comments: comment_params[:comments], user: current_user)
-    flash[:notice] = 'Comment successfully created!'
-    redirect_to @article
+    @comment = @article.comments.new(comments: comment_params[:comments], user: current_user)
+    if @comment.save
+      flash[:notice] = 'Comment successfully created!'
+      redirect_to @article
+    else
+      flash.now[:alert] = "Comment unsuccessfully saved: " + @comment.errors.full_messages.join('. ')
+      @vote = Vote.new
+      render :new
+    end
+
   end
 
   private

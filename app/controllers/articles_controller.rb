@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @vote = Vote.new
   end
 
   def new
@@ -22,7 +23,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article successfully created!"
       redirect_to articles_path
     else
-      flash.now[:alert] = "Article unsuccessfully save, check your work"
+      flash.now[:alert] = "Article unsuccessfully saved: " + @article.errors.full_messages.join('. ')
       render :new
     end
   end

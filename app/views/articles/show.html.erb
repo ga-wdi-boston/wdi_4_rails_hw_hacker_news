@@ -1,7 +1,23 @@
-<h1>Comments</h1>
+<br>
+<h2>Comments for <%= @article.title %></h2>
 
-<% @article.comments.each do |comment| %>
-  <%= comment.comments %>
-<% end %>
+<ul>
+  <% @article.comments.each do |comment| %>
+    <li><%= comment.comments %></li>
+
+    <%= form_for [comment, @vote] do |f| %>
+      <%= f.label :vote, "Vote up (#{comment.votes.where(:vote => 1).count})"%>
+      <%= f.hidden_field :vote, :value => 1 %>
+      <%= f.submit %>
+    <% end %>
+
+    <%= form_for [comment, @vote] do |f| %>
+      <%= f.label :vote, "Vote down (#{comment.votes.where(:vote => -1).count})"%>
+      <%= f.hidden_field :vote, :value => -1 %>
+      <%= f.submit %>
+    <% end %>
+  <% end %>
+</ul>
+
 
 <%= link_to 'All articles', root_path %>
