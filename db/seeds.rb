@@ -6,9 +6,10 @@ user1 = User.create!(email: 'plesko.l@gmail.com', password: 'password')
 article1 = user1.articles.create!(title: 'Poof and then Rails was gone', url: 'http://patmaddox.com/2014/05/15/poof-and-then-rails-was-gone/')
 comment1 = article1.comments.create!(body: 'This is terrible! I just spent all this time learning Rails!', user: user1)
 
+
 user2 = User.create!(email: 'fred@gmail.com', password: 'password')
-article2 = user1.articles.create!(title: 'The Economics of a Kickstarter Project', url: 'https://medium.com/@cameronmoll/5b374cfeb43c')
-comment2 = article2.comments.create!(body: "Let's kickstart the world!")
+article2 = user2.articles.create!(title: 'The Economics of a Kickstarter Project', url: 'https://medium.com/@cameronmoll/5b374cfeb43c')
+comment2 = article2.comments.create!(body: "Let's kickstart the world!", user: user1)
 
 
 

@@ -19,7 +19,7 @@
       <tr>
         <td><%= link_to article.title, article.url %>
           <% if article.comments.present? %>
-            - Comments <%= link_to "(#{article.comments.count})", article_comments_path(article) %>
+            - Comments <%= link_to "(#{article.comments.count})", article %>
           <% else %>
             <!-- Show nothing -->
           <% end %>
