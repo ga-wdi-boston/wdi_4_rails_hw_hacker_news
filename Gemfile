@@ -20,12 +20,12 @@ gem 'spring', group: :development
 
 gem 'devise'
 gem 'factory_girl'
+gem 'factory_girl_rails'
+gem 'faker'
 
 group :development, :test do
-  gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-nav'
-  gem 'faker'
   gem 'pry-stack_explorer'
   gem 'rspec-rails'
 end
