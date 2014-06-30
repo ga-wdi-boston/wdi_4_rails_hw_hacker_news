@@ -11,11 +11,13 @@
 <div class="stuff">
 <p class="user-info">
   <% if user_signed_in? %>
+    <%= link_to "Submit Article", new_article_path %>
     Logged in as <%= current_user.email %> <%= link_to "edit profile", edit_user_registration_path %> <%= link_to "logout", destroy_user_session_path, method: :delete %>
   <% else %>
     <%= link_to "register", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %>
   <% end %>
 </p>
+
 <%= yield %>
 </div>
 
