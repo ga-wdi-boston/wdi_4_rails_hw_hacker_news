@@ -1,11 +1,20 @@
+
+DOING RIGHT NOW: making a partial for article-display
+
+
+
+
+
+
+
 SPECS
-- users exist
-- articles exist
+- users exist -- yep
+- articles exist -- yep
 - articles have:
-  url
-  title
-  timestamp
-  belongs_to: user
+  url -- yep
+  title -- yep
+  timestamp -- yep
+  belongs_to: user -- yep
 - signed in users can create articles
 - front page displays links to articles
 - signed in users can leave comments
