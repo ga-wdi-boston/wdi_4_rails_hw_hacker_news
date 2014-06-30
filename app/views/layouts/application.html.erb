@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Wdi4RailsHwTddHackerNews</title>
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+  <%= javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,22 +11,29 @@
 <body>
 
 <div>
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
- </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edit profile', edit_user_registration_path %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> |
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
+      <br>
 
-<!--> Flash for devise user stuff <-->
-<% flash.each do |name, msg| %>
-   <% if msg.is_a?(String) %>
-     <%= content_tag :div, msg, :class => "flash_#{name}" %>
-   <% end %>
- <% end %>
+
+      <% flash.each do |name, msg| %>
+         <% if msg.is_a?(String) %>
+           <%= content_tag :div, msg, :class => "flash_#{name}" %>
+         <% end %>
+       <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= yield %>
 
