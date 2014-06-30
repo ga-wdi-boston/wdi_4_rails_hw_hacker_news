@@ -17,7 +17,11 @@
     <%= link_to "register", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %>
   <% end %>
 </p>
-
+ <% flash.each do |name, msg| %>
+   <% if msg.is_a?(String) %>
+     <%= content_tag :div, msg, :class => "flash_#{name}" %>
+   <% end %>
+ <% end %>
 <%= yield %>
 </div>
 

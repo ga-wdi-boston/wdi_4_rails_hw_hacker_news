@@ -1,5 +1,4 @@
-
-DOING RIGHT NOW: making a partial for article-display
+DOING RIGHT NOW: creating association btwn articles and users
 
 
 
