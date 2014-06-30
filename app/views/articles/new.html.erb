@@ -1,0 +1,32 @@
+<h1>New page for articles</h1>
+<p>Form for creating new article</p>
+<%= form_for (@article) do |f| %>
+
+  <% if @article.errors.any? %>
+  <div class="bg-danger">
+    This form has <%=pluralize(@article.errors.count, "error") %>.
+  </div>
+  <ul>
+    <% @bookmark.errors.full_messages.each do |msg| %>
+    <li>* <%= msg %> </li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url, 'URL' %>
+    <%= f.text_field :url %>
+  </div>
+  <br><br>
+  <div class="field">
+    <%= f.label :title, 'Title' %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="actions">
+  <%= f.submit "Submit Article!", class: "btn btn-large btn-primary" %>
+</div>
+<% end %>
+
+
+
