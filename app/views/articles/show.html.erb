@@ -16,6 +16,8 @@
         <%= link_to 'Back', article_path, :class => 'btn btn-primary btn-lg'  %>
         <%= link_to 'Edit', edit_article_path, :class => 'btn btn-primary btn-lg' %>
         <%= link_to 'Delete', article_path, :method => 'delete', confirm: 'Are you sure?', :class => 'btn btn-danger btn-lg' %>
+
+        <%= render @article.comments %>
       </div>
     </div>
   </div>

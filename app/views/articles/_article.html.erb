@@ -1,7 +1,6 @@
 <li>
   <%= link_to(article.title, article.url)%>
   <br>
-  Upvotes: <%= article.upvotes %>
   Submitted on: <%= article.submitted_on %>
   <%= link_to "comments", article_path(article.id) %>
   <br>
