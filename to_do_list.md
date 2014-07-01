@@ -1,6 +1,5 @@
 
-DOING RIGHT NOW: making votes exist
-
+DOING RIGHT NOW: making a way to add a comment if you are logged in
 
 
 
