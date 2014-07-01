@@ -6,3 +6,8 @@
     <%= link_to "edit", edit_article_path %>
   <% end %>
 <% end %>
+<% @article.comments.each do |comment| %>
+  <p><%= comment.user.email %> posted:</p>
+  <p><%= comment.content %></p>
+  <br>
+<% end %>
