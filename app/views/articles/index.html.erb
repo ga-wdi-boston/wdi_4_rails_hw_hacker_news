@@ -1,3 +1,6 @@
 <% @articles.each do |article| %>
+  <div>
   <%= render 'article_box', article: article %>
+  <%= link_to "details", article %>
+  </div>
 <% end %>

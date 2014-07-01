@@ -1,4 +1,4 @@
-DOING RIGHT NOW: get user ID into articles
+DOING RIGHT NOW: edit link only appears if you created the article
 
 
 

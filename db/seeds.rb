@@ -6,14 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Article.create!(
-  url: "http://www.chalkboardnails.com",
-  title: "Chalkboard Nails")
 
-Article.create!(
-  url: "http://www.thepolishaholic.com",
-  title: "Polishaholic")
-
-Article.create!(
-  url: "http://www.reddit.com/r/redditlaqueristas",
-  title: "redditlaqueristas")
