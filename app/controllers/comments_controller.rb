@@ -13,8 +13,8 @@ class CommentsController < ApplicationController
   def create
     @comment = @article.comments.new(comments_params)
     if @comment.save
-      flash[:notice] = "Posted #{@comment.title}"
-      redirect_to @comments
+      flash[:notice] = "Posted comment."
+      redirect_to article_comments_path(@article, @song)
     else
       flash.now[:alert] = @comment.errors.full_messages.join(', ')
       render :new
