@@ -4,7 +4,7 @@ class CreateArticles < ActiveRecord::Migration
       t.text :title
       t.text :url
       t.timestamps :submission_date
-      t.belongs_to :users, index:true
+      t.belongs_to :user, index:true
 
     end
   end

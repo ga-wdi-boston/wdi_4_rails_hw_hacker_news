@@ -1,7 +1,8 @@
 <h1>Hexer News</h1>
+<%=link_to 'Create new article', new_article_path %>
 
 <ul>
   <% @articles.each do |article|%>
-    <li> <%=article.title%> | <%=article.url%> </li>
+    <li> <%=link_to article.title, article.url %> | <%=article.url %></li>
   <% end %>
 </ul>

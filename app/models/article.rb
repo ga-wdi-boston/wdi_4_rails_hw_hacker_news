@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
   validates :title, presence: true
-  validates :url , format: {:with => /https?:\/\/[\S]+/}
+  validates :url, presence: true, format:{:with => /https?:\/\/[\S]+/}
 
-  has_many :songs, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  belongs_to :user
 end
