@@ -1,0 +1,6 @@
+<li>
+  <div class="title"><%= link_to article.title, article.url %> <span class="comhead"> (<%= article.host %>)</span><div>
+  <div class="subtext">
+    <%= article.list_score %> | <%= link_to article.list_comment_count article_comments_path %>
+  </div>
+</li>

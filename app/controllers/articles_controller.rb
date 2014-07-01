@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit]
   before_action :find_article, except: [:index, :new, :create]
 
   # GET /
