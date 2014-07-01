@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
     if @article.save
       flash.keep[:notice] = "article saved!"
       redirect_to root_path
@@ -21,6 +22,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @user = User.find(@article.user_id)
   end
 
   private
