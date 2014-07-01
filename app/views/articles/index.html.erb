@@ -2,6 +2,9 @@
 <p> display all articles </p>
 <% @articles.each do |article| %>
   <div><%= link_to article.title, article.url %></div>
-  <div>Submitted at:<%= article.submitted_at %></div>
+  <div>Submitted by: <%= User.find(article.user_id).email %>
+        at: <%= article.submitted_at %>
+  </div>
   <div><%= link_to "View Comments", article_path(article) %></div>
+  <br>
 <% end %>

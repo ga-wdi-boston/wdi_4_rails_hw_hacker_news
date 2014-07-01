@@ -2,7 +2,7 @@
 <p> display the article, plus all comments on article </p>
 <p> Need: user on article, comments on article, users on comments </p>
 
-<p> Posted by <%= @user.email %></p>
+<p> Posted by <%= @user.email %> at <%= @article.submitted_at %></p>
 <div><%= @article.title %></div>
 <div><%= link_to nil, @article.url %></div>
 <p> Comments....</p>
