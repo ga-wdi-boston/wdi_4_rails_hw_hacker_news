@@ -13,7 +13,7 @@ devin = User.create!(
   password: "password"
 )
 
-devin.articles.create!(
+rails = devin.articles.create!(
   title: "Ruby on Rails Guides",
   url: "http://guides.rubyonrails.org/"
 )
@@ -36,4 +36,12 @@ devin.articles.create!(
 devin.articles.create!(
   title: "Angular, Ember, And Backbone: Which JavaScript Framework Is Right For You?",
   url: "http://readwrite.com/2014/02/06/angular-backbone-ember-best-javascript-framework-for-you#awesm=~oIlDDgJzjmlbSG"
+)
+
+rails.comments.create!(
+  body: "This is a comment on the rails article."
+)
+
+rails.comments.create!(
+  body: "This is another comment on the rails article."
 )
