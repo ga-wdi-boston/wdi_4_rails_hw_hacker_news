@@ -2,7 +2,7 @@
 
 <dl>
   <% @articles.each do |article| %>
-    <dt> Title: <%= article.title %> </dt>
+    <dt> Title: <%= link_to(article.title, article_path(article.url)) %> </dt>
     <dd> URL: <%= article.url %> </dd>
     <dd> Submitted at: <%= article.submitted_at %> </dd>
   <% end %>
