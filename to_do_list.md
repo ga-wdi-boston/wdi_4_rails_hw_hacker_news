@@ -1,4 +1,4 @@
-DOING RIGHT NOW: creating association btwn articles and users
+DOING RIGHT NOW: get user ID into articles
 
 
 
