@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :articles, only: [:index, :show]
+  resources :articles
 
   root 'articles#index'
 
