@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(version: 20140630220642) do
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "users_id"
   end
+
+  add_index "articles", ["users_id"], name: "index_articles_on_users_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.text     "body"
