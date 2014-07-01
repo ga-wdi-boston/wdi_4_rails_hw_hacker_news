@@ -3,26 +3,25 @@
 <head>
   <title>Wdi4RailsHwTddHackerNews</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/css/foundation.min.css' %>
+  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/foundation.min.js' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<%= render 'shared/navbar' %>
+
 <div class="stuff">
-<p class="user-info">
-  <% if user_signed_in? %>
-    <%= link_to "Submit Article", new_article_path %>
-    Logged in as <%= current_user.email %> <%= link_to "edit profile", edit_user_registration_path %> <%= link_to "logout", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "register", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %>
+
+  <% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) %>
+      <%= content_tag :div, msg, :class => "flash_#{name}" %>
+    <% end %>
   <% end %>
-</p>
- <% flash.each do |name, msg| %>
-   <% if msg.is_a?(String) %>
-     <%= content_tag :div, msg, :class => "flash_#{name}" %>
-   <% end %>
- <% end %>
-<%= yield %>
+
+  <%= yield %>
+
 </div>
 
 </body>
