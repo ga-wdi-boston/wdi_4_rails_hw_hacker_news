@@ -1,5 +1,5 @@
 
-DOING RIGHT NOW: creating comments!
+DOING RIGHT NOW: making votes exist
 
 
 
