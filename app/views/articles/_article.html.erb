@@ -1,4 +1,5 @@
 <hr>
 <div>
   <h3><%= link_to article.title, article.url, target: "blank" %></h3>
+  <p><%= link_to "Comments", article_comments_path(article.id) %>
 </div>
