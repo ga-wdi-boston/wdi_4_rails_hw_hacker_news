@@ -1,5 +1,7 @@
+<h1>Hexer News</h1>
+
 <ul>
-<% @articles.each do |article|%>
-<li>article.name | article.url</li>
-<% end %>
+  <% @articles.each do |article|%>
+    <li> <%=article.title%> | <%=article.url%> </li>
+  <% end %>
 </ul>
