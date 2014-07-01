@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.stuff {
+.row, .stuff {
   max-width: 800px;
   margin: 0 auto;
 }
