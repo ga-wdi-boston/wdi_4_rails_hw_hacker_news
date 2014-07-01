@@ -1,5 +1,5 @@
-DOING RIGHT NOW: edit link only appears if you created the article
 
+DOING RIGHT NOW: creating comments!
 
 
 

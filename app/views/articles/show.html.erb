@@ -1,7 +1,8 @@
 <%= render 'article_box', article: @article %>
 <p>Created by user #<%= @article.user_id %> </p>
+
 <% if user_signed_in? %>
-  <% if @article.user_id == current_user.id %>
+  <% if @article.user == current_user %>
     <%= link_to "edit", edit_article_path %>
   <% end %>
 <% end %>
