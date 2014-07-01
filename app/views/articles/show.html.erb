@@ -2,7 +2,13 @@
 <p> display the article, plus all comments on article </p>
 <p> Need: user on article, comments on article, users on comments </p>
 
-<p> Posted by <%= @user.email %> at <%= @article.submitted_at %></p>
+<p> Posted by <%= @user.email %> at <%= @article.created_at %></p>
 <div><%= @article.title %></div>
 <div><%= link_to nil, @article.url %></div>
-<p> Comments....</p>
+
+<h3>Comments</h3>
+<% if user_signed_in? %>
+  <p><%= link_to 'Leave a comment', new_article_comment_path(@article) %></p>
+<% end %>
+
+<%= render @article.comments %>
