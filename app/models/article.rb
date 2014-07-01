@@ -1,13 +1,15 @@
+require 'uri'
+
 class Article < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
 
   def host
-    URI(@url).host
+    URI(self.url).host
   end
 
   def list_score
-    if comments.empty?
+    if self.comments.empty?
       '0 points'
     else
       'TODO!!!'
@@ -15,7 +17,7 @@ class Article < ActiveRecord::Base
   end
 
   def list_comment_count
-    if comments.empty?
+    if self.comments.empty?
       'discuss'
     else
       "#{comments.size} comments"
