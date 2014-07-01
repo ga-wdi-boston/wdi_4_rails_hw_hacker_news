@@ -2,24 +2,62 @@
 <html>
 <head>
   <title>Wdi4RailsHwTddHackerNews</title>
+  <%= stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/css/foundation.min.css' %>
+  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/foundation.min.js' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div>
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> |
-    <%= link_to "Login", new_user_session_path %>
-  <% end %>
+<header>
+  <div class="contain-to-grid">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class= "name">
+          <h1><%= link_to root_path do %>Haxor News<% end %></h1>
+        </li>
+        <li class="toggle-topbar"><%= link_to new_article_path do %><i class="fi-plus add"></i><% end %></li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><%= link_to new_article_path do %><i class="fi-plus"></i> Add Article<% end %></li>
+        </ul>
+      </section>
+    </nav>
+  </div>
+</header>
+
+
+<div class="row">
+  <div class="small-12 columns centered">
+    <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%= link_to 'Edit profile', edit_user_registration_path %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> |
+      <%= link_to "Login", new_user_session_path %>
+    <% end %>
+  </div>
 </div>
 
-<%= yield %>
+<div class="row">
+  <div class="small-12 centered columns">
+    <% if flash[:notice].present? %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+    <% if flash[:alert].present? %>
+      <p class="alert"><%= flash[:alert] %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns centered">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>
