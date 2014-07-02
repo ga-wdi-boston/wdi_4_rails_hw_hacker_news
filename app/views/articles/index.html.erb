@@ -6,5 +6,6 @@
     <li> <%=link_to article.title, article.url %> | <%=article.url %>
     | <%=link_to 'Comments', article_comments_path(article.id)  %>
     | <%=link_to 'Delete', article, method: :delete, data:{confirm: 'Are you sure?'} %></li>
+    <%= button_to 'Vote', article_votes_path(article), method: :post %>
   <% end %>
 </ul>
