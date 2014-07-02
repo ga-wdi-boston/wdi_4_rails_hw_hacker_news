@@ -1,0 +1,6 @@
+-make it so only signed in users can submit articles
+-validate presence of article title
+-validate presence of article url
+
+-make it so only signed in users can submit comments
+-validate presence of comment body

@@ -3,5 +3,5 @@
   <%= link_to article.title, article.url %> <br>
   <%= article.user.email %>
   <%= distance_of_time_in_words(article.created_at, Time.now) %> ago
-  <%= link_to pluralize(article.comments.count, 'comment'), article_path(article) %> <br>
+  <%= link_to pluralize(article.comments.count, 'comment'), article_comments_path(article) %> <br>
 <% end %>

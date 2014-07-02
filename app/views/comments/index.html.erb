@@ -1,0 +1,19 @@
+<h1><%= @article.title %></h1>
+  <%= link_to @article.url, @article.url %> <br>
+  <%= @article.user.email %>
+  <%= distance_of_time_in_words(@article.created_at, Time.now) %> ago <br>
+  <br>
+<%= form_for [@article, @comment] do |f| %>
+  <div class="field">
+    <%= f.label :body, 'Write a comment' %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<% @comments.each do |comment| %>
+  <%= comment.user.email %>
+  <%= distance_of_time_in_words(comment.created_at, Time.now) %> ago <br>
+  <%= comment.body %> <br><br>
+<% end %>
