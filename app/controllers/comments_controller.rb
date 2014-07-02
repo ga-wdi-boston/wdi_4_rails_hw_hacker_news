@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
     @comments = @article.comments
   end
 
-  def show
+  def new #NOPE
+    @comment = Comment.new
+    @article = Article.find(params[:article_id])
   end
 end
