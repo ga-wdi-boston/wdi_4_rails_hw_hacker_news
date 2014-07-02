@@ -58,11 +58,13 @@ medium aqua --- 157,199,175
   margin: 0;
 }
 
-.vote-buttons input[type="submit"] {
+.vote-buttons button {
   padding: 2px 0;
   margin: -1px 0 0 0;
   width: 100%;
   border: 0;
+  background: none;
+  color: black;
 }
 
 /****** NAVBAR OVERRIDE STUFF *********/

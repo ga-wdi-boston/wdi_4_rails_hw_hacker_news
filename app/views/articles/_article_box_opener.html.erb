@@ -1,5 +1,8 @@
 <div class="row">
-  <div class="small-2 columns count-box">
+  <div class="small-1 columns count-box">
     <%= render 'shared/vote_count', voteable: article %>
   </div>
-  <div class="small-8 columns main">
+  <div class="small-1 columns vote-buttons">
+    <%= render 'shared/vote_buttons', article: article, comment: nil %>
+  </div>
+  <div class="small-10 columns main">

@@ -1,11 +1,20 @@
 <div class="vote-buttons">
 <% if user_signed_in? %>
   <% if article.present? %>
-    <%= button_to "UP", votes_path, method: :post, params: {value: 1, article_id: article.id} %>
-    <%= button_to "DOWN", votes_path, method: :post, params: {value: -1, article_id: article.id} %>
+    <%= button_to votes_path, method: :post, params: {value: 1, article_id: article.id} do %>
+    <i class="fa fa-chevron-up"></i>
+    <% end %>
+    <%= button_to votes_path, method: :post, params: {value: -1, article_id: article.id} do %>
+    <i class="fa fa-chevron-down"></i>
+    <% end %>
   <% elsif comment.present? %>
-    <%= button_to "UP", votes_path, method: :post, params: {value: 1, comment_id: comment.id} %>
-    <%= button_to "DOWN", votes_path, method: :post, params: {value: -1, comment_id: comment.id} %>
+    <%= button_to votes_path, method: :post, params: {value: 1, comment_id: comment.id} do %>
+      <i class="fa fa-chevron-up"></i>
+    <% end %>
+    <%= button_to votes_path, method: :post, params: {value: -1, comment_id: comment.id} do %>
+      <i class="fa fa-chevron-down"></i>
+    <% end %>
+
   <% end %>
 <% end %>
 </div>
