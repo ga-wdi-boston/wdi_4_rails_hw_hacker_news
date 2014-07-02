@@ -1,6 +1,23 @@
 <h1>Show page for articles </h1>
-<p> display the article, plus all comments on article </p>
-<p> Need: user on article, comments on article, users on comments </p>
+<% if user_signed_in? %>
+<% current_user_vote = current_user.vote_for(@article) %>
+<% if current_user_vote.present? %>
+<% if current_user_vote.upvote %>
+<div>link upvote to vote destroy</div>
+<div>link downvote to switch vote</div>
+<% else %>
+<div>link upvote to switch</div>
+<div>link downvote to destroy</div>
+<% end %>
+<% else %>
+<div>
+  <%= button_to "upvote", article_votes_path(@article, upvote: true), method: :post %>
+</div>
+<div>
+  <%= button_to "downvote", article_votes_path(@article, upvote: false), method: :post %>
+</div>
+<% end %>
+<% end %>
 
 <p> Posted by <%= @user.email %> at <%= @article.created_at %></p>
 <div><%= @article.title %></div>

@@ -1,22 +1,24 @@
 <% if user_signed_in? %>
-  <% current_user_vote = current_user.vote_for(comment) %>
-  <% if current_user_vote.present? %>
-    <% if current_user_vote.upvote %>
-    <div>link upvote to vote destroy</div>
-    <div>link downvote to switch vote</div>
-    <% else %>
-    <div>link upvote to switch</div>
-    <div>link downvote to destroy</div>
-    <% end %>
-  <% else %>
-  <div>link upvote to create w/ true</div>
+<% current_user_vote = current_user.vote_for(comment) %>
+<% if current_user_vote.present? %>
+<% if current_user_vote.upvote %>
+<div>link upvote to vote destroy</div>
+<div>link downvote to switch vote</div>
+<% else %>
+<div>link upvote to switch</div>
+<div>link downvote to destroy</div>
+<% end %>
+<% else %>
+<div>
   <%= button_to "upvote", article_comment_votes_path(article, comment, upvote: true), method: :post %>
-  <div>long downvote to create w/ false</div>
+</div>
+<div>
   <%= button_to "downvote", article_comment_votes_path(article, comment, upvote: false), method: :post %>
-  <% end %>
+</div>
+<% end %>
 <% end %>
 
 <p>
-<i><%= comment.user.email %> commented at <%= comment.created_at %>:</i><br>
-<%= comment.body %>
+  <i><%= comment.user.email %> commented at <%= comment.created_at %>:</i><br>
+  <%= comment.body %>
 </p>
