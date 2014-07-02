@@ -6,4 +6,8 @@ class Comment < ActiveRecord::Base
   validates! :user, :article, presence: true
   validates :content, presence: true
 
+  def score
+    votes.map(&:value).reduce(0, &:+)
+  end
+
 end

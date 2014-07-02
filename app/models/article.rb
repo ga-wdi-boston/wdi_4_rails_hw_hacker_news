@@ -6,4 +6,9 @@ class Article < ActiveRecord::Base
 
   validates :title, presence: true
   validates :url, presence: true, format: {with: /\Ahttp:\/\//}
+
+  def score
+    votes.map(&:value).reduce(0, &:+)
+  end
+
 end
