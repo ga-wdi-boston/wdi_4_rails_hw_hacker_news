@@ -1,5 +1,5 @@
 
-DOING RIGHT NOW: comment box is at the top a la reddit
+DOING RIGHT NOW: yikes fixing votes
 
 
 
