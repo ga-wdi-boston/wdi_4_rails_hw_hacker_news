@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments, except: [:index, :destroy]
-    resources :votes, except: :index
+    resources :votes, except: [:index, :show, :destroy]
   end
 
   resources :comments, only: :show do
-    resources :votes, except: :index
+    resources :votes, except: [:index, :show, :destroy]
   end
 
   root 'articles#index'
