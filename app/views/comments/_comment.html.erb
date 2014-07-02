@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<div class="block"><% if user_signed_in? %>
 <% current_user_vote = current_user.vote_for(comment) %>
 <% if current_user_vote.present? %>
 <% if current_user_vote.upvote %>
@@ -17,8 +17,10 @@
 </div>
 <% end %>
 <% end %>
-
+</div>
+<div class="block">
 <p>
   <i><%= comment.user.email %> commented at <%= comment.created_at %>:</i><br>
   <%= comment.body %>
 </p>
+</div>
