@@ -4,6 +4,6 @@
 <% end %>
 <ul>
   <% @comments.each do |comment|%>
-    <li> <%=comment.body%></li>
+    <li> <%=comment.body%>| <%=comment.created_at%></li>
   <% end %>
 </ul>

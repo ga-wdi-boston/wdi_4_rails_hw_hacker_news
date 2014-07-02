@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:notice] = "comment successfully created"
-      redirect_to comments_path
+      redirect_to article_comments_path
     else
       flash.now[:notice]=@comment.errors.full_messages.join(', ')
       render :new
