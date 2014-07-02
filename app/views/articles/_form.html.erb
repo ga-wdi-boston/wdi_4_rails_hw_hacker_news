@@ -1,4 +1,4 @@
-<%= form_for [user, article], url: user_article_path(user,article), class: 'form-horizontal' do |f| %>
+<%= form_for [user, article], url: user_articles_path(user,article), class: 'form-horizontal' do |f| %>
   <div class="form-group row">
     <%= f.label :title, class: 'col-md-2 control-label lead' do %>
       <span class="glyphicon glyphicon-edit"></span> Title
