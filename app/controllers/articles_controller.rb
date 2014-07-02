@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find{params[:id]}
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -23,6 +23,14 @@ class ArticlesController < ApplicationController
       flash.now[:notice]=@article.errors.full_messages.join(', ')
       render :new
     end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    #Show all products
+    redirect_to @article, notice: "You have deleted the article"
   end
 
   private

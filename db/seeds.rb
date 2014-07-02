@@ -8,11 +8,16 @@
 
 Article.delete_all
 Comment.delete_all
+User.delete_all
 
-Article.create(
+article = Article.create(
   url: "http://www.crunchbase.com/",
   title: "crunchbase"
   )
+
+article.comments.create!(body: 'Good article!', user_id: 1)
+article.comments.create!(body: 'Nice!', user_id: 1)
+
 
 Article.create(
   url: "http://techcrunch.com/",
@@ -29,3 +34,5 @@ Article.create(
 Article.create(
   url: "http://www.reddit.com/",
   title: "reddit")
+
+
