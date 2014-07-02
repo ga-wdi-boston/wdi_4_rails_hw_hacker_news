@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
-      flash.keep[:notice] = "article saved!"
+      flash[:notice] = "article saved!"
       redirect_to root_path
     else
       render 'new'
