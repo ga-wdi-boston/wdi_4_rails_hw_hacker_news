@@ -1,4 +1,18 @@
 <hr>
 <div>
   <p><%= comment.body %></p>
+
+<!--   <% if user_signed_in? %>
+    <% if !current_user.vote_for(comment).present? %>
+      <%= link_to 'upvote', article_comment_votes_path(comment.article, comment, is_up: true), method: :post %>
+      | <%= link_to 'downvote', article_comment_votes_path(comment.article, comment, is_up: false), method: :post %>
+    <% elsif current_user.vote_for(comment).is_up %>
+      <%= link_to 'remove upvote', article_comment_vote_path(comment.article, comment, current_user.vote_for(comment)), method: :delete %>
+      | <%= link_to 'downvote', article_comment_vote_path(comment.article, comment, current_user.vote_for(comment)), method: :patch %>
+    <% else %>
+      <%= link_to 'upvote', article_comment_vote_path(comment.article, comment, current_user.vote_for(comment)), method: :patch %>
+      | <%= link_to 'remove downvote', article_comment_vote_path(comment.article, comment, current_user.vote_for(comment)), method: :delete %>
+    <% end %>
+  <% end %> -->
+
 </div>

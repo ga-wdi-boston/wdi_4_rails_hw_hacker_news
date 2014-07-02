@@ -1,5 +1,19 @@
 <hr>
 <div>
   <h3><%= link_to article.title, article.url, target: "blank" %></h3>
-  <p><%= link_to "#{article.comments.count} comments", article_comments_path(article.id) %>
+  <p><%= link_to "#{article.comments.count} comments", article_comments_path(article.id) %></p>
+
+  <% if user_signed_in? %>
+    <% if !current_user.vote_for(article).present? %>
+      <%= link_to 'upvote', article_votes_path(article, is_up: true), method: :post %>
+      | <%= link_to 'downvote', article_votes_path(article, is_up: false), method: :post %>
+    <% elsif current_user.vote_for(article).is_up %>
+      <%= link_to 'remove upvote', article_vote_path(article, current_user.vote_for(article)), method: :delete %>
+      | <%= link_to 'downvote', article_vote_path(article, current_user.vote_for(article)), method: :patch %>
+    <% else %>
+      <%= link_to 'upvote', article_vote_path(article, current_user.vote_for(article)), method: :patch %>
+      | <%= link_to 'remove downvote', article_vote_path(article, current_user.vote_for(article)), method: :delete %>
+    <% end %>
+  <% end %>
+
 </div>
