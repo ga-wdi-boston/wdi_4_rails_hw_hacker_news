@@ -2,5 +2,23 @@
   <div class="panel-body">
     <%= comment.content %>
   </div>
-  <div class="panel-footer text-right">Posted by: <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago.</div>
+  <div class="panel-footer">
+    <div class="row">
+      <div class="btn-group">
+      <% if user_signed_in? && comment.user_id == current_user.id %>
+        <div class="col-md-2">
+          <%= link_to article_comment_path(comment.article.id, comment), method: :delete, class: 'btn btn-default' do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </div>
+        <% end %>
+        </div>
+
+        <div class="col-md-10">
+
+            <p style="text-align: right; display:inline-block;">Posted by: <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago.</p>
+        </div>
+
+  </div>
+</div>
 </div>

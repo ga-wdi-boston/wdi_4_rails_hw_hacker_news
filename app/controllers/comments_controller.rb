@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     else
       flash[:notice] = "Your comment failed."
     end
-    redirect_to :back
+    redirect_to @article
   end
 
   def destroy
