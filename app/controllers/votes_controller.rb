@@ -2,10 +2,7 @@ class VotesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    vote = Vote.new
-    vote.user = current_user
-    vote.voteable = voteable
-    vote.is_up = params[:is_up]
+    vote = Vote.new(user: current_user, voteable: voteable, is_up: params[:id])
 
     vote.save!
     redirect_to :back
