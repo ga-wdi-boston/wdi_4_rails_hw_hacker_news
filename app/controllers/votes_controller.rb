@@ -36,6 +36,6 @@ class VotesController < ApplicationController
   end
 
   def voteable_type
-    %w(article comment).detect{ |type| params["#{type}_id"].present? }
+    %w(comment article).detect{ |type| params["#{type}_id"].present? }
   end
 end
