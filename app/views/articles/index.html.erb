@@ -1,5 +1,32 @@
-<h1>Article Index</h1>
-<% @articles.each do |article| %>
-<h2><%= article.title %></h2>
-<p><%= article.body %></p>
-<% end %>
+<dl class="text-center">
+  <% @articles.each do |article| %>
+    <div class="row">
+      <div class="col-md-3">
+        <h2>6</h2>
+        <div class="col-md-6">
+        +6
+        </div>
+        <div class="col-md-6">
+        -3
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <dt><%= article.title %></dt>
+        <dd><%= article.body %></dd>
+        <hr>
+      </div>
+      <div class="col-md-3">
+        <h2>4</h2>
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+        </div>
+
+      </div>
+    </div>
+  <% end %>
+</dl>
+
+
+
