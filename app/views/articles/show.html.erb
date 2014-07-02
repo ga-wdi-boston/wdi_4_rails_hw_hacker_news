@@ -1,0 +1,6 @@
+<p><%= render @article %></p>
+<% if user_signed_in? %>
+  <p><%= link_to 'Leave a comment', new_article_comment_path(@article) %></p>
+<% end %>
+<%= render @article.comments %>
+<!-- above renders the comments attr of the article object -->
