@@ -1,5 +1,5 @@
 
-DOING RIGHT NOW: making a way to add a comment if you are logged in
+DOING RIGHT NOW: adding votes to articles
 
 
 
