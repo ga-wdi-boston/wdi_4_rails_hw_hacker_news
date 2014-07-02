@@ -25,6 +25,10 @@ class VotesController < ApplicationController
 
   private
 
+  def vote_params
+    require(:votes).permit(:upvote)
+  end
+
   def voteable
     voteable_type.camelize.constantize.find(voteable_id)
   end
