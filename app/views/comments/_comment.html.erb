@@ -1,0 +1,4 @@
+<li>
+<div class="comhead"><%= link_to comment.user.email, author_path(comment.user.id) %> <%= time_ago_in_words(comment.created_at) %> ago | <%= link_to 'link',article_comment_path(comment.article, comment) %></div>
+<div class="comment"><%= comment.body %></div>
+</li>

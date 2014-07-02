@@ -1,13 +1,3 @@
-<div id="nav">
-  <ul>
-    <li>HaxorNews</li>
-    <li>new</li>
-    <li>comments</li>
-    <li><%= link_to 'submit', new_article_path %></li>
-    <li><%= link_to 'login', new_user_session_path %></li>
-  </ul>
-</div>
-
 <ol>
   <%= render partial: 'article', collection: @articles %>
 </ol>
