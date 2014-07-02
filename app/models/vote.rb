@@ -1,4 +1,4 @@
 class Vote < ActiveRecord::Base
   belongs_to :user
-  belongs_to :likeable, polymorphic: true
+  belongs_to :voteable, polymorphic: true
 end

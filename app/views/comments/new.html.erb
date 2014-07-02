@@ -1,6 +1,6 @@
 <h3> Add a Comment! </h3>
-
-<%= form_for @article_comments do |f| %>
+<!-- added parent and child paths since they are -->
+<%= form_for [@article, @comment] do |f| %>
 <%= f.label :body, 'Comment' %>
 <%= f.text_area :body %>
 <%= f.submit %>
