@@ -1,4 +1,4 @@
-# Represents an upvote, downvote or neutral vote
+# Represents an upvote or downvote
 class Vote < ActiveRecord::Base
   VOTE_TYPE = %w(upvote downvote neutral)
 
