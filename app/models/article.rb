@@ -4,6 +4,9 @@ class Article < ActiveRecord::Base
 
   validates :url, presence: true
 
+  belongs_to :user
+  has_many :comments, dependent: :destroy
+
   # VALID_URL = /\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?\z/ix
   # validates :url, format: { with: VALID_URL }
 
