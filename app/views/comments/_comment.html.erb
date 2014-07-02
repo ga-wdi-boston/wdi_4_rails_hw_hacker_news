@@ -1,22 +1,5 @@
-<div class="block"><% if user_signed_in? %>
-<% current_user_vote = current_user.vote_for(comment) %>
-<% if current_user_vote.present? %>
-<% if current_user_vote.upvote %>
-<%= button_to "upvote", article_comment_vote_path(article, comment, current_user_vote), method: :delete, class: "btn btn-warning" %>
-<div class="btn btn-default">downvote</div>
-<% else %>
-<div class="btn btn-default">upvote</div>
-<%= button_to "downvote", article_comment_vote_path(article, comment, current_user_vote), method: :delete, class: "btn btn-primary" %>
-<% end %>
-<% else %>
-<div>
-  <%= button_to "upvote", article_comment_votes_path(article, comment, upvote: true), method: :post, class: "btn btn-warning" %>
-</div>
-<div>
-<%= button_to "downvote", article_comment_votes_path(article, comment, upvote: false), method: :post, class: "btn btn-primary" %>
-</div>
-<% end %>
-<% end %>
+<div class="block">
+  <%= render 'comment_vote', article: article, comment: comment %>
 </div>
 <div class="block">
 <p>
@@ -24,3 +7,4 @@
   <%= comment.body %>
 </p>
 </div>
+<hr>
