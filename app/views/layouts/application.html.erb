@@ -4,9 +4,26 @@
   <title>Wdi4RailsHwTddHackerNews</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/css/foundation.min.css' %>
+  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/foundation.min.js' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+  <%= link_to 'Home', root_path %>
+  <% if user_signed_in? %>
+    | Signed in as <%= current_user.email %>
+    | <%= link_to 'New Article', new_article_path %>
+    | <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  <% else %>
+    | <%= link_to 'Sign in', new_user_session_path %>
+  <% end %>
+</nav>
+
+<p class="notice"><%= flash[:notice] %></p>
+<p class="alert"><%= flash[:alert] %></p>
+
+<hr>
 
 <%= yield %>
 

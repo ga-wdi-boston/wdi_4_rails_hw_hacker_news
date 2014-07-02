@@ -17,17 +17,21 @@ ActiveRecord::Schema.define(version: 20140702002300) do
   enable_extension "plpgsql"
 
   create_table "articles", force: true do |t|
-    t.text    "title",   null: false
-    t.text    "url",     null: false
-    t.integer "user_id"
+    t.text     "title",      null: false
+    t.text     "url",        null: false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
-    t.text    "body",       null: false
-    t.integer "user_id"
-    t.integer "article_id"
+    t.text     "body",       null: false
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
