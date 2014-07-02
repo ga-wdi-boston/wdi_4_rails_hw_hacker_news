@@ -18,7 +18,6 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.create(article_params)
     @article.submitted_on = DateTime.now
-    @article.upvotes = 0
     if @article.save
       flash[:notice] = 'Article created!'
       redirect_to articles_path

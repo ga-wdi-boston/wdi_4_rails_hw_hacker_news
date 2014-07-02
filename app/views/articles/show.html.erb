@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2">
+      <br><%= link_to 'Back', :back, :class => 'btn btn-primary'  %>
     </div>
     <div class="col-md-8">
       <div class="well well-lg">
@@ -12,13 +13,20 @@
         </p>
       </div>
 
-      <div class="form-actions">
-        <%= link_to 'Back', article_path, :class => 'btn btn-primary btn-lg'  %>
-        <%= link_to 'Edit', edit_article_path, :class => 'btn btn-primary btn-lg' %>
-        <%= link_to 'Delete', article_path, :method => 'delete', confirm: 'Are you sure?', :class => 'btn btn-danger btn-lg' %>
 
+      <% if user_signed_in? %>
+        <% if current_user.id.equal?(@article.user_id) %>
+          <div class="form-actions">
+            <%= link_to 'Edit', edit_article_path, :class => 'btn btn-primary' %>
+            <%= link_to 'Delete', article_path, :method => 'delete', confirm: 'Are you sure?', :class => 'btn btn-danger' %>
+            <br>
+
+          </div>
+        <% end %>
         <%= render @article.comments %>
-      </div>
+      <% end %>
+
+
     </div>
   </div>
 </div>

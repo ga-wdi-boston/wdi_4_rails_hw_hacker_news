@@ -1,7 +1,7 @@
 <li>
-  <%= link_to(article.title, article.url)%>
-  <br>
-  Submitted on: <%= article.submitted_on %>
+  <%= link_to(article.title, article.url)%><br>
+  Submitted on: <%= article.submitted_on %> |
+  Submitted by: <%= article.user.email %> |
   <%= link_to "comments", article_path(article.id) %>
   <br>
 </li>
