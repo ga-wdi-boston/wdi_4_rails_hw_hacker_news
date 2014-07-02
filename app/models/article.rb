@@ -1,7 +1,10 @@
 require 'uri'
+require_relative 'voting'
 
 # Represents a news article
 class Article < ActiveRecord::Base
+  include Voting
+
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :votes, as: :voteable, dependent: :destroy

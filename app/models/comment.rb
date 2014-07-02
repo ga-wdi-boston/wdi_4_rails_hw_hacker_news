@@ -1,8 +1,12 @@
+require_relative 'voting'
+
 # Represents a comment to a news article
 class Comment < ActiveRecord::Base
-  belongs_to :article
+  include Voting
+
   belongs_to :user
-  has_many :votes, as: :votable, dependent: :destroy
+  belongs_to :article
+  has_many :votes, as: :voteable, dependent: :destroy
 
   validates :user, :article, :body, presence: true
 end

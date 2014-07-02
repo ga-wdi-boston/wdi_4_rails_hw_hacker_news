@@ -1,39 +1,33 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_article
   before_action :set_comment, except: [:index, :new, :create]
 
-  # GET /articles/:article_id/comments
   def index
     @comments = @article.comments
   end
 
-  # GET /articles/:article_id/comments/new
   def new
     @comment = Comment.new
   end
 
-  # POST /articles/:article_id/comments
   def create
     @comment = Comment.new(comment_params)
     @comment.submitted_at = Time.now.getutc
     save_or_render
   end
 
-  # GET /articles/:article_id/comments/:id
   def show
   end
 
-  # GET /articles/:article_id/comments/:id/edit
   def edit
   end
 
-  # PATCH /articles/:article_id/comments
   def update
     @comment.assign_attributes(comment_params)
     save_or_render
   end
 
-  # DELETE /articles/:article_id/comments/:id
   def destroy
     @comment.destroy!
     flash[:success] = 'Comment deleted'

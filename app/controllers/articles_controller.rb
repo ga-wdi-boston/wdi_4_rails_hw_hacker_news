@@ -29,6 +29,7 @@ class ArticlesController < ApplicationController
   end
 
   # PATCH /articles/:id
+  # PUT /articles/:id
   def update
     @article.assign_attributes(article_params)
     save_or_render(:edit)
