@@ -11,21 +11,21 @@ class CommentsController < ApplicationController
   #   @comment = @article.comments.find(params[:id])
   # end
 
-  # def new
-  #   @comment = Comment.new
-  # end
+  def new
+    @comment = Comment.new
+  end
 
-  # def create
-  #   @comment = @article.comments.new(comment_params)
-  #   @comment.user_id = current_user.id
-  #   if @comment.save
-  #     flash[:notice] = "comment successfully created"
-  #     redirect_to comments_path
-  #   else
-  #     flash.now[:notice]=@comment.errors.full_messages.join(', ')
-  #     render :new
-  #   end
-  # end
+  def create
+    @comment = @article.comments.new(comment_params)
+    @comment.user_id = current_user.id
+    if @comment.save
+      flash[:notice] = "comment successfully created"
+      redirect_to comments_path
+    else
+      flash.now[:notice]=@comment.errors.full_messages.join(', ')
+      render :new
+    end
+  end
 
   # def destroy
   #   @comment = Comment.find(params[:id])

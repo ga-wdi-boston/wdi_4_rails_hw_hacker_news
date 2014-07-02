@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    #Show all products
+
     redirect_to @article, notice: "You have deleted the article"
   end
 
