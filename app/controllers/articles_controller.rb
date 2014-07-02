@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
+  before_action :set_user, only: [:create, :update, :destroy, :edit]
 
   def index
     @articles = Article.all
@@ -6,6 +9,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new
   end
 
   def create
@@ -16,14 +20,17 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @user = current_user
   end
 
   def edit
-    @article = Article.new
+    @article = Article.find(params[:id])
   end
 
   def update
+
     @article = Article.find(params[:id])
+    @article.update(article_params)
 
     save_article_or_render(:edit)
   end
@@ -36,8 +43,10 @@ class ArticlesController < ApplicationController
 
   private
 
-  def save_artice_or_render(action)
-    if @article.save
+  def save_article_or_render(action)
+
+    @user.articles << @article
+    if @user.save
       flash[:success] = "Article saved."
       redirect_to @article
     else
@@ -48,6 +57,10 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:url, :title)
+  end
+
+  def set_user
+    @user = current_user
   end
 
 end

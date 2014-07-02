@@ -1,0 +1,30 @@
+<%= form_for [user, article], url: user_article_path(user,article), class: 'form-horizontal' do |f| %>
+  <div class="form-group row">
+    <%= f.label :title, class: 'col-md-2 control-label lead' do %>
+      <span class="glyphicon glyphicon-edit"></span> Title
+    <% end %>
+    <div class="col-md-10">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :url, class: 'col-md-2 control-label lead' do %>
+      <span class="glyphicon glyphicon-link"></span> URL
+    <% end %>
+    <div class="col-md-10">
+      <%= f.text_field :url, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.button class: 'btn btn-success btn-lg' do %>
+        <span class="glyphicon glyphicon-ok"></span> Save
+      <% end %>
+      <% if f.object.persisted? %>
+        <%= link_to :back, class: 'btn btn-danger btn-lg' do %>
+          <span class="glyphicon glyphicon-remove"></span> Cancel
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
