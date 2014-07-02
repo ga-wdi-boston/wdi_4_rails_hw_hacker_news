@@ -1,4 +1,13 @@
-<p><i><%= comment.user.email %> posted: </i><br>
-<%= comment.content %></p>
-<%= render 'shared/vote_buttons', comment: comment, article: nil %>
-<%= render 'shared/vote_count', voteable: comment %>
+<div class="row comment-box">
+<div class="small-1 columns vote-count">
+  <%= render 'shared/vote_count', voteable: comment %>
+</div>
+
+<div class="small-9 columns comment-text">
+  <p><i><%= comment.user.email %> posted: </i></p>
+  <p><%= comment.content %></p>
+</div>
+<div class="small-2 columns vote-vuttons">
+  <%= render 'shared/vote_buttons', comment: comment, article: nil %>
+</div>
+</div>

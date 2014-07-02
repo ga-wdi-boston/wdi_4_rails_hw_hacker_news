@@ -1,5 +1,5 @@
 
-DOING RIGHT NOW: yikes fixing votes
+DOING RIGHT NOW: putting comments in a grid
 
 
 
