@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments, only: [:new, :create] do
-      resources :likes, only: [:create, :destroy]
+      resources :votes, only: [:create, :destroy]
     end
-    resources :likes, only: [:create, :destroy]
+    resources :votes, only: [:create, :destroy]
   end
 
 end
