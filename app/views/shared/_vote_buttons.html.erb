@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <% if article.present? %>
+    <%= button_to "UP", votes_path, method: :post, params: {value: 1, article_id: article.id} %>
+    <%= button_to "DOWN", votes_path, method: :post, params: {value: -1, article_id: article.id} %>
+  <% elsif comment.present? %>
+    <%= button_to "UP", votes_path, method: :post, params: {value: 1, comment_id: comment.id} %>
+    <%= button_to "DOWN", votes_path, method: :post, params: {value: -1, comment_id: comment.id} %>
+  <% end %>
+<% end %>

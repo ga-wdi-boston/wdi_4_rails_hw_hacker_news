@@ -1,4 +1,4 @@
-<p>
-<i><%= comment.user.email %> posted: </i><br>
-<%= comment.content %>
-</p>
+<p><i><%= comment.user.email %> posted: </i><br>
+<%= comment.content %></p>
+<%= render 'shared/vote_buttons', comment: comment, article: nil %>
+<%= render 'shared/vote_count', voteable: comment %>

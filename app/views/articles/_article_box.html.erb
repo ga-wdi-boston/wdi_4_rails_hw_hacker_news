@@ -1,6 +1,5 @@
 <div class="article-box">
   <h3><%= link_to article.title, article.url %></h3>
   <%= render 'shared/vote_count', voteable: article %>
-  <%= button_to "UP", votes_path, method: :post, params: {value: 1, article_id: article.id} %>
-  <%= button_to "DOWN", votes_path, method: :post, params: {value: -1, article_id: article.id} %>
+  <%= render 'shared/vote_buttons', article: article %>
 </div>

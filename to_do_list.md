@@ -1,5 +1,5 @@
 
-DOING RIGHT NOW: adding votes to articles
+DOING RIGHT NOW: user can only vote on something once
 
 
 
