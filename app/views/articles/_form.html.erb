@@ -1,15 +1,16 @@
+<% flash.each do |key, value| %>
+<%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
 <%= form_for @article do |f| %>
-<%= f.hidden @user.id %>
-<div class="form-element-container">
-  <div class="form-element-label"><%= f.label :title %></div>
-  <div class="form-element"><%= f.text_field :title %></div>
+<div class="form-field">
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 </div>
-<div class="form-element-container">
-  <div class="form-element-label"><%= f.label :url %></div>
-  <div class="form-element"><%= f.text_field :url %></div>
+<div class="form-field">
+  <%= f.label :url %>
+  <%= f.text_field :url %>
 </div>
-<div class="form-element-container">
-  <div class="form-element-label"></div>
-  <div class="form-element"><%= f.submit submit_btn_label %></div>
+<div class="form-action">
+  <%= f.submit submit_btn_label %>
 </div>
 <% end %>

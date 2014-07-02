@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :articles do
-    resources :comments, except: :destroy
+    resources :comments, except: [:edit, :update, :destroy]
     resources :votes, except: [:index, :show, :destroy]
   end
 

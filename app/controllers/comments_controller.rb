@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_article
-  before_action :set_comment, except: [:index, :new, :create]
+  before_action :set_comments, only: [:index, :new]
+  before_action :set_comment, only: :show
 
   def index
-    @comments = @article.comments
   end
 
   def new
@@ -13,25 +13,13 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
     @comment.submitted_at = Time.now.getutc
-    save_or_render
+    @article.comments << @comment
+    save_or_render(:new)
   end
 
   def show
-  end
-
-  def edit
-  end
-
-  def update
-    @comment.assign_attributes(comment_params)
-    save_or_render
-  end
-
-  def destroy
-    @comment.destroy!
-    flash[:success] = 'Comment deleted'
-    redirect_to comments_path
   end
 
   private
@@ -40,14 +28,18 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
   end
 
+  def set_comments
+    @comments = @article.comments
+  end
+
   def set_comment
     @comment = @article.comments.find(params[:id])
   end
 
   def save_or_render(action)
-    if @comment.save
+    if @article.save
       flash[:success] = 'Comment saved'
-      redirect_to @comment
+      redirect_to article_comments_path
     else
       flash.now[:danger] = 'Error: ' + @comment.errors.full_messages.join(', ')
       render action
