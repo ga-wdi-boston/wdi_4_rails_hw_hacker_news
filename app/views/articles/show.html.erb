@@ -1,10 +1,6 @@
 <%= render 'article_box', article: @article %>
 <p>Created by user #<%= @article.user_id %> </p>
 
-<% @article.comments.each do |comment| %>
-  <%= render 'comments/single_comment', comment: comment %>
-<% end %>
-
 <% if user_signed_in? %>
   <%= form_for [@article, Comment.new] do |f| %>
     <%= f.label :content, "Add a comment" %><br>
@@ -13,3 +9,8 @@
     <%= f.submit %>
   <% end %>
 <% end %>
+
+<% @article.comments.each do |comment| %>
+  <%= render 'comments/single_comment', comment: comment %>
+<% end %>
+
