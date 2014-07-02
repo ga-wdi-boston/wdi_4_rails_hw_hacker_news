@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="nav">
+    <ul>
+      <li><%= link_to 'HaxorNews', articles_path %></li>
+      <li>new</li>
+      <li>comments</li>
+      <li><%= link_to 'submit', new_article_path %></li>
+      <li><%= link_to 'login', new_user_session_path %></li>
+    </ul>
+  </div>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
