@@ -1,7 +1,7 @@
 <hr>
 <div>
-  <p><%= "#{comment.score} points" %></p>
   <p><%= comment.body %></p>
+  <p><%= "#{comment.score} points" %></p>
 
    <% if user_signed_in? %>
     <% if !current_user.vote_for(comment).present? %>

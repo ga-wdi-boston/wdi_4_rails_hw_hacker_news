@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_article
 
   def index
-    @comments = @article.comments
+    @comments = @article.comments.sort_by(&:score).reverse
   end
 
   def new
