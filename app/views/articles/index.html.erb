@@ -1,8 +1,8 @@
 <% @articles.each do |article| %>
   <div class="article_box">
     <%= render 'article_box_opener', article: article %>
-      <%= link_to article.title, article.url %><br>
-      <%= link_to "details", article_path(article) %>
+      <span class="article-title"><%= link_to article.title, article.url %></span><br>
+      <span class="article-details"><%= link_to "details", article_path(article) %></span>
     <%= render 'article_box_closer', article: article %>
   </div>
 <% end %>

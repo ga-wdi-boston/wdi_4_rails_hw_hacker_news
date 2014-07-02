@@ -23,17 +23,49 @@ cooler color -- 203,200,175
 medium aqua --- 157,199,175
 */
 
-.row, .stuff {
+.stuff {
   max-width: 800px;
   margin: 0 auto;
 }
 
+.main-things {
+  margin-top: 10px;
+}
+
 .article_box {
   width: 100%;
-  padding: 5px;
   margin: 8px 0;
-  background: rgba(243,235,196, 0.5);
 }
+
+.article_box .main {
+    background: rgba(243,235,196, 0.5);
+
+}
+
+.article_box .vote-count {
+  min-width: 100%;
+  min-height: 100%;
+  text-align: center;
+  background: white;
+}
+
+.count-box {
+  min-height: 100%;
+  margin: 0;
+}
+
+.vote-buttons form {
+  margin: 0;
+}
+
+.vote-buttons input[type="submit"] {
+  padding: 2px 0;
+  margin: -1px 0 0 0;
+  width: 100%;
+  border: 0;
+}
+
+/****** NAVBAR OVERRIDE STUFF *********/
 
 .top-bar, .top-bar-section li:not(.has-form) a:not(.button) {
   background: rgba(157,199,175, 1);

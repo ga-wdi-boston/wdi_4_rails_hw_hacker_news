@@ -1,10 +1,11 @@
 <div class="article_box">
   <%= render 'article_box_opener', article: @article %>
-      <%= link_to @article.title, @article.url %><br>
+      <span class="article-title"><%= link_to @article.title, @article.url %></span><br>
       <p>Created by user #<%= @article.user_id %></p>
   <%= render 'article_box_closer', article: @article %>
 </div>
 
+<div class="comment-form">
 <% if user_signed_in? %>
   <%= form_for [@article, Comment.new] do |f| %>
     <%= f.label :content, "Add a comment" %><br>
@@ -13,6 +14,7 @@
     <%= f.submit %>
   <% end %>
 <% end %>
+</div>
 
 <% @article.comments.each do |comment| %>
   <%= render 'comments/single_comment', comment: comment %>
