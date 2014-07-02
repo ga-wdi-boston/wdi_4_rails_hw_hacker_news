@@ -1,4 +1,5 @@
 <h3> Articles Index </h3>
+<%= button_to "Submit a new article", new_article_path, method: :get, class: "btn btn-success" %>
 <p> display all articles </p>
 <% @articles.each do |article| %>
 <div class="block">
