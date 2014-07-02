@@ -1,0 +1,12 @@
+<%= form_for @comment do |f| %>
+<%= f.hidden @user.id %>
+<%= f.hidden @article.id %>
+<div class="form-element-container">
+  <div class="form-element-label"><%= f.label :body %></div>
+  <div class="form-element"><%= f.text_field :body %></div>
+</div>
+<div class="form-element-container">
+  <div class="form-element-label"></div>
+  <div class="form-element"><%= f.submit submit_btn_label %></div>
+</div>
+<% end %>

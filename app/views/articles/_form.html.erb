@@ -1,0 +1,15 @@
+<%= form_for @article do |f| %>
+<%= f.hidden @user.id %>
+<div class="form-element-container">
+  <div class="form-element-label"><%= f.label :title %></div>
+  <div class="form-element"><%= f.text_field :title %></div>
+</div>
+<div class="form-element-container">
+  <div class="form-element-label"><%= f.label :url %></div>
+  <div class="form-element"><%= f.text_field :url %></div>
+</div>
+<div class="form-element-container">
+  <div class="form-element-label"></div>
+  <div class="form-element"><%= f.submit submit_btn_label %></div>
+</div>
+<% end %>

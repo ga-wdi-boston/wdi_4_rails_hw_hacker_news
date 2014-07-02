@@ -1,8 +1,10 @@
 require 'uri'
 
+# Represents a news article
 class Article < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :votes, as: :voteable, dependent: :destroy
 
   def host
     URI(self.url).host
@@ -24,6 +26,6 @@ class Article < ActiveRecord::Base
     end
   end
 
-  validates :title, presence: true
+  validates :user, :title, presence: true
   validates_format_of :url, with: URI::regexp(%w(http https))
 end
