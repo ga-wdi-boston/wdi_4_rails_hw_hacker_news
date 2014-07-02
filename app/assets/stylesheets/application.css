@@ -13,8 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+/*
+MY COLORS
+light cream --- 243,235,196
+next darker --- 237,219,185
+more neutral -- 223,208,181
+cooler color -- 203,200,175
+medium aqua --- 157,199,175
+*/
+
 .row, .stuff {
   max-width: 800px;
   margin: 0 auto;
 }
+
+.article_box {
+  width: 100%;
+  padding: 5px;
+  margin: 8px 0;
+  background: rgba(243,235,196, 0.5);
+}
+
+.top-bar, .top-bar-section li:not(.has-form) a:not(.button) {
+  background: rgba(157,199,175, 1);
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  background: rgba(203, 200, 175, 1);
+}
+.top-bar-section li:not(.has-form) a.fake-link:not(.button):hover {
+  background: rgba(157,199,175, 1);
+}
+
 

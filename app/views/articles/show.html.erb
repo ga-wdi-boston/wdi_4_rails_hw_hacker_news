@@ -1,5 +1,9 @@
-<%= render 'article_box', article: @article %>
-<p>Created by user #<%= @article.user_id %> </p>
+<div class="article_box">
+  <%= render 'article_box_opener', article: @article %>
+      <%= link_to @article.title, @article.url %><br>
+      <p>Created by user #<%= @article.user_id %></p>
+  <%= render 'article_box_closer', article: @article %>
+</div>
 
 <% if user_signed_in? %>
   <%= form_for [@article, Comment.new] do |f| %>
