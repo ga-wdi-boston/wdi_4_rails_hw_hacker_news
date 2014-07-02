@@ -3,19 +3,20 @@
 <% current_user_vote = current_user.vote_for(@article) %>
 <% if current_user_vote.present? %>
 <% if current_user_vote.upvote %>
-<div>link upvote to vote destroy</div>
-<div>link downvote to switch vote</div>
+<%= button_to "upvote", article_vote_path(@article, current_user_vote), method: :delete, class: "btn btn-warning" %>
+<div class="btn btn-default">link downvote to switch vote</div>
 <% else %>
-<div>link upvote to switch</div>
-<div>link downvote to destroy</div>
+<div class="btn btn-default">link upvote to switch</div>
+<%= button_to "downvote", article_vote_path(@article, current_user_vote), method: :delete, class: "btn btn-primary" %>
 <% end %>
 <% else %>
 <div>
-  <%= button_to "upvote", article_votes_path(@article, upvote: true), method: :post %>
+  <%= button_to "upvote", article_votes_path(@article, upvote: true), method: :post, class: "btn btn-warning" %>
 </div>
 <div>
-  <%= button_to "downvote", article_votes_path(@article, upvote: false), method: :post %>
+  <%= button_to "downvote", article_votes_path(@article, upvote: false), method: :post, class: "btn btn-primary" %>
 </div>
+
 <% end %>
 <% end %>
 
@@ -25,7 +26,7 @@
 
 <h3>Comments</h3>
 <% if user_signed_in? %>
-  <p><%= link_to 'Leave a comment', new_article_comment_path(@article) %></p>
+<p><%= link_to 'Leave a comment', new_article_comment_path(@article) %></p>
 <% end %>
 
 <%= render @article.comments, article: @article %>

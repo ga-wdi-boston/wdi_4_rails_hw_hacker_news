@@ -13,12 +13,13 @@ class VotesController < ApplicationController
     @voteable = voteable
     @vote = Vote.new
     @vote.user = current_user
+    @vote.upvote = params[:upvote]
     @vote.voteable = @voteable
 
     if @vote.save
       redirect_to :back, notice: "Voted!"
     else
-      flash.now[:alert] = @vote.errors.full_messages.join(', ')
+      flash[:alert] = @vote.errors.full_messages.join(', ')
       redirect_to :back
     end
   end
