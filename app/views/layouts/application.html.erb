@@ -21,7 +21,7 @@
       </ul>
       <section class="top-bar-section">
         <ul class="right">
-          <li><%= link_to new_article_path do %><i class="fi-plus"></i> Add Article<% end %></li>
+          <li><%= link_to new_article_path do %>Submit Article<% end %></li>
         </ul>
       </section>
     </nav>
@@ -39,23 +39,16 @@
       <%= link_to "Sign up", new_user_registration_path %> |
       <%= link_to "Login", new_user_session_path %>
     <% end %>
-  </div>
-</div>
 
-<div class="row">
-  <div class="small-12 centered columns">
     <% if flash[:notice].present? %>
       <p class="notice"><%= flash[:notice] %></p>
     <% end %>
     <% if flash[:alert].present? %>
       <p class="alert"><%= flash[:alert] %></p>
     <% end %>
-  </div>
-</div>
 
-<div class="row">
-  <div class="small-12 columns centered">
     <%= yield %>
+
   </div>
 </div>
 

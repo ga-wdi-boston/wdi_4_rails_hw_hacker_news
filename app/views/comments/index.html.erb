@@ -1,3 +1,4 @@
 <h2>Comments</h2>
-<p><%= link_to "Add Comment", new_article_comment_path %><p>
+<h4 class="title-in-comments"><%= @article.title %></h4>
 <%= render partial: "comment", collection: @comments %>
+<%= link_to "Add Comment", new_article_comment_path, class: "small button" %>
