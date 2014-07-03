@@ -14,6 +14,8 @@ devin = User.create!(
   password: "password"
 )
 
+users = FactoryGirl.create_list(:user, 10)
+
 rails = devin.articles.create!(
   title: "Ruby on Rails Guides",
   url: "http://guides.rubyonrails.org/"
