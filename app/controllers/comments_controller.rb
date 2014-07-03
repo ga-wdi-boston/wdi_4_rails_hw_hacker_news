@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   end
 
   def set_comments
-    @comments = @article.comments
+    @comments = @article.comments.sort_by { |e| -e.points }
   end
 
   def set_comment

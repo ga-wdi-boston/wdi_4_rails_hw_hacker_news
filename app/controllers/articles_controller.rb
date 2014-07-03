@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /
   # GET /articles
   def index
-    @articles = Article.all
+    @articles = Article.all.sort_by { |e| -e.points }
   end
 
   # GET /articles/new
