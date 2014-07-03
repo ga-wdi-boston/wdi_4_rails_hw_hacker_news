@@ -7,6 +7,7 @@ class VotesController < ApplicationController
 
     if @vote.save
       if @voteable.class == 'Article'
+        update votes += 1
         redirect_to articles_path
       else @voteable.class == 'Comment'
         redirect_to article_comments_path(@comment.article_id)
