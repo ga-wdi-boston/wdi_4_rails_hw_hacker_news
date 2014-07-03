@@ -3,6 +3,7 @@ require 'faker'
 
 Article.delete_all
 User.delete_all
+Comment.delete_all
 
 
 u1 = User.create!(email: 'fred@example.com', password: 'password')

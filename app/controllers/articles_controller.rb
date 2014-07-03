@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new
   end
 
   #new and create!
@@ -33,7 +34,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.find(params[:id])
+    @article = Article.find(params[:id])
 
     if @article.update(article_params)
       redirect_to @article, notice: "Sick changes man"

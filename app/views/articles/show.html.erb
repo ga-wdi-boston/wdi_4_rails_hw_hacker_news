@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-md-2">
@@ -23,15 +24,19 @@
           </div>
         <% end %>
         <br>
-        <%= form_for [@article, Comment.new] do |f| %>
-           <p>
-          <%= f.label :content %><br>
-          <%= f.text_area :content %>
-          </p>
-          <p><%= f.submit "Add Comment"%></p>
+
+        <% @article.comments.each do |comment| %>
+          <p><%= comment.user.email %> said: <%=comment.content %></p>
         <% end %>
 
-        <%= render @article.comments %>
+        <!-- <#%= form_for [@article, @comment] do |f| %> -->
+           <p>
+          <!-- <#%= f.label :content %><br> -->
+          <!-- <#%= f.text_area :content %> -->
+          </p>
+          <!-- <p><#%= f.submit "Add Comment"%></p> -->
+        <!-- <#% end %> -->
+
       <% end %>
 
 
