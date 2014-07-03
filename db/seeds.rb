@@ -15,3 +15,5 @@ stalin = User.create!(email: 'captain.mustache@soviet.union', password: 'TrustHi
 reddit = Article.create!(title: 'Consumer of Lives', url: 'http://www.reddit.com')
 screen = Article.create!(title: 'My Favourite Site For Movie News', url: 'http://www.screenrant.com')
 jets = Article.create!(title: 'J-E-T-S JETS JETS JETS', url: 'http://www.jetnation.com/')
+invest = Article.create!(title: 'Moneys', url: 'https://www.tdameritrade.com/home.page')
+feels = Article.create!(title: 'How I feel getting error messages while coding', url: 'http://i.imgur.com/9mMGH96.gif')

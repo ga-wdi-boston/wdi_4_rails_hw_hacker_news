@@ -1,15 +1,24 @@
-<h2><%= link_to @article.title, @article.url %>
-   <small>
-    (<%= link_to @article.url, @article.url %>)
-   </small>
-</h2>
-
 <%= link_to "back", articles_path %>
+<div class="panel">
+<h4><strong><%= link_to @article.title, @article.url %></strong>
+   <small>
+    ...(<%= link_to @article.url, @article.url %>)
+   </small>
+</h4>
+</div>
+
 
 <h4> Comments <small><%= link_to 'Post Comment', new_article_comment_path(@article) %></small></h4>
-<ul>
-<% @article.comments.each do |comment| %> <br>
-  <%= comment.comments %>
-</ul>
 
-<%end%>
+<table>
+  <tbody>
+  <% @article.comments.each do|comment| %>
+    <tr>
+      <td><%= comment.comments %></td>
+
+    </tr>
+
+    </tr>
+    <%end%>
+  </tbody>
+</table>
