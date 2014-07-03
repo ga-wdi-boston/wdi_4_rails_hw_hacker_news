@@ -21,11 +21,9 @@ gem 'spring', group: :development
 gem 'devise'
 
 group :development, :test do
-  gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'rspec-rails'
-  gem 'faker'
 end
 
 group :test do
@@ -36,6 +34,10 @@ group :test do
 end
 
 group :production do
-  gem 'factory_girl_rails'
   gem 'rails_12factor'
+end
+
+group :development, :test, :production do
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
