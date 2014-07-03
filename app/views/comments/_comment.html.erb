@@ -1,7 +1,8 @@
-<div class="block">
+<div class="block col-md-2"></div>
+<div class="block col-md-2">
   <%= render 'comment_vote', article: article, comment: comment %>
 </div>
-<div class="block">
+<div class="block col-md-6">
 <p>
   <i><%= comment.user.email %> commented at <%= comment.created_at %>:</i><br>
   <%= comment.body %>
