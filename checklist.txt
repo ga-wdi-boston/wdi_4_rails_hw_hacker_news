@@ -1,10 +1,4 @@
 
-
-
-Users can view a list of all articles and submit their own
-
-
-
 Articles and comments are sorted by upvote/downvote score
 
 
@@ -72,4 +66,5 @@ App has working seed data to assist in manual testing
 Users can register for an account, sign in, and sign out
 Users can view comments on articles and submit their own
 Users can upvote/downvote articles and comments, and change their vote
+Users can view a list of all articles and submit their own
 

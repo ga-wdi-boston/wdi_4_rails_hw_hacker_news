@@ -1,5 +1,5 @@
 <dl class='comments_nav'>
-  <% @recent_article_comments.each do |comment| %>
+  <% @selected_article_comments.each do |comment| %>
     <dd><%= comment.body %></dd>
     <dd>by <%= comment.user.email %> | <span class='vote_count'>Score: <%= comment.vote_count %></span></dd>
     <dd><span class="votes"><%= button_to 'Vote Up', comment_votes_path(comment, value: 'upvote'), method: :post, class: 'button' %><%= button_to 'Vote Down', comment_votes_path(comment, value: 'downvote'), class: 'button'%></dd>
