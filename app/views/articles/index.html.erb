@@ -2,10 +2,11 @@
 
 <dl>
   <% @articles.each do |article| %>
-    <dt> Title: <%= link_to(article.title, article_path(article.url)) %> </dt>
-    <dd> URL: <%= article.url %> </dd>
-    <dd> Submitted at: <%= article.submitted_at %> </dd>
+    <dt> <%= link_to(article.title, article_path(article.url)) %> </dt>
+    <dd> Created at: <%= article.created_at %> </dd>
+    <dd> <%= link_to "#{article.comments.count} comments", article_comments_path(article.id) %> </dd>
   <% end %>
 </dl>
 
 <p><%= link_to 'Submit a new article', new_article_path %></p>
+
