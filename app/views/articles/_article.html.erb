@@ -11,4 +11,6 @@
   Submitted by: <%= article.user.email %> |
   <%= link_to "comments", article_path(article.id) %>
   <br>
+  vote score: <%= article.votes.count - article.down_votes.count %>
+  <br>
 </li>

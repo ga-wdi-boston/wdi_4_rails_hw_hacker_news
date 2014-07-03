@@ -26,7 +26,7 @@ class DownVotesController < ApplicationController
 
   def down_voteable
     # makes the voteable_type a class and finds it by id
-    voteable_type.camelize.constantize.find(voteable_id)
+    down_voteable_type.camelize.constantize.find(down_voteable_id)
   end
 
   def down_voteable_id

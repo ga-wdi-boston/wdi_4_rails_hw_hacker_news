@@ -14,11 +14,15 @@
       </div>
 
       <h4>
-        # of Upvotes <%= @article.votes.count %>
+        VOTE SCORE: <%= @article.votes.count - @article.down_votes.count%>
+
         <% if current_user.has_vote_for(@article).present? %>
           <%= button_to 'Undo Upvote', article_vote_path(@article, current_user.has_vote_for(@article)), method: :delete %>
+        <% elsif current_user.has_down_vote_for(@article).present? %>
+          <%= button_to 'Undo Downvote', article_down_vote_path(@article, current_user.has_down_vote_for(@article)), method: :delete %>
         <% else %>
           <%= button_to 'Upvote', article_votes_path(@article), method: :post %>
+          <%= button_to 'Downvote', article_down_votes_path(@article), method: :post %>
         <% end %>
 
       </h4>
@@ -36,14 +40,17 @@
 
         <% @article.comments.each do |comment| %>
           <p>
-            <%= comment.user.email %> said: <%=comment.content %><br>
-            submitted: <%= comment.created_at %><br>
-            # of Upvotes: <%=comment.votes.count %>
+            <i><%= comment.user.email %> said:</i> <b><%=comment.content %></b><br>
+            <i>submitted:</i> <%= comment.created_at %><br>
+            <i>Vote Score:</i> <%=comment.votes.count - comment.down_votes.count%>
 
             <% if current_user.has_vote_for(comment).present? %>
               <%= button_to 'Undo Upvote', comment_vote_path(comment, current_user.has_vote_for(comment)), method: :delete %>
-            <% else %>
+            <% elsif current_user.has_down_vote_for(comment).present? %>
+              <%= button_to 'Undo Downvote', comment_down_vote_path(comment, current_user.has_down_vote_for(comment)), method: :delete %>
+            <%else%>
               <%= button_to 'Upvote', comment_votes_path(comment), method: :post %>
+              <%= button_to 'Downvote', comment_down_votes_path(comment), method: :post %>
             <% end %>
           </p>
         <% end %>
