@@ -11,21 +11,6 @@
           url: <%= link_to(@article.url) %><br>
           submitted: <%= @article.created_at %>
         </p>
-      </div>
-
-      <h4>
-        VOTE SCORE: <%= @article.votes.count - @article.down_votes.count%>
-
-        <% if current_user.has_vote_for(@article).present? %>
-          <%= button_to 'Undo Upvote', article_vote_path(@article, current_user.has_vote_for(@article)), method: :delete %>
-        <% elsif current_user.has_down_vote_for(@article).present? %>
-          <%= button_to 'Undo Downvote', article_down_vote_path(@article, current_user.has_down_vote_for(@article)), method: :delete %>
-        <% else %>
-          <%= button_to 'Upvote', article_votes_path(@article), method: :post %>
-          <%= button_to 'Downvote', article_down_votes_path(@article), method: :post %>
-        <% end %>
-
-      </h4>
 
       <% if user_signed_in? %>
         <% if current_user.id.equal?(@article.user_id) %>
@@ -37,7 +22,22 @@
           </div>
         <% end %>
         <br>
+      </div>
 
+        <h4>
+          VOTE SCORE: <%= @article.votes.count - @article.down_votes.count%>
+          <br>
+          <% if current_user.has_vote_for(@article).present? %>
+            <%= button_to 'Undo Upvote', article_vote_path(@article, current_user.has_vote_for(@article)), method: :delete, class:'btn btn-info' %>
+          <% elsif current_user.has_down_vote_for(@article).present? %>
+            <%= button_to 'Undo Downvote', article_down_vote_path(@article, current_user.has_down_vote_for(@article)), method: :delete, class:'btn btn-info' %>
+          <% else %>
+            <%= link_to 'Upvote', article_votes_path(@article), method: :post, class:'btn btn-success' %>
+            <%= link_to 'Downvote', article_down_votes_path(@article), method: :post, class:'btn btn-warning' %>
+          <% end %>
+        </h4>
+        <br>
+        <h4> Comments </h4>
         <% @article.comments.each do |comment| %>
           <p>
             <i><%= comment.user.email %> said:</i> <b><%=comment.content %></b><br>
@@ -45,12 +45,11 @@
             <i>Vote Score:</i> <%=comment.votes.count - comment.down_votes.count%>
 
             <% if current_user.has_vote_for(comment).present? %>
-              <%= button_to 'Undo Upvote', comment_vote_path(comment, current_user.has_vote_for(comment)), method: :delete %>
+              <%= button_to 'Undo Upvote', comment_vote_path(comment, current_user.has_vote_for(comment)), method: :delete, class:'btn btn-info' %>
             <% elsif current_user.has_down_vote_for(comment).present? %>
-              <%= button_to 'Undo Downvote', comment_down_vote_path(comment, current_user.has_down_vote_for(comment)), method: :delete %>
+              <%= button_to 'Undo Downvote', comment_down_vote_path(comment, current_user.has_down_vote_for(comment)), method: :delete, class:'btn btn-info' %>
             <%else%>
-              <%= button_to 'Upvote', comment_votes_path(comment), method: :post %>
-              <%= button_to 'Downvote', comment_down_votes_path(comment), method: :post %>
+              <%= button_to 'Upvote', comment_votes_path(comment), method: :post, class:'btn btn-success' %><%= button_to 'Downvote', comment_down_votes_path(comment), method: :post, class:'btn btn-warning' %>
             <% end %>
           </p>
         <% end %>

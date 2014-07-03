@@ -1,10 +1,11 @@
 <li>
   <%= link_to(article.title, article.url)%>
-
+  <% if user_signed_in? %>
     <% if current_user.id.equal?(article.user_id) %>
       | <%= link_to 'Edit', edit_article_path(article) %>
       | <%= link_to 'Delete', article_path(article), method: 'delete', confirm: 'Are you sure?' %>
     <% end %>
+  <% end %>
 
   <br>
   Submitted on: <%= article.submitted_on %> |

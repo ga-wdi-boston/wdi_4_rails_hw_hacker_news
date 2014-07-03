@@ -17,9 +17,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(article_params)
-    @article.submitted_on = DateTime.now
-    @article.user = current_user
+    @article = current_user.articles.create(article_params)
     if @article.save
       flash[:notice] = 'Article created!'
       redirect_to articles_path
@@ -54,7 +52,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title,:url)
+    params.require(:article).permit(:title,:url,:user_id)
   end
 
 end
