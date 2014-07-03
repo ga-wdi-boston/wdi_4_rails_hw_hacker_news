@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @article = Article.find(params[:article_id])
     @comments = @article.comments
@@ -18,6 +20,7 @@ class CommentsController < ApplicationController
     #@comment.article = @article
     # pushes new comment into article.comments
     @comment = @article.comments.new(comment_params)
+    @comment.user = current_user
     if @comment.save
       redirect_to article_comments_path(@article)
     else
@@ -30,6 +33,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:body)
   end
-
-  def
 end

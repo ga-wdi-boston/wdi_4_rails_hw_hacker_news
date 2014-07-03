@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
+before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @articles = Article.all
+    @article = Article.find_by(params[:id])
+
   end
 
 #don't need the show page
@@ -11,6 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user = current_user
     if @article.save
       redirect_to articles_path
     else
