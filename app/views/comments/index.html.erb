@@ -5,5 +5,7 @@
 <ul>
   <% @comments.each do |comment|%>
     <li> <%=comment.body%>| <%=comment.created_at%></li>
+    <%= button_to 'Up Vote', comment_votes_path(comment), method: :post %>
+    <%= button_to 'Down Vote', comment_votes_path(comment), method: :post %>
   <% end %>
 </ul>
