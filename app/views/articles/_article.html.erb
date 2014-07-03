@@ -1,6 +1,16 @@
 <li>
   <div class="title"><%= link_to article.title, article.url %> <span class="comhead"> (<%= article.host %>)</span><div>
   <div class="subtext">
-    <%= article.list_score %> by <%= link_to article.user.email, author_path(article.user) %> <%= time_ago_in_words(article.submitted_at) %> ago | <%= link_to article.list_comment_count, article_comments_path(article) %>
+  <% if user_signed_in? && !current_user.get_vote(article).nil? %>
+    <% if current_user.get_vote(article).vote == 'upvote' %>
+      <%= link_to '-1', article_vote_path(article.id, current_user.get_vote(article).id, vote: 'downvote'), method: :put %> |
+      <%= link_to 'Neutralize', article_vote_path(article.id, current_user.get_vote(article).id), method: :delete %>
+    <% else %>
+      <%= link_to '+1', article_vote_path(article.id, current_user.get_vote(article).id, vote: 'upvote'), method: :put %> |
+      <%= link_to 'Neutralize', article_vote_path(article.id, current_user.get_vote(article).id), method: :delete %>
+    <% end %>
+  <% else %>
+    <%= link_to '+1', article_votes_path(article.id, vote: 'upvote'), method: :post %>
+  <% end %> | <%= article.score %> by <%= link_to article.user.email, author_path(article.user) %> <%= time_ago_in_words(article.submitted_at) %> ago | <%= link_to article.comment_count, article_comments_path(article) %>
   </div>
 </li>

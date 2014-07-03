@@ -13,20 +13,26 @@ class Article < ActiveRecord::Base
     URI(self.url).host
   end
 
-  def list_score
-    if self.comments.empty?
-      '0 points'
-    else
-      'TODO!!!'
-    end
+  def score
+    points = compute_votes
+    return "#{points} point" if points == 1
+    "#{points} points"
   end
 
-  def list_comment_count
+  def comment_count
     if self.comments.empty?
       'discuss'
     else
       "#{comments.size} comments"
     end
+  end
+
+  private
+
+  def compute_votes
+    points = self.points
+    comments.each { |e| points += e.points }
+    points
   end
 
   validates :user, :title, presence: true

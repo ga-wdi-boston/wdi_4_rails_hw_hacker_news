@@ -1,43 +1,32 @@
 class VotesController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-    @vote = Vote.new
-  end
-
   def create
     @voteable = voteable
-    @vote = Vote.new(vote_params)
-    @vote.user = current_user
+    @vote = Vote.new(vote: params[:vote])
+    @vote.user_id = current_user.id
     @vote.voteable = @voteable
-    save_or_render(:new)
-  end
-
-  def edit
-    @vote = Vote.find(params[:id])
+    if !@vote.save
+      flash[:alert] = @vote.errors.full_messages.join(', ')
+    end
+    redirect_to :back
   end
 
   def update
-    @voteable = votable
     @vote = Vote.find(params[:id])
-    @vote.assign_attributes(vote_params)
-    save_or_render(:edit)
+    if !@vote.update(vote: params[:vote])
+      flash[:alert] = @vote.errors.full_messages.join(', ')
+    end
+    redirect_to :back
+  end
+
+  def destroy
+    @vote = Vote.find(params[:id])
+    @vote.destroy!
+    redirect_to :back
   end
 
   private
-
-  def save_or_render(action)
-    if @vote.save
-      redirect_to @votable, notice: 'Vote saved'
-    else
-      flash[:alert] = @vote.errors.full_message.join(', ')
-      render action
-    end
-  end
-
-  def vote_params
-    params.require(:vote).permit(:vote)
-  end
 
   def voteable
     voteable_type.camelize.constantize.find(voteable_id)

@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments, except: [:edit, :update, :destroy]
-    resources :votes, except: [:index, :show, :destroy]
+    resources :votes, only: [:create, :update, :destroy]
   end
 
   resources :comments, only: :show do
-    resources :votes, except: [:index, :show, :destroy]
+    resources :votes, only: [:create, :update, :destroy]
   end
 
   get 'users/:user_id', to: 'authors#show', as: 'author'

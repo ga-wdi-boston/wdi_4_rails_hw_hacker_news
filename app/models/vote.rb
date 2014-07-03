@@ -1,6 +1,6 @@
 # Represents an upvote or downvote
 class Vote < ActiveRecord::Base
-  VOTE_TYPE = %w(upvote downvote neutral)
+  VOTE_TYPE = %w(upvote downvote)
 
   belongs_to :user
   belongs_to :voteable, polymorphic: true
