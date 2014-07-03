@@ -5,49 +5,45 @@
         <h1>6</h1>
         <p>current score</p>
         <hr>
-
-
       </div>
       <div class="col-md-8 ">
-      <span class="glyphicon glyphicon-flash text-center"></span>
-        <h4><%= article.title %></h4>
+        <span class="glyphicon glyphicon-flash text-center"></span>
+        <h4><%= link_to(article.title, article_path(article.id)) %></h4>
         <p><%= article.body %></p>
 
-
-      <div class="btn-group btn-group-justified">
-        <div class="btn-group">
-          <%= link_to 'Read more', article_path(article.id) %>
-        </div>
-        <div class="btn-group">
-          <% if user_signed_in? %>
-            <% if current_user.upvote_for(article).present? %>
-            <%= link_to 'Upvote', article_upvote_path(article, current_user.upvote_for(article)), method: :delete %>
-            <% else %>
-            <%= link_to 'Upvote', article_upvote_path(article), method: :post %>
-            <% end %>
-          <% end %>
-        </div>
-
-
-
-        <div class="btn-group">
-          <% if user_signed_in? %>
-            <% if current_user.downvote_for(article).present? %>
-            <%= link_to 'Downvote', article_downvote_path(article, current_user.downvote_for(article)), method: :delete %>
-            <% else %>
-            <%= link_to 'Downvote', article_downvote_path(article), method: :post %>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="btn-group">
-          <% if user_signed_in? %>
-            <p><%= link_to 'Comment', new_article_comment_path(@article) %></p>
-          <% end %>
-        </div>
-      </div>
-
-
         <hr>
+
+        <div class="btn-group btn-group-justified">
+
+          <div class="btn-group">
+            <%= link_to 'Read more', article_path(article.id) %>
+          </div>
+          <div class="btn-group">
+            <% if user_signed_in? %>
+              <% if current_user.upvote_for(article).present? %>
+              <%= link_to 'Upvote', article_upvote_path(article, current_user.upvote_for(article)), method: :delete %>
+              <% else %>
+              <%= link_to 'Upvote', article_upvotes_path(article), method: :post %>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="btn-group">
+            <% if user_signed_in? %>
+              <% if current_user.downvote_for(article).present? %>
+              <%= link_to 'Downvote', article_downvote_path(article, current_user.downvote_for(article)), method: :delete %>
+              <% else %>
+              <%= link_to 'Downvote', article_downvotes_path(article), method: :post %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="btn-group">
+            <% if user_signed_in? %>
+              <p><%= link_to 'Comment', article_path(article.id) %>
+              </p>
+            <% end %>
+          </div>
+        </div>
       </div>
       <div class="col-md-2 text-center">
         <h1>4</h1>

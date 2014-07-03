@@ -14,4 +14,8 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def score
+    @article = article(:id).upvote.count - article(:id).downvote.count
+  end
+
 end
