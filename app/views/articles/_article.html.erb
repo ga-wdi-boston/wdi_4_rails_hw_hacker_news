@@ -8,7 +8,7 @@
 
 
       <br>
-      Submitted on: <%= article.submitted_on %> |
+      Submitted on: <%= article.created_at %> |
       Submitted by: <%= article.user.email %> |
       <%= link_to "comments", article_path(article.id) %>
       <br>

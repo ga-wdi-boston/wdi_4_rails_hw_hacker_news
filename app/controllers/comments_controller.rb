@@ -7,7 +7,7 @@ class CommentsController <ApplicationController
   end
 
   def create
-    @article = Article.find(params[:article_id])
+    #@article = Article.find(params[:article_id])
     @comment = @article.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
