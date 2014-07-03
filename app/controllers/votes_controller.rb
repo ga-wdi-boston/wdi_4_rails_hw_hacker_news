@@ -29,10 +29,6 @@ class VotesController < ApplicationController
     Vote.find(params[:id]).destroy!
   end
 
-  def update
-    @vote = Vote.find()
-  end
-
   private
 
   def vote_params

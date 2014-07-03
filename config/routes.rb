@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments do
-    resources :votes, only: [:create, :destroy, :update]
+    resources :votes, only: [:create, :destroy]
   end
 
   root 'home#show'

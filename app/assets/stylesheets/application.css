@@ -29,6 +29,10 @@ body {
   max-width: 1500px;
 }
 
+.button {
+  padding: 8px;
+}
+
 h1 {
   color: white;
   font-family: 'Josefin Slab', serif;

@@ -5,8 +5,9 @@ Users can view a list of all articles and submit their own
 
 
 
-Users can upvote/downvote articles and comments, and change their vote
 Articles and comments are sorted by upvote/downvote score
+
+
 Models have appropriate validations and errors are shown to the user
 App has at least basic styles to provide an attractive and intuitive experience
 App generates HTML and CSS that validates with no errors
@@ -70,3 +71,5 @@ App has working seed data to assist in manual testing
 
 Users can register for an account, sign in, and sign out
 Users can view comments on articles and submit their own
+Users can upvote/downvote articles and comments, and change their vote
+
