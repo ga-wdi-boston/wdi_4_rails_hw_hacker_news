@@ -29,9 +29,6 @@
           <p>
             <%= comment.user.email %> said: <%=comment.content %><br>
             submitted: <%= comment.created_at %>
-            <% if current_user.id.equal?(comment.user_id) %>
-              | <%= link_to 'Delete', article_comment_path(comment, @article), method: 'delete', confirm: 'You sure?' %>
-            <% end %>
           </p>
         <% end %>
 
