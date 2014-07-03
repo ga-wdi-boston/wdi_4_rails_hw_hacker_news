@@ -10,6 +10,8 @@ class Comment < ActiveRecord::Base
     @downvotes = Vote.where(votable_id: @comment_id, value: 'downvote')
     @score = (@upvotes.count) - (@downvotes.count)
 
+    self.vote_score = @score
+
     @score
   end
 end

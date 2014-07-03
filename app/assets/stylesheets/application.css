@@ -31,6 +31,13 @@ body {
 
 .button {
   padding: 8px;
+  background-color: rgba(52, 152, 219,1.0);
+  font-family: 'Josefin Slab', serif;
+}
+
+.vote_count {
+  color: black;
+  font-weight: bold;
 }
 
 h1 {
@@ -62,4 +69,5 @@ h2 {
   background: rgba(236, 240, 241,1.0);
   color: black;
   font-family: 'Josefin Slab', serif;
+  padding-left: 18px;
 }
