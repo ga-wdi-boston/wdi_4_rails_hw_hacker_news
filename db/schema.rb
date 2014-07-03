@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140702213057) do
   create_table "articles", force: true do |t|
     t.text     "title"
     t.text     "url"
+    t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140702213057) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "score"
     t.integer  "article_id"
     t.integer  "user_id"
   end
