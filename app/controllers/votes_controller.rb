@@ -3,10 +3,10 @@ class VotesController < ApplicationController
 
   def create
     #Get votable(status or link) from user.
-    @vote = Vote.new
+    @vote = Vote.new(vote: params[:vote])
     @vote.user = current_user
     @vote.votable = votable
-    @vote.vote = true
+
 
     @vote.save!
     redirect_to :back
@@ -14,10 +14,9 @@ class VotesController < ApplicationController
 
 
   def destroy
-    vote.find(params[:id]).destroy!
+    Vote.find(params[:id]).destroy!
     redirect_to :back
   end
-
 
 
   private

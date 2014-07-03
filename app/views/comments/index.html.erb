@@ -5,7 +5,13 @@
 <ul>
   <% @comments.each do |comment|%>
     <li> <%=comment.body%>| <%=comment.created_at%></li>
-    <%= button_to 'Up Vote', comment_votes_path(comment), method: :post %>
-    <%= button_to 'Down Vote', comment_votes_path(comment), method: :post %>
+    <% if current_user.vote_for(comment).present? %>
+      <%= link_to 'Unvote', comment_vote_path(comment, current_user.vote_for(comment)), method: :delete %>
+    <% else %>
+      <%= link_to 'Up vote', comment_votes_path(comment,:vote => true), method: :post %>
+      <%= link_to 'Down vote', comment_votes_path(comment,:vote => false), method: :post %>
+    <% end %>
+
+
   <% end %>
 </ul>

@@ -6,8 +6,12 @@
     <li> <%=link_to article.title, article.url %> | <%=article.url %>
     | <%=link_to 'Comments', article_comments_path(article.id)  %>
     | <%=link_to 'Delete', article, method: :delete, data:{confirm: 'Are you sure?'} %></li>
-    <%= button_to 'Up Vote', article_votes_path(article), method: :post %>
-    <%= button_to 'Down Vote', article_votes_path(article), method: :post %>
+    <% if current_user.vote_for(article).present? %>
+      <%= link_to 'Unvote', article_vote_path(article, current_user.vote_for(article)), method: :delete %>
+    <% else %>
+      <%= link_to 'Up vote', article_votes_path(article,:vote => true), method: :post %>
+      <%= link_to 'Down vote', article_votes_path(article,:vote => false), method: :post %>
+    <% end %>
 
   <% end %>
 </ul>
