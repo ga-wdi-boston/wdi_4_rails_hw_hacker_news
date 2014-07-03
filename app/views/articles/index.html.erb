@@ -20,6 +20,7 @@
           </div>
           <div class="btn-group">
             <% if user_signed_in? %>
+            <span class="glyphicon glyphicon-arrow-up"></span>
               <% if current_user.upvote_for(article).present? %>
               <%= link_to 'Upvote', article_upvote_path(article, current_user.upvote_for(article)), method: :delete %>
               <% else %>
@@ -30,6 +31,7 @@
 
           <div class="btn-group">
             <% if user_signed_in? %>
+            <span class="glyphicon glyphicon-arrow-down"></span>
               <% if current_user.downvote_for(article).present? %>
               <%= link_to 'Downvote', article_downvote_path(article, current_user.downvote_for(article)), method: :delete %>
               <% else %>

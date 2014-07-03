@@ -15,7 +15,22 @@ class ArticlesController < ApplicationController
   end
 
   def score
-    @article = article(:id).upvote.count - article(:id).downvote.count
+    @article = Article(:id).upvote.count - Article(:id).downvote.count
+  end
+
+  def create
+    @article = Article.new(article_params)
+
+    if @article.save
+      redirect_to articles_path, notice: "Article #{@article.name} created "
+    else
+      render :new
+    end
+  end
+ private
+
+  def article_params
+    params.require(:article).permit([:title, :content])
   end
 
 end
