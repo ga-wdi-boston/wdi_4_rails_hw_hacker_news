@@ -33,17 +33,10 @@
         <% end %>
 
         <%= link_to 'Add a comment', new_article_comment_path(@article) %>
-
-        <!-- <#%= form_for [@article, @comment] do |f| %> -->
-           <p>
-          <!-- <#%= f.label :content %><br> -->
-          <!-- <#%= f.text_area :content %> -->
-          </p>
-          <!-- <p><#%= f.submit "Add Comment"%></p> -->
-        <!-- <#% end %> -->
+        <%= render @article.votes%>
+         <%= button_to 'Upvote', article_votes_path(@article), method: :post %>
 
       <% end %>
-
 
     </div>
   </div>
