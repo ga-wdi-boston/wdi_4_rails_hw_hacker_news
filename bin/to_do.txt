@@ -14,6 +14,7 @@
 
 -error when user tries to submit comment without a body
 -comments are supposed to be sorted by score? I like time better
+-dependent destroy?
 -refactor
 -validate html
 -create partials

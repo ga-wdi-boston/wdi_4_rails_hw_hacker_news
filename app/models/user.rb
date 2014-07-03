@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :articles, dependent: :nullify
-  has_many :comments, dependent: :nullify
-  has_many :votes, dependent: :nullify
+  has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   def vote_for(voteable)
     voteable.votes.find_by(user_id: id)

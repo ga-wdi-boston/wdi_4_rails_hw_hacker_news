@@ -1,16 +1,20 @@
 <h1>Articles</h1>
 <% @articles.each do |article| %>
-  <%= link_to article.title, article.url %> <br>
+  <%= link_to article.title, article.url %>
+  (<%= article.url %>)
+  <br>
   <%= article.points %>
   <%= article.user.email %>
   <%= distance_of_time_in_words(article.created_at, Time.now) %> ago
   <%= link_to pluralize(article.comments.count, 'comment'), article_comments_path(article) %> <br>
   <% if user_signed_in? %>
-    <%= link_to_if current_user.vote_for(article).present? ? current_user.vote_for(article).score != 1 : true, 'up', article_votes_path(article, score: 1), method: :post %>
+    <%= link_to_if current_user.vote_for(article).present? ? current_user.vote_for(article).score != 1 : true, '<div class="glyphicon glyphicon-arrow-up"></div>'.html_safe, article_votes_path(article, score: 1), method: :post %>
     <% if current_user.vote_for(article).present? %>
-      <%= link_to 'neutral', article_vote_path(article, current_user.vote_for(article)), method: :delete %>
+      <%= link_to '<div class="glyphicon glyphicon-minus"></div>'.html_safe, article_vote_path(article, current_user.vote_for(article)), method: :delete %>
+    <% else %>
+      <div class="glyphicon glyphicon-minus"></div>
     <% end %>
-    <%= link_to_if current_user.vote_for(article).present? ? current_user.vote_for(article).score != -1 : true, 'downvote', article_votes_path(article, score: -1), method: :post %>
+    <%= link_to_if current_user.vote_for(article).present? ? current_user.vote_for(article).score != -1 : true, '<div class="glyphicon glyphicon-arrow-down"></div>'.html_safe, article_votes_path(article, score: -1), method: :post %>
   <% end %>
    <br><br>
 <% end %>

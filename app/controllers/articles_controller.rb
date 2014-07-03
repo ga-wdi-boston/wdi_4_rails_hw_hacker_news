@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new]
 
   def index
-    @articles = Article.all.sort{ |article| article.points }.reverse
+    @articles = Article.all.sort_by(&:points).reverse
   end
 
   def new
