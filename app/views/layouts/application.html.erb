@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Wdi4RailsHwTddHackerNews</title>
+  <%= stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/css/foundation.min.css' %>
+  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/foundation.min.js' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -15,6 +17,10 @@
       <%= link_to "Sign up", new_user_registration_path %> |
       <%= link_to "Login", new_user_session_path %>
     <% end %>
+
+<% flash.each do |key, message| %>
+  <%= content_tag :div, message, class: key %>
+<% end %>
 <%= yield %>
 
 </body>
