@@ -1,18 +1,29 @@
-<h3> Articles Index </h3>
-<%= button_to "Submit a new article", new_article_path, method: :get, class: "btn btn-success" %>
-<p> display all articles </p>
-<% @articles.each do |article| %>
-<div class="block">
-  <%= render 'article_vote', article: article %>
-</div>
-
-<div class="block">
-  <div><%= link_to article.title, article.url %></div>
-  <div>Submitted by: <%= User.find(article.user_id).email %>
-    at: <%= article.created_at %>
+<hr>
+<div class="row">
+  <div class="block col-md-4"></div>
+  <div class="block col-md-4">
+    <%= button_to "Submit a new article", new_article_path, method: :get, class: "btn btn-success" %>
   </div>
-  <div><%= link_to "View Comments", article_path(article) %></div>
-  <br>
 </div>
 <hr>
+
+<% @articles.each do |article| %>
+<div class="row">
+  <div class="block col-md-2"></div>
+  <div class="block col-md-2">
+    <%= render 'article_vote', article: article %>
+  </div>
+
+  <div class="block col-md-8 text-center">
+    <h3><%= link_to article.title, article.url %></h3>
+    Submitted by: <%= User.find(article.user_id).email %>
+    <br>
+    at: <%= article.created_at %>
+
+    <div><%= link_to "View Comments", article_path(article) %></div>
+    <br>
+  </div>
+</div>
+<hr>
+
 <% end %>

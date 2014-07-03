@@ -3,9 +3,11 @@
   <div class="block col-md-2">
     <%= render 'comment_vote', article: article, comment: comment %>
   </div>
-  <div class="block col-md-6">
+
+  <div class="block col-md-6 text-center">
     <p>
-      <i><%= comment.user.email %> commented at <%= comment.created_at %>:</i><br>
+      <i><%= comment.user.email %> commented
+      <br>at: <%= comment.created_at %>:</i><br>
       <%= comment.body %>
     </p>
   </div>
