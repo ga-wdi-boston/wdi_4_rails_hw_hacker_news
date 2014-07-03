@@ -17,7 +17,11 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.order(created_at: :desc).page params[:page]
+    # sorting by vote count breaks pagination (also, very inneficient)
+    # What do
+    # @articles = Article.all.sort_by(&:vote_count).page params[:page]
+
+      @articles = Article.order(created_at: :desc).page params[:page]
   end
 
   def show

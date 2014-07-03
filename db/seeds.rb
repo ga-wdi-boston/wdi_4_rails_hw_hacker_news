@@ -18,6 +18,9 @@ art1 = user1.articles.create!(url: "http://www.google.com", title: "Awesome sear
 art2 = user2.articles.create!(url: "http://www.reddit.com/r/ruby", title: "Ruby Subreddit")
 art3 = user4.articles.create!(url: "http://www.hackernews.com", title: "The OG hacker news")
 
+40.times do
+  user1.articles.create!(url: Faker::Internet.url, title: Faker::Company.bs)
+end
 # Comments
 com1 = art1.comments.create!(body: "Duh, it's google", user_id: 3)
 com2 = art2.comments.create!(body: "le repost", user_id: 4)
