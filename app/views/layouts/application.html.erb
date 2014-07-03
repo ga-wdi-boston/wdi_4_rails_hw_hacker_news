@@ -12,10 +12,8 @@
      <%= content_tag :div, msg, :class => "flash_#{name}" %>
    <% end %>
 <% end %>
-  <% if user_signed_in? %>
-    <div>
-      <%= link_to "submit", new_article_path %>
-    </div>
+    <div> <%= link_to "submit", new_article_path %> </div>
+    <% if user_signed_in? %>
     <div>
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to 'Edit profile', edit_user_registration_path %> |

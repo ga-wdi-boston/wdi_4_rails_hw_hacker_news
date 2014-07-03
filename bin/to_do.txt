@@ -1,11 +1,22 @@
--make it so only signed in users can submit articles
--validate presence of article title
--validate presence of article url
+#  -make it so only signed in users can submit articles
+# -validate presence of article title
+# -validate presence of article url
 
--make it so only signed in users can submit comments
--validate presence of comment body
+# -make it so only signed in users can submit comments
+# -validate presence of comment body
 
 -figure out what to do when user is destroyed
 
 
 -look at disabled option for button_to
+
+
+
+-error when user tries to submit comment without a body
+-comments are supposed to be sorted by score? I like time better
+-refactor
+-validate html
+-create partials
+-sexy up styling
+-add some rspec testing
+-try bonuses

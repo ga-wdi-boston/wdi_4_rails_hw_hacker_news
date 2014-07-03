@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  before_action :authenticate_user!, only: :create
+  before_action :authenticate_user!, only: [:create, :new]
 
   def index
     @article = Article.find(params[:article_id])
@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @comment.article_id = params[:article_id]
 
     if @comment.save
-      redirect_to :back, notice: 'Comment was successfully created.'
+      redirect_to :back
     else
       flash.now[:alert] = @comment.errors.full_messages.join(', ')
       render :new

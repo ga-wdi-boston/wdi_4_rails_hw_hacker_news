@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :authenticate_user!, only: :create
+  before_action :authenticate_user!, only: [:create, :new]
 
   def index
     @articles = Article.all.sort{ |article| article.points }.reverse
@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
 
     if @article.save
-      redirect_to articles_path, notice: 'Article was successfully created.'
+      redirect_to articles_path
     else
       flash.now[:alert] = @article.errors.full_messages.join(', ')
       render :new
