@@ -10,9 +10,9 @@ class ArticlesController < ApplicationController
 #     @comment = Comment.new
 #   end
 
-#   def new
-#     @article = Article.new
-#   end
+  def new
+    @article = Article.new
+  end
 
 #   def create
 #     @article = current_user.articles.new(article_params)
