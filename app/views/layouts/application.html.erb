@@ -2,26 +2,38 @@
 <html>
 <head>
   <title>Wdi4RailsHwTddHackerNews</title>
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+  <%= javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="nav">
-    <ul>
-      <li class="left_nav_item"><%= link_to 'HaxorNews', articles_path %></li>
-      <li class="left_nav_item"><%= link_to 'new', newest_articles_path %></li>
-      <li class="left_nav_item"><%= link_to 'comments', newest_comments_path %></li>
-      <li class="left_nav_item"><%= link_to 'submit', new_article_path %></li>
-      <% if user_signed_in? %>
-      <li class="right_nav_item"><%= link_to 'logout', destroy_user_session_path %></li>
-      <% else %>
-      <li class="right_nav_item"><%= link_to 'login', new_user_session_path %></li>
-      <% end %>
-    </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-default" role="navigation">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'HaxorNews', articles_path %></li>
+            <li><%= link_to 'new', newest_articles_path %></li>
+            <li><%= link_to 'comments', newest_comments_path %></li>
+            <li><%= link_to 'submit', new_article_path %></li>
+            <% if user_signed_in? %>
+            <li><%= link_to 'logout', destroy_user_session_path %></li>
+            <% else %>
+            <li><%= link_to 'login', new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <%= yield %>
+      </div>
+    </div>
   </div>
-
-  <%= yield %>
-
 </body>
 </html>
