@@ -10,6 +10,9 @@ Article.delete_all
 Comment.delete_all
 User.delete_all
 
+u1 = User.create!(email: 'fred@example.com', password: 'password')
+u2 = User.create!(email: 'george@example.com', password: 'password')
+
 article = Article.create(
   url: "http://www.crunchbase.com/",
   title: "crunchbase"

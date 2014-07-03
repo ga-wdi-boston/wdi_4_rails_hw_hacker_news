@@ -5,7 +5,7 @@
 <ul>
   <% @comments.each do |comment|%>
     <li> <%=comment.body%>| <%=comment.created_at%></li>
-    <% if current_user.vote_for(comment).present? %>
+    <% if user_signed_in? && current_user.vote_for(comment).present? %>
       <%= link_to 'Unvote', comment_vote_path(comment, current_user.vote_for(comment)), method: :delete %>
     <% else %>
       <%= link_to 'Up vote', comment_votes_path(comment,:vote => true), method: :post %>
