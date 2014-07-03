@@ -10,12 +10,12 @@ FactoryGirl.define do
 
   factory :article do
     url { Faker::Internet.url }
-    title { Faker::Lorem.sentence }
+    title { Faker::Lorem.sentence(1) }
     user
   end
 
   factory :comment do
-    content { Faker::Lorem.sentence }
+    content { Faker::Lorem.sentence(2) }
     user
     article
   end

@@ -1,27 +1,22 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-8">
         <%= comment.content %>
       </div>
-      <div class="col-md-3 text-right">
+      <div class="col-md-4 text-right">
         <div class="btn-group">
           <%= render 'buttons_comments', comment: comment %>
+
         </div>
       </div>
     </div>
   </div>
   <div class="panel-footer">
     <div class="row">
-      <div class="btn-group">
-      <% if user_signed_in? && comment.user_id == current_user.id %>
-        <div class="col-md-2 text-right">
-          <%= link_to article_comment_path(comment.article.id, comment), method: :delete, class: 'btn btn-default' do %>
-            <span class="glyphicon glyphicon-remove"></span>
-          <% end %>
-        </div>
-        <% end %>
-        </div>
+
+
+
 
         <div class="col-md-11">
 
