@@ -16,12 +16,18 @@ class CommentsController <ApplicationController
     end
   end
 
+  def destroy
+    @comment = @article.comments.find(params[:id])
+    @comment.destroy
+    redirect_to article_path
+  end
+
   private
   def comment_params
-    params.require(:comment).permit(:user_id, :content,)
+    params.require(:comment).permit(:user_id, :content)
   end
 
   def set_article
-    @article = Article.find(params[:article_id])
+    @article = Article.find(params[:id])
   end
 end
