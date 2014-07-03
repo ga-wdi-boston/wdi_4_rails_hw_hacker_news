@@ -11,20 +11,36 @@ class VotesController < ApplicationController
     @vote = Vote.new
     @vote.user = current_user
     @vote.votable = @votable
+    @vote.value = votable_value
 
-    @vote.save!
-    redirect_to root_path
+
+    if Vote.exists?(user_id: current_user.id, votable_id: votable_id)
+      @existing_vote = Vote.find_by(user_id: current_user.id, votable_id: votable_id)
+      @existing_vote.value = votable_value
+      @existing_vote.save!
+      redirect_to root_path
+    else
+      @vote.save!
+      redirect_to root_path
+    end
   end
 
   def destroy
     Vote.find(params[:id]).destroy!
-    redirect_to root_path
+  end
+
+  def update
+    @vote = Vote.find()
   end
 
   private
 
   def vote_params
-    params.require(:vote).permit(:user_id, :votable_id, :votable_type)
+    params.require(:vote).permit(:user_id, :votable_id, :votable_type, :value)
+  end
+
+  def votable_value
+    params[:value]
   end
 
   def votable
