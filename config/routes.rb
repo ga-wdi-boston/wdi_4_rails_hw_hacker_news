@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   get 'newest', to: 'articles#newest', as: 'newest_articles'
+  get 'newcomments', to: 'comments#new_comments', as: 'newest_comments'
   get 'users/:user_id', to: 'authors#show', as: 'author'
 
   root 'articles#index'

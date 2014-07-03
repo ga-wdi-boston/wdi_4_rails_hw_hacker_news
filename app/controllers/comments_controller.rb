@@ -1,10 +1,14 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_article
+  before_action :authenticate_user!, except: [:index, :new_comments, :show]
+  before_action :set_article, except: :new_comments
   before_action :set_comments, only: [:index, :new]
   before_action :set_comment, only: :show
 
   def index
+  end
+
+  def new_comments
+    @comments = Comment.order(submitted_at: :desc)
   end
 
   def new

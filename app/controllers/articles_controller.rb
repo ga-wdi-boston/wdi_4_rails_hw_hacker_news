@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit]
+  before_action :authenticate_user!, except: [:index, :newest, :show]
   before_action :find_article, except: [:index, :newest, :new, :create]
 
   def index
@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
     @article.submitted_at = Time.now.getutc
     save_or_render(:new)
   end
@@ -46,9 +47,9 @@ class ArticlesController < ApplicationController
   def save_or_render(action)
     if @article.save
       flash[:success] = 'Article saved'
-      redirect_to @bookmark
+      redirect_to articles_path
     else
-      flash.now[:danger] = 'Error: ' + @bookmark.errors.full_messages.join(', ')
+      flash[:alert] = 'Error: ' + @article.errors.full_messages.join(', ')
       render action
     end
   end
