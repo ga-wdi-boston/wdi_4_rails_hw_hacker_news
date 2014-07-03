@@ -1,0 +1,10 @@
+<% @articles.each do |a| %>
+  <tr class="article">
+    <br><br><td><%= link_to a.title, a.url %></td><br>
+    <td>submitted on<%= a.submission_date %></td>
+  </tr>
+  <% end %>
+
+
+
+
