@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  include VoteCounter
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :votes, as: :voteable, dependent: :destroy

@@ -1,3 +1,8 @@
+<div class="block">
+  <%= comment.vote_count %>
+</div>
+
+<div class="block">
 <% if user_signed_in? %>
 <% current_user_vote = current_user.vote_for(comment) %>
 <% if current_user_vote.present? %>
@@ -17,3 +22,4 @@
 </div>
 <% end %>
 <% end %>
+</div>

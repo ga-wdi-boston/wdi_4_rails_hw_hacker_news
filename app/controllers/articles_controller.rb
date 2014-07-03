@@ -26,7 +26,9 @@ class ArticlesController < ApplicationController
   end
 
   private
+
   def article_params
     params.require(:article).permit(:url, :title, :submitted_at)
   end
+
 end
