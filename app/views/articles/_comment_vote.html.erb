@@ -1,4 +1,9 @@
-<div class="block">
+<% if comment.vote_count > 0 %>
+<div class="block score pos_score">
++
+<% else %>
+<div class="block score neg_score">
+<% end %>
   <%= comment.vote_count %>
 </div>
 

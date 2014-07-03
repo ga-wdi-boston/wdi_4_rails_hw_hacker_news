@@ -1,4 +1,6 @@
+<hr>
 <h2 class="text-center"><%= @article.title %></h2>
+
 <div class="row">
   <div class="block col-md-4"></div>
   <div class="block col-md-2">
@@ -26,6 +28,6 @@
   </div>
 </div>
 <hr>
-<div class="row">
+
   <%= render @article.comments, article: @article %>
-</div>
+

@@ -17,3 +17,17 @@
 .block {
   display: inline-block;
 }
+
+.score {
+  font-size: 25px;
+  font-weight: bold;
+  background-color: black;
+}
+
+.pos_score {
+  color: orange;
+}
+
+.neg_score {
+  color: cyan;
+}

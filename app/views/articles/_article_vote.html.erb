@@ -1,5 +1,10 @@
-<div class="block">
-  <%= article.vote_count %>
+<% if article.vote_count > 0 %>
+<div class="block score pos_score">
++
+<% else %>
+<div class="block score neg_score">
+<% end %>
+<%= article.vote_count %>
 </div>
 
 
