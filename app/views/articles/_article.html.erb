@@ -1,17 +1,28 @@
 <li>
-  <%= link_to(article.title, article.url)%>
+  <b><%= link_to(article.title, article.url)%></b>
   <% if user_signed_in? %>
     <% if current_user.id.equal?(article.user_id) %>
       | <%= link_to 'Edit', edit_article_path(article) %>
       | <%= link_to 'Delete', article_path(article), method: 'delete', confirm: 'Are you sure?' %>
     <% end %>
-  <% end %>
 
-  <br>
-  Submitted on: <%= article.submitted_on %> |
-  Submitted by: <%= article.user.email %> |
-  <%= link_to "comments", article_path(article.id) %>
-  <br>
-  vote score: <%= article.votes.count - article.down_votes.count %>
-  <br>
+
+      <br>
+      Submitted on: <%= article.submitted_on %> |
+      Submitted by: <%= article.user.email %> |
+      <%= link_to "comments", article_path(article.id) %>
+      <br>
+      vote score: <%= article.votes.count - article.down_votes.count %>
+      <br>
+      <% if current_user.has_vote_for(article).present? %>
+        <%= button_to 'Undo Upvote :(', article_vote_path(article, current_user.has_vote_for(article)), method: :delete, class:'btn btn-info btn-xs' %>
+        <% elsif current_user.has_down_vote_for(article).present? %>
+        <%= button_to 'Undo Downvote :)', article_down_vote_path(article, current_user.has_down_vote_for(article)), method: :delete, class:'btn btn-info btn-xs' %>
+            <% else %>
+        <%= link_to 'Upvote', article_votes_path(article), method: :post, class:'btn btn-success btn-xs' %>
+        <%= link_to 'Downvote', article_down_votes_path(article), method: :post, class:'btn btn-warning btn-xs' %>
+        <br>
+        <br>
+     <% end %>
+   <% end %>
 </li>

@@ -43,13 +43,13 @@
             <i><%= comment.user.email %> said:</i> <b><%=comment.content %></b><br>
             <i>submitted:</i> <%= comment.created_at %><br>
             <i>Vote Score:</i> <%=comment.votes.count - comment.down_votes.count%>
-
+            <br>
             <% if current_user.has_vote_for(comment).present? %>
-              <%= button_to 'Undo Upvote', comment_vote_path(comment, current_user.has_vote_for(comment)), method: :delete, class:'btn btn-info' %>
+              <%= button_to 'Undo Upvote', comment_vote_path(comment, current_user.has_vote_for(comment)), method: :delete, class:'btn btn-info btn-xs' %>
             <% elsif current_user.has_down_vote_for(comment).present? %>
-              <%= button_to 'Undo Downvote', comment_down_vote_path(comment, current_user.has_down_vote_for(comment)), method: :delete, class:'btn btn-info' %>
+              <%= button_to 'Undo Downvote', comment_down_vote_path(comment, current_user.has_down_vote_for(comment)), method: :delete, class:'btn btn-info btn-xs' %>
             <%else%>
-              <%= button_to 'Upvote', comment_votes_path(comment), method: :post, class:'btn btn-success' %><%= button_to 'Downvote', comment_down_votes_path(comment), method: :post, class:'btn btn-warning' %>
+              <%= button_to 'Upvote', comment_votes_path(comment), method: :post, class:'btn btn-success btn-xs' %><%= button_to 'Downvote', comment_down_votes_path(comment), method: :post, class:'btn btn-warning btn-xs' %>
             <% end %>
           </p>
         <% end %>
