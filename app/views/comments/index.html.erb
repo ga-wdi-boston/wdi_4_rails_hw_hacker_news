@@ -4,7 +4,7 @@
 <% end %>
 <ul>
   <% @comments.each do |comment|%>
-    <li> <%=comment.body%>| <%=comment.created_at%></li>
+    <li> <%=comment.body%>| <%=comment.created_at%>| Score: <%=article.score %></li>
     <% if user_signed_in? && current_user.vote_for(comment).present? %>
       <%= link_to 'Unvote', comment_vote_path(comment, current_user.vote_for(comment)), method: :delete %>
     <% else %>

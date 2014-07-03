@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only:[:new, :create,:edit,:update,:destroy]
+  before_action :score_count
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order(score: :desc).order(:title)
   end
 
   def show
@@ -39,5 +40,12 @@ class ArticlesController < ApplicationController
     params.require(:article).permit([:url, :title])
   end
 
+  def score_count
+    Article.all.each do |article|
+        score = article.votes.where(vote: true).count - article.votes.where(vote: false).count
+        article.score = score
+        article.save!
+    end
+  end
 
 end

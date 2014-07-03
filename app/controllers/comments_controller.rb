@@ -5,6 +5,10 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @article.comments
+    @comments.each do |comment|
+      score = comment.votes.where(vote: true).count - comment.votes.where(vote: false).count
+      comment.score = score
+    end
   end
 
   def new
