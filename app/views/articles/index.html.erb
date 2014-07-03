@@ -1,32 +1,47 @@
-<dl class="text-center">
+<div class="">
   <% @articles.each do |article| %>
     <div class="row">
-      <div class="col-md-3">
-        <h2>6</h2>
-        <div class="col-md-6">
-        +6
-        </div>
-        <div class="col-md-6">
-        -3
-        </div>
+      <div class="col-md-2 text-center">
+        <h1>6</h1>
+        <p>current score</p>
+        <hr>
+
 
       </div>
-      <div class="col-md-6">
-        <dt><%= article.title %></dt>
-        <dd><%= article.body %></dd>
+      <div class="col-md-8 ">
+      <span class="glyphicon glyphicon-flash text-center"></span>
+        <h4><%= article.title %></h4>
+        <p><%= article.body %></p>
+
+
+      <div class="btn-group btn-group-justified">
+        <div class="btn-group">
+          <a href="#">Read more</a>
+        </div>
+        <div class="btn-group">
+          <a href="#">Upvote</a>
+        </div>
+        <div class="btn-group">
+          <a href="#">Downvote</a>
+        </div>
+        <div class="btn-group">
+          <a href="#">Comment</a>
+        </div>
+      </div>
+
+
         <hr>
       </div>
-      <div class="col-md-3">
-        <h2>4</h2>
-        <div class="col-md-6">
-        </div>
-        <div class="col-md-6">
-        </div>
+      <div class="col-md-2 text-center">
+        <h1>4</h1>
+        <p>people are talking about this</p>
+        <hr>
+
 
       </div>
     </div>
   <% end %>
-</dl>
+</div>
 
 
 

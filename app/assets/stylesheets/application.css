@@ -1,8 +1,15 @@
 body {
-  padding-top: 100px;
+  padding-top: 80px;
+  background-image: url('background.jpg')
 }
+.frost {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding-top: 20px;
 
-
+}
+.haxor {
+  color: white;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

@@ -12,9 +12,9 @@
 
   <div class="row">
     <div class="col-md-12">
-      <nav class="navbar navbar-default navbar-fixed-top text-center" role="navigation">
+      <nav class="navbar navbar-default navbar-fixed-top text-center navbar-inverse" role="navigation">
       <div class="container-fluid">
-        <h1>Haxor News</h1>
+        <h1 class="haxor">Haxor News</h1>
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>.
           <%= link_to 'Edit profile', edit_user_registration_path %> |
@@ -38,14 +38,14 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-1">
       </div>
 
-      <div class="col-md-8">
+      <div class="col-md-10 frost">
         <%= yield %>
       </div>
 
-      <div class="col-md-2">
+      <div class="col-md-1">
       </div>
 
     </div>
