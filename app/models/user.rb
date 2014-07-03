@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
+  def likeable_like(likeable)
+    Like.where(user_id: self.id).find_by(likeable_id: likeable.id, likeable_type: likeable.class)
+  end
 end

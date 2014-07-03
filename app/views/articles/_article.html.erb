@@ -1,9 +1,9 @@
 <tr>
   <td class="lead">
-    <%= link_to article.title, article.url %>
+   <span class="badge"><%= article.score %> </span> <%= link_to article.title, article.url %>
   </td>
   <td>
-    <p class = "text-right" style="font-size: 10px; position: relative; bottom: -10px; right: -60px;"> posted by <%= article.user.username %> at <%= article.created_at %></p>
+    <p class = "text-center" style="font-size: 10px; position: relative; bottom: -10px; right: -60px;"> posted by <%= article.user.username %> at <%= article.created_at %></p>
   </td>
   <td class="text-right">
     <div class="btn-group">

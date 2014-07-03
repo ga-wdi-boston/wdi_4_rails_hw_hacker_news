@@ -1,3 +1,4 @@
+
 Article.delete_all
 User.delete_all
 
@@ -12,3 +13,11 @@ fred.articles.create!(title: 'facebook', url: 'http://facebook.com')
 fred.articles.create!(title: 'news', url: 'http://news.google.com')
 tom.articles.create!(title: 'sports', url: 'http://espn.com')
 mort.articles.create!(title: 'sunscreen', url: 'http://coppertone.com')
+
+# FactoryGirl.build(:comment)
+# FactoryGirl.build(:comment)
+# FactoryGirl.build(:comment)
+# FactoryGirl.build(:comment)
+# FactoryGirl.build(:comment)
+# FactoryGirl.build(:comment)
+# FactoryGirl.build(:comment)

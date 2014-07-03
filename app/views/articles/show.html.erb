@@ -3,14 +3,18 @@
     <div class="btn-group pull-right">
       <%= render 'buttons', article: @article %>
     </div>
-
-    <h1 class="text-center"><%= @article.title %></h1>
+    <div class="row">
+      <div class="col-md-12">
+      <h1 class="text-center"><%= @article.title %></h1>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <ul class="list-group">
           <li class="list-group-item">
             <span class="glyphicon glyphicon-link"></span>
             <%= link_to nil, @article.url %>
+            <span class="badge"><%= @article.score %></span>
           </li>
         </ul>
       </div>
@@ -23,7 +27,7 @@
               <div class="form-group-row">
                 <%= f.text_area :content,  class: 'form-control', rows: 3, placeholder: "Post a comment"%>
               </div>
-              <div class="form-group row">
+              <div class="form-group row" style="margin-top: 10px; margin-right: 5px;">
                 <div class="col-md-offset-10 col-md-2">
                   <%= f.button class: 'btn btn-success' do %>
                     <span class="glyphicon glyphicon-ok"></span> Post
@@ -32,7 +36,7 @@
               </div>
             <% end %>
 
-          <% @article.comments.each do |comment| %>
+          <% @comments.each do |comment| %>
             <%= render comment %>
           <% end %>
         </ul>

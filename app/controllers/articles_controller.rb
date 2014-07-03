@@ -5,14 +5,19 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @articles = Like.order_by_score(@articles)
+    @like = Like.new
   end
 
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
+    @comments =  Comment.all
+    @comments = Like.order_by_score(@comments)
   end
 
   def create
+
     @article = Article.new(article_params)
 
     save_article_or_render(:new)
