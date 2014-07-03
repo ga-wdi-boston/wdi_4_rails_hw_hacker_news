@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703031025) do
+ActiveRecord::Schema.define(version: 20140703032131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,28 @@ ActiveRecord::Schema.define(version: 20140703031025) do
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "downvotes", force: true do |t|
+    t.integer "user_id"
+    t.integer "article_id"
+    t.integer "downvoteable_id"
+    t.string  "downvoteable_type"
+  end
+
+  add_index "downvotes", ["article_id"], name: "index_downvotes_on_article_id", using: :btree
+  add_index "downvotes", ["downvoteable_id", "downvoteable_type"], name: "index_downvotes_on_downvoteable_id_and_downvoteable_type", using: :btree
+  add_index "downvotes", ["user_id"], name: "index_downvotes_on_user_id", using: :btree
+
+  create_table "upvotes", force: true do |t|
+    t.integer "user_id"
+    t.integer "article_id"
+    t.integer "upvoteable_id"
+    t.string  "upvoteable_type"
+  end
+
+  add_index "upvotes", ["article_id"], name: "index_upvotes_on_article_id", using: :btree
+  add_index "upvotes", ["upvoteable_id", "upvoteable_type"], name: "index_upvotes_on_upvoteable_id_and_upvoteable_type", using: :btree
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
