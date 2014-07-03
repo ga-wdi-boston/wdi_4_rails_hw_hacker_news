@@ -10,7 +10,7 @@
   <div id="nav">
     <ul>
       <li><%= link_to 'HaxorNews', articles_path %></li>
-      <li>new</li>
+      <li><%= link_to 'new', newest_articles_path %></li>
       <li>comments</li>
       <li><%= link_to 'submit', new_article_path %></li>
       <% if user_signed_in? %>

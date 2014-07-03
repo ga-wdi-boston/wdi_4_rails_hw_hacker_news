@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :votes, only: [:create, :update, :destroy]
   end
 
+  get 'newest', to: 'articles#newest', as: 'newest_articles'
   get 'users/:user_id', to: 'authors#show', as: 'author'
 
   root 'articles#index'

@@ -1,41 +1,36 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit]
-  before_action :find_article, except: [:index, :new, :create]
+  before_action :find_article, except: [:index, :newest, :new, :create]
 
-  # GET /
-  # GET /articles
   def index
     @articles = Article.all.sort_by { |e| -e.points }
   end
 
-  # GET /articles/new
+  def newest
+    @articles = Article.order(submitted_at: :desc)
+  end
+
   def new
     @article = Article.new
   end
 
-  # POST /articles
   def create
     @article = Article.new(article_params)
     @article.submitted_at = Time.now.getutc
     save_or_render(:new)
   end
 
-  # GET /articles/:id
   def show
   end
 
-  # GET /articles/:id/edit
   def edit
   end
 
-  # PATCH /articles/:id
-  # PUT /articles/:id
   def update
     @article.assign_attributes(article_params)
     save_or_render(:edit)
   end
 
-  # DELETE /articles/:id
   def destroy
     @article.destroy!
     flash[:success] = 'Article deleted'
