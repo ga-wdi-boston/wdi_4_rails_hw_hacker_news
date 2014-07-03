@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
     voteable.votes.find_by(user_id: id)
   end
 
+  def has_down_vote_for(down_voteable)
+    down_voteable.down_votes.find_by(user_id: id)
+  end
+
 end

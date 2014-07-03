@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments, only: [:new, :create, :destroy]
     resources :votes, only:[:create, :destroy]
+    resources :down_votes, only:[:create :destroy]
   end
 
   resources :comments, only:[:new, :create, :destroy] do
     resources :votes, only:[:create, :destroy]
+    resources :down_votes, only:[:create :destroy]
   end
 
   root 'articles#index'
