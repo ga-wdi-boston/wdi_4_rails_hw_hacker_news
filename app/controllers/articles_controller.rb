@@ -17,11 +17,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    # sorting by vote count breaks pagination (also, very inneficient)
-    # What do
-    # @articles = Article.all.sort_by(&:vote_count).page params[:page]
-
-      @articles = Article.order(created_at: :desc).page params[:page]
+    @articles = Kaminari.paginate_array(Article.all.sort_by(&:vote_count).reverse).page params[:page]
   end
 
   def show
