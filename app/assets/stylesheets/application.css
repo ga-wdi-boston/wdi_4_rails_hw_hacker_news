@@ -32,6 +32,8 @@ medium aqua --- 157,199,175
   margin-top: 10px;
 }
 
+/************ ARTICLES ***************/
+
 .article_box {
   width: 100%;
   margin: 8px 0;
@@ -39,19 +41,20 @@ medium aqua --- 157,199,175
 
 .article_box .main {
     background: rgba(243,235,196, 0.5);
-
+    padding: 8px;
 }
 
-.article_box .vote-count {
-  min-width: 100%;
-  min-height: 100%;
-  text-align: center;
-  background: white;
-}
 
-.count-box {
+/***** VOTE STYLES ********/
+
+.count-box, .vote-count {
   min-height: 100%;
   margin: 0;
+
+  font-family: "Nixie One";
+  font-size: 2em;
+  padding: 4px 0 4px 14px;
+  text-align: center;
 }
 
 .vote-buttons form {
@@ -65,6 +68,14 @@ medium aqua --- 157,199,175
   border: 0;
   background: none;
   color: black;
+}
+
+.vote-buttons .up-vote:hover {
+  color: green;
+}
+
+.vote-buttons .down-vote:hover {
+  color: red;
 }
 
 /****** NAVBAR OVERRIDE STUFF *********/

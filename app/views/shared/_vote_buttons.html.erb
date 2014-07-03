@@ -2,17 +2,17 @@
 <% if user_signed_in? %>
   <% if article.present? %>
     <%= button_to votes_path, method: :post, params: {value: 1, article_id: article.id} do %>
-    <i class="fa fa-chevron-up"></i>
+    <i class="fa fa-chevron-up up-vote"></i>
     <% end %>
     <%= button_to votes_path, method: :post, params: {value: -1, article_id: article.id} do %>
-    <i class="fa fa-chevron-down"></i>
+    <i class="fa fa-chevron-down down-vote"></i>
     <% end %>
   <% elsif comment.present? %>
     <%= button_to votes_path, method: :post, params: {value: 1, comment_id: comment.id} do %>
-      <i class="fa fa-chevron-up"></i>
+      <i class="fa fa-chevron-up up-vote"></i>
     <% end %>
     <%= button_to votes_path, method: :post, params: {value: -1, comment_id: comment.id} do %>
-      <i class="fa fa-chevron-down"></i>
+      <i class="fa fa-chevron-down down-vote"></i>
     <% end %>
 
   <% end %>
