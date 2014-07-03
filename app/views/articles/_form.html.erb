@@ -2,16 +2,19 @@
 <%= content_tag :div, value, class: "flash #{key}" %>
 <% end %>
 
-<%= form_for @article do |f| %>
-<div class="form-field">
-  <%= f.label :title %>
-  <%= f.text_field :title, size: 30 %>
+<div class="form">
+  <%= form_for @article do |f| %>
+  <div class="form-field">
+    <div class="form-label"><%= f.label :title, 'Title:' %></div>
+    <%= f.text_field :title, size: 30 %>
+  </div>
+  <div class="form-field">
+    <div class="form-label"><%= f.label :url, 'URL:' %></div>
+    <%= f.text_field :url, size: 50 %>
+  </div>
+  <div class="form-action">
+    <div class="form-label"></div>
+    <%= f.submit %>
+  </div>
+  <% end %>
 </div>
-<div class="form-field">
-  <%= f.label :url %>
-  <%= f.text_field :url, size: 50 %>
-</div>
-<div class="form-action">
-  <%= f.submit %>
-</div>
-<% end %>

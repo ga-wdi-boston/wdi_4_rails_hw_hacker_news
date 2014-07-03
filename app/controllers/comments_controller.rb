@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def new_comments
-    @comments = Comment.order(submitted_at: :desc)
+    @comments = Comment.order(created_at: :desc)
   end
 
   def new

@@ -1,3 +1,7 @@
 <ol>
-  <%= render partial: 'article', collection: @articles %>
+  <% @articles.each do |item| %>
+  <li>
+    <%= render 'article', article: item %>
+  </li>
+  <% end %>
 </ol>
