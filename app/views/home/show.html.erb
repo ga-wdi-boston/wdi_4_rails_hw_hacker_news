@@ -1,17 +1,27 @@
-<h1>What's trending right now:</h1>
-
-<div class='row'>
-  <div class='large-4 columns'>
-    <ul class='side-nav'>
-    <% @articles.each do |article| %>
-      <tr><a href="<%= article.url %>" target="_blank"><%= article.title %></a></tr>
-      <br>
-    <% end %>
-    </ul>
-  </div>
-  <div class='large-4 columns'>
-  </div>
-  <div class='large-4 columns'>
-    <p>Join the discussion:</p>
+<div class='row main_container'>
+  <div class='large-6 columns'>
+    <div class='row discussion'>
+      <h1>What's trending right now:</h1>
+    </div>
+    <div class='row'>
+      <ul class='side-nav'>
+      <% @articles.each do |article| %>
+        <tr><a href="<%= article.url %>" target="_blank"><%= article.title %></a> | <a href="<%= root_path(article.id) %>"><%= article.comments.count %> comments | <%= link_to 'Add your own comment!', new_article_comment_path(article.id) %></tr>
+        <br>
+        <tr><span class='emails'>posted by <%= article.user.email %> on <%=article.created_at.strftime('%b %d, %Y') %></span></tr>
+        <br>
+      <% end %>
+      </ul>
+    </div>
+    </div>
+  <div class='large-6 columns'>
+    <div class='row'>
+      <h2>Join the discussion:</h2>
+    </div>
+    <div class='row'>
+      <div class='comment-nav'>
+        <%= render 'comments' %>
+      </ul>
+    </div>
   </div>
 

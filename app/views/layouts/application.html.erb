@@ -10,21 +10,7 @@
   <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:100,400' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<nav>
-  <%= link_to 'Home', root_path %>
-  <% if user_signed_in? %>
-    | Signed in as <%= current_user.email %>
-    | <%= link_to 'New Article', new_article_path %>
-    | <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-  <% else %>
-    | <%= link_to 'Sign in', new_user_session_path %>
-  <% end %>
-</nav>
-
-<p class="notice"><%= flash[:notice] %></p>
-<p class="alert"><%= flash[:alert] %></p>
-
-<hr>
+<%= render 'layouts/header' %>
 
 <%= yield %>
 

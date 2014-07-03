@@ -1,0 +1,11 @@
+Create a new comment
+
+<% if user_signed_in? %>
+
+  <%= form_for [@article, @comment] do |f| %>
+    <%= f.label "Create a new comment" %><br>
+    <%= f.text_field :body %>
+    <br>
+    <%= f.submit %>
+  <% end %>
+<% end %>

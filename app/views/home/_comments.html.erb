@@ -1,0 +1,6 @@
+<dl class='comments_nav'>
+  <% @recent_article_comments.each do |comment| %>
+    <dd><%= comment.body %></dd>
+    <dd>by <%= comment.user.email %></dd>
+  <% end %>
+</dl>
