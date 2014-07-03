@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: :create
 
   def index
-    @articles = Article.all.order(created_at: :desc)
+    @articles = Article.all.sort{ |article| article.points }.reverse
   end
 
   def new

@@ -1,10 +1,16 @@
 <h1>Articles</h1>
 <% @articles.each do |article| %>
   <%= link_to article.title, article.url %> <br>
+  <%= article.points %>
   <%= article.user.email %>
   <%= distance_of_time_in_words(article.created_at, Time.now) %> ago
   <%= link_to pluralize(article.comments.count, 'comment'), article_comments_path(article) %> <br>
-  <%= link_to 'up', article_votes_path(article, is_up: 1), method: :post %>
-  <%= link_to 'neutral', article_votes_path(article, is_up: 0), method: :post %>
-  <%= link_to 'downvote', article_votes_path(article, is_up: -1), method: :post %> <br>
+  <% if user_signed_in? %>
+    <%= link_to_if current_user.vote_for(article).present? ? current_user.vote_for(article).score != 1 : true, 'up', article_votes_path(article, score: 1), method: :post %>
+    <% if current_user.vote_for(article).present? %>
+      <%= link_to 'neutral', article_vote_path(article, current_user.vote_for(article)), method: :delete %>
+    <% end %>
+    <%= link_to_if current_user.vote_for(article).present? ? current_user.vote_for(article).score != -1 : true, 'downvote', article_votes_path(article, score: -1), method: :post %>
+  <% end %>
+   <br><br>
 <% end %>

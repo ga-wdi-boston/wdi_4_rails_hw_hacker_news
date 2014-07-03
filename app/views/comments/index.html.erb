@@ -1,7 +1,16 @@
 <h1><%= @article.title %></h1>
   <%= link_to @article.url, @article.url %> <br>
+  <%= @article.points %>
   <%= @article.user.email %>
   <%= distance_of_time_in_words(@article.created_at, Time.now) %> ago <br>
+  <% if user_signed_in? %>
+    <%= link_to_if current_user.vote_for(@article).present? ? current_user.vote_for(@article).score != 1 : true, 'up', article_votes_path(@article, score: 1), method: :post %>
+    <% if current_user.vote_for(@article).present? %>
+      <%= link_to 'neutral', article_vote_path(@article, current_user.vote_for(@article)), method: :delete %>
+    <% end %>
+    <%= link_to_if current_user.vote_for(@article).present? ? current_user.vote_for(@article).score != -1 : true, 'downvote', article_votes_path(@article, score: -1), method: :post %>
+  <% end %>
+   <br><br>
   <br>
 <%= form_for [@article, @comment] do |f| %>
   <div class="field">
@@ -13,7 +22,17 @@
   </div>
 <% end %>
 <% @comments.each do |comment| %>
+  <%= comment.points %>
   <%= comment.user.email %>
   <%= distance_of_time_in_words(comment.created_at, Time.now) %> ago <br>
-  <%= comment.body %> <br><br>
+  <% if user_signed_in? %>
+    <%= link_to_if current_user.vote_for(comment).present? ? current_user.vote_for(comment).score != 1 : true, 'up', comment_votes_path(comment, score: 1), method: :post %>
+    <% if current_user.vote_for(comment).present? %>
+      <%= link_to 'neutral', comment_vote_path(comment, current_user.vote_for(comment)), method: :delete %>
+    <% end %>
+    <%= link_to_if current_user.vote_for(comment).present? ? current_user.vote_for(comment).score != -1 : true, 'downvote', comment_votes_path(comment, score: -1), method: :post %>
+  <% end %>
+  <br><br>
+  <%= comment.body %>
+  <br><br>
 <% end %>

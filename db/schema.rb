@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20140702224903) do
     t.integer "user_id"
     t.integer "voteable_id"
     t.string  "voteable_type"
-    t.boolean "is_up"
+    t.integer "score"
   end
 
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree

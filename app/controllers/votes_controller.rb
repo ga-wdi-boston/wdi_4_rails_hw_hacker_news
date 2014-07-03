@@ -1,15 +1,24 @@
 class VotesController < ApplicationController
 
+  before_action :authenticate_user!, only: :create :destroy
+
   def create
+
     if current_user.vote_for(voteable).present?
       current_user.vote_for(voteable).destroy
     end
+
     @voteable = voteable
     @vote = current_user.votes.new
-    @vote.is_up = params[:is_up]
+    @vote.score = params[:score]
     @vote.voteable = @voteable
 
     @vote.save!
+    redirect_to :back
+  end
+
+  def destroy
+    Vote.find(params[:id]).destroy!
     redirect_to :back
   end
 
