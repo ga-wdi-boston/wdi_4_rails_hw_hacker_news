@@ -28,5 +28,11 @@
     <%= button_to "downvote", article_votes_path(article, upvote: false), method: :post, class: "btn btn-primary" %>
   </div>
   <% end %>
+  <% else %>
+  <div>
+      <div class="btn btn-default">upvote</div>
+      <br>
+      <div class="btn btn-default">downvote</div>
+  </div>
   <% end %>
 </div>
