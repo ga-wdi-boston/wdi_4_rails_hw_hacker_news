@@ -1,0 +1,15 @@
+<h1><%= link_to @article.title, @article.url %>
+   <small>
+    (<%= link_to @article.url, @article.url %>)
+   </small>
+</h1>
+
+<%= link_to "back", articles_path %>
+
+<h3> Comments </h3>
+<ul><%= link_to 'Post Comment', new_article_comment_path(@article) %></ul>
+
+<% @article.comments.each do |comment| %> <br>
+  <%= comment.comments %>
+
+<%end%>
