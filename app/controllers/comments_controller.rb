@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   before_action :set_article, :score_count
 
   def index
-    @comments = @article.comments
+    @comments = @article.comments.order(score: :desc).order(created_at: :desc)
   end
 
   def new

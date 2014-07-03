@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :score_count
 
   def index
-    @articles = Article.all.order(score: :desc).order(:title)
+    @articles = Article.all.order(score: :desc).order(created_at: :desc)
   end
 
   def show
