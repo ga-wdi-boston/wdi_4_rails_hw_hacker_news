@@ -3,5 +3,6 @@
   <p>
     <%= render article %>
     | <%= link_to 'comments', article %> (<%= article.comments.count %>)
+    | <%= link_to 'Upvote', article_votes_path(article), method: :post %> (<%= article.votes.count %>)
   </p>
 <% end %>

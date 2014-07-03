@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:show, :new, :create] do
     resources :comments, only: [:new, :create]
-    resources :likes, only: [:create, :destroy]
+    resources :votes, only: [:create, :destroy]
   end
 
   root 'home#show'
