@@ -1,6 +1,6 @@
 <span class="glyphicon glyphicon-flash text-center"></span>
-<h2><%= article.title %></h2>
-<p><%= article.body %></p>
+<h2><%= @article.title %></h2>
+<p><%= @article.body %></p>
 
 <% if user_signed_in? %>
   <p><%= link_to 'Leave a comment', new_article_comment_path(@article) %></p>
@@ -8,6 +8,6 @@
   <p><%= link_to 'Downvote', create_article_downvote_path(@article) %></p>
 <% end %>
 <p>
-  <i><%= comment.user.email %> commented:</i><br>
-  <%= comment.content %>
+
+  <%= @comment.content %>
 </p>

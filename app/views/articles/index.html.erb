@@ -1,4 +1,4 @@
-<div class="">
+<div>
   <% @articles.each do |article| %>
     <div class="row">
       <div class="col-md-2 text-center">
@@ -16,16 +16,33 @@
 
       <div class="btn-group btn-group-justified">
         <div class="btn-group">
-          <a href="#">Read more</a>
+          <%= link_to 'Read more', article_path(article.id) %>
         </div>
         <div class="btn-group">
-          <a href="#">Upvote</a>
+          <% if user_signed_in? %>
+            <% if current_user.upvote_for(article).present? %>
+            <%= link_to 'Upvote', article_upvote_path(article, current_user.upvote_for(article)), method: :delete %>
+            <% else %>
+            <%= link_to 'Upvote', article_upvote_path(article), method: :post %>
+            <% end %>
+          <% end %>
+        </div>
+
+
+
+        <div class="btn-group">
+          <% if user_signed_in? %>
+            <% if current_user.downvote_for(article).present? %>
+            <%= link_to 'Downvote', article_downvote_path(article, current_user.downvote_for(article)), method: :delete %>
+            <% else %>
+            <%= link_to 'Downvote', article_downvote_path(article), method: :post %>
+            <% end %>
+          <% end %>
         </div>
         <div class="btn-group">
-          <a href="#">Downvote</a>
-        </div>
-        <div class="btn-group">
-          <a href="#">Comment</a>
+          <% if user_signed_in? %>
+            <p><%= link_to 'Comment', new_article_comment_path(@article) %></p>
+          <% end %>
         </div>
       </div>
 
