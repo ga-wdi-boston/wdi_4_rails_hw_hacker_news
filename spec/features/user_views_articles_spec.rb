@@ -15,4 +15,12 @@ feature 'User views articles' do
     expect(page).to have_content "Rails Documentation"
 
   end
+
+  scenario 'ordered by score' do
+    @doc.votes.create!(user_id: @devin.id, is_up: true)
+
+    visit root_path
+
+    expect(page).to have_content(/Documentation.*Guides/)
+  end
 end
