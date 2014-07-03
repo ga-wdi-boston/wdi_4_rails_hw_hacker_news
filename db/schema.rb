@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703021720) do
+ActiveRecord::Schema.define(version: 20140703142435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,14 @@ ActiveRecord::Schema.define(version: 20140703021720) do
   add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
 
   create_table "points", force: true do |t|
-    t.integer "number_of_points"
-    t.boolean "is_upvote"
+    t.integer "number_of_points", default: 0
+    t.integer "user_id"
+    t.integer "pointable_id"
+    t.string  "pointable_type"
   end
+
+  add_index "points", ["pointable_id", "pointable_type"], name: "index_points_on_pointable_id_and_pointable_type", using: :btree
+  add_index "points", ["user_id"], name: "index_points_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

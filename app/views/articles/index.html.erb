@@ -1,7 +1,10 @@
 <% @articles.each do |a| %>
   <tr class="article">
     <br><br><td><%= link_to a.title, a.url %></td><br>
-    <td>submitted on<%= a.submission_date %></td>
+    <td><%= time_ago_in_words(a.created_at) %> ago<br>
+    <td><%= link_to 'make a comment', new_article_comment_path(a) %> </td>
+<!-- a in the path is the temp var that  we're interating over -->
+    <td><%= button_to 'up vote', article_points_path(a.id) %> </td>
   </tr>
   <% end %>
 

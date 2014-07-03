@@ -1,0 +1,12 @@
+<% @comments.each do |c| %>
+  <tr class="article">
+<!-- how do i include the article title? c.article.title ? -->
+  <br><td><%= c.content %></td><br>
+    <td><%= time_ago_in_words(c.created_at) %> ago<br>
+  </tr>
+  <% end %>
+
+
+
+
+
