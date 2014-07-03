@@ -1,3 +1,4 @@
+require 'pry'
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :newest, :show]
   before_action :find_article, except: [:index, :newest, :new, :create]
