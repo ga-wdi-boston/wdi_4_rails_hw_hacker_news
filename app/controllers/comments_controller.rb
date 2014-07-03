@@ -8,11 +8,11 @@ class CommentsController <ApplicationController
 
   def create
     @comment = @article.comments.new(comment_params)
-
+    @comment.user = current_user
     if @comment.save
-      redirect_to :back, notice: "Just Awesome. Great Comment."
+      redirect_to article_path(@article), notice: "Just Awesome. Great Comment."
     else
-      redirect_to :back, alert: "That did not work yo"
+      redirect_to article_path(@article), alert: "That did not work yo"
     end
   end
 
