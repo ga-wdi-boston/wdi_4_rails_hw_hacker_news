@@ -3,7 +3,6 @@ class VotesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
-
     if current_user.vote_for(voteable).present?
       current_user.vote_for(voteable).destroy
     end

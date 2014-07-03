@@ -1,4 +1,4 @@
-#  -make it so only signed in users can submit articles
+# -make it so only signed in users can submit articles
 # -validate presence of article title
 # -validate presence of article url
 

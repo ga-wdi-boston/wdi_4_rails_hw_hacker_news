@@ -1,0 +1,19 @@
+  <div class= 'article'>
+    <p><%= link_to article.title, article.url %> (<%= article.url %>)</p>
+    <ul class="subhead list-inline">
+    <% if user_signed_in? %>
+      <%= link_to_if current_user.vote_for(article).present? ? current_user.vote_for(article).score != 1 : true, '<div class="glyphicon glyphicon-arrow-up"></div>'.html_safe, article_votes_path(article, score: 1), method: :post %>
+      <% if current_user.vote_for(article).present? %>
+        <%= link_to '<div class="glyphicon glyphicon-minus"></div>'.html_safe, article_vote_path(article, current_user.vote_for(article)), method: :delete %>
+      <% else %>
+        <div class="glyphicon glyphicon-minus"></div>
+      <% end %>
+      <%= link_to_if current_user.vote_for(article).present? ? current_user.vote_for(article).score != -1 : true, '<div class="glyphicon glyphicon-arrow-down"></div>'.html_safe, article_votes_path(article, score: -1), method: :post %>
+    <% end %>
+
+    <li><%= article.points %> points </li>
+    <li>by <%= article.user.email %></li>
+    <li><%= distance_of_time_in_words(article.created_at, Time.now) %> ago</li>
+    <li><%= link_to pluralize(article.comments.count, 'comment'), article_comments_path(article) %></li>
+  </div>
+

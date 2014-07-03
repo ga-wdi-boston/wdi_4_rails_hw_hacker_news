@@ -16,7 +16,10 @@ class CommentsController < ApplicationController
       redirect_to :back
     else
       flash.now[:alert] = @comment.errors.full_messages.join(', ')
-      render :new
+      @article = Article.find(params[:article_id])
+      @comments = @article.comments.order(created_at: :desc)
+      @comment = Comment.new
+      render :index
     end
 
   end
