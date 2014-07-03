@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.create(article_params)
     @article.submitted_on = DateTime.now
+    @article.user = current_user
     if @article.save
       flash[:notice] = 'Article created!'
       redirect_to articles_path
@@ -43,11 +44,12 @@ class ArticlesController < ApplicationController
     end
   end
 
-  #delete and destroy!
-  def delete
-  end
-
+  # and destroy!
   def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to root_path
+
   end
 
   private
