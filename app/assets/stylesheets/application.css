@@ -7,10 +7,13 @@ body {
   padding-top: 20px;
 
 }
-.haxor {
+.haxor a {
   color: white;
 }
-
+.haxor a:hover {
+  color: white;
+  text-decoration: none;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
