@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 feature 'User submits article' do
-  scenario 'successfully' do
-    devin = create(:user, email: "devin@example.com")
+  background do
+    @devin = create(:user, email: "devin@example.com")
     visit root_path
-    sign_in_as(devin)
+  end
+
+  scenario 'successfully' do
+    sign_in_as(@devin)
 
     click_link "Submit Article"
     fill_in "Title", with: "Ruby on Rails Guides"
@@ -15,7 +18,6 @@ feature 'User submits article' do
   end
 
   scenario 'unsuccessfully not signed in' do
-    visit root_path
 
     click_link "Submit Article"
 
@@ -23,9 +25,7 @@ feature 'User submits article' do
   end
 
   scenario 'unsuccessfully due to required fields being blank' do
-    devin = create(:user, email: "devin@example.com")
-    visit root_path
-    sign_in_as(devin)
+    sign_in_as(@devin)
 
     click_link "Submit Article"
     click_button "Submit Article"
