@@ -10,4 +10,8 @@ class ArticlesController < ApplicationController
     @comment = Comment.new
   end
 
+  def new
+    @article = Article.new
+  end
+
 end
