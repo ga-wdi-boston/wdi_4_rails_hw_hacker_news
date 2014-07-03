@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.delete_all
+Article.delete_all
+
+eric = User.create!(email: 'eric.rho.87@gmail.com', password: 'password')
+
+reddit = Article.create!(title: 'Consumer of Lives', url: 'http://www.reddit.com')
+screen = Article.create!(title: 'My Favourite Site For Movie News', url: 'http://www.screenrant.com')
