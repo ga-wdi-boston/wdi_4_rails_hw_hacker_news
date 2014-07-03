@@ -4,4 +4,7 @@
   <%= article.user.email %>
   <%= distance_of_time_in_words(article.created_at, Time.now) %> ago
   <%= link_to pluralize(article.comments.count, 'comment'), article_comments_path(article) %> <br>
+  <%= link_to 'up', article_votes_path(article, is_up: 1), method: :post %>
+  <%= link_to 'neutral', article_votes_path(article, is_up: 0), method: :post %>
+  <%= link_to 'downvote', article_votes_path(article, is_up: -1), method: :post %> <br>
 <% end %>

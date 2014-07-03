@@ -6,5 +6,10 @@ class User < ActiveRecord::Base
 
   has_many :articles
   has_many :comments
+  has_many :votes
+
+  def vote_for(voteable)
+    voteable.votes.find_by(user_id: id)
+  end
 
 end

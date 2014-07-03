@@ -4,3 +4,8 @@
 
 -make it so only signed in users can submit comments
 -validate presence of comment body
+
+-figure out what to do when user is destroyed
+
+
+-look at disabled option for button_to
