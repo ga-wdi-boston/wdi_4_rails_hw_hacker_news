@@ -73,13 +73,11 @@ articles = [rails, doc, cap, js, frameworks, html, css, hackathon, events, meetu
 
 articles.each do |article|
   (rand(10) + 1).times do
-    article.comments.create!(body: "This is a comment", user_id: rand(11) + 1)
+    article.comments.create!(body: "This is a comment by #{users[rand(10)].email}", user_id: rand(11) + 1)
   end
 end
 
 # Votes
-options = [true, false]
-
 users.each do |user|
   articles.each do |article|
     article.votes.create(user_id: user.id, is_up: %w(true false).sample)

@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
 
   validates :title, presence: true
   validates :url, format: { with: /\Ahttp/ }
-  # validates! :user_id, presence: true
+  validates! :user_id, presence: true
 
   def score
     score = 0

@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   has_many :votes, as: :voteable, dependent: :destroy
 
   validates :body, presence: true
-  # validates! :user_id, :article_id, presence: true
+  validates! :user_id, :article_id, presence: true
 
   def score
     score = 0
