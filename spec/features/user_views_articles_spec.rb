@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 feature 'User views articles' do
-  scenario 'on the front page' do
+  background do
+    @devin = create(:user, email: "devin@example.com")
+    @rails = @devin.articles.create!(title: "Ruby on Rails Guides", url: "http://guides.rubyonrails.org/")
+    @doc = @devin.articles.create!(title: "Rails Documentation", url: "http://api.rubyonrails.org/")
+  end
 
-    devin = create(:user, email: "devin@example.com")
-    devin.articles.create!(title: "Ruby on Rails Guides", url: "http://guides.rubyonrails.org/")
-    devin.articles.create!(title: "Rails Documentation", url: "http://api.rubyonrails.org/")
+  scenario 'on the front page' do
 
     visit root_path
 

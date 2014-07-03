@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @article.comments.new(comments_params)
+    @comment.user_id = current_user.id
     if @comment.save
       flash[:notice] = "Posted comment."
       redirect_to article_comments_path(@article, @song)

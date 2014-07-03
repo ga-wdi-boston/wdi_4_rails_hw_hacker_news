@@ -4,7 +4,7 @@ feature 'User votes on comments' do
   background do
     devin = create(:user, email: "devin@example.com")
     rails = devin.articles.create!(title: "Ruby on Rails Guides", url: "http://guides.rubyonrails.org/")
-    rails.comments.create!(body: "This is a comment on the ruby on rails guides article.")
+    rails.comments.create!(body: "This is a comment on the ruby on rails guides article.", user_id: devin.id)
     visit root_path
     sign_in_as(devin)
     click_link "comments"

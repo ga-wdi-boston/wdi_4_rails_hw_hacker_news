@@ -80,10 +80,10 @@ end
 # Votes
 users.each do |user|
   articles.each do |article|
-    article.votes.create(user_id: user.id, is_up: %w(true false).sample)
+    article.votes.create!(user_id: user.id, is_up: %w(true false).sample)
 
     article.comments.each do |comment|
-      comment.votes.create(user_id: user.id, is_up: %w(true false).sample)
+      comment.votes.create!(user_id: user.id, is_up: %w(true false).sample)
     end
   end
 end
