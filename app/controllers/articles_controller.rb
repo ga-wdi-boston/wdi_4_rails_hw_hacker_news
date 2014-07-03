@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to articles_path, notice: "Article #{@article.name} created "
+      redirect_to articles_path, notice: "Article #{@article.title} created "
     else
       render :new
     end
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
  private
 
   def article_params
-    params.require(:article).permit([:title, :content])
+    params.require(:article).permit([:title, :body])
   end
 
 end
