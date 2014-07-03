@@ -1,14 +1,16 @@
-<h1>New Article</h1>
+<h1>Submit your article here</h1>
 
 <%= form_for @article do |f| %>
   <div class="field">
-    <%= f.label :url, 'URL' %><br>
+    <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
+  <!-- how do i auto add a submission date in a form? -->
+  <!-- http://guides.rubyonrails.org/form_helpers.html check here: search "date" -->
   <div class="actions">
     <%= f.submit %>
   </div>
