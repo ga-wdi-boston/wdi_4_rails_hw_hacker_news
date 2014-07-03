@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  # belongs_to :article, :user
+  belongs_to :article#, :user
 
   # #look for _type AND _id to find this
   # belongs_to :commentable, polymorphic: true
