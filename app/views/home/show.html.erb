@@ -8,7 +8,7 @@
       <% @articles.each do |article| %>
         <tr><a href="<%= article.url %>" target="_blank"><%= article.title %></a> | <a href="<%= root_path(article.id) %>"><%= article.comments.count %> comments | <%= link_to 'Add your own comment!', new_article_comment_path(article.id) %></tr>
         <br>
-        <tr><span class='emails'>posted by <%= article.user.email %> on <%=article.created_at.strftime('%b %d, %Y') %></span><span class='vote_count'>Score: <%= article.vote_count %></span></tr>
+        <tr><span class='emails'>posted by <%= article.user.email %> on <%=article.created_at.strftime('%b %d, %Y') %></span> | <span class='vote_count'>Score: <%= article.vote_count %></span></tr>
         <tr><div class="votes"><%= button_to 'Vote Up', article_votes_path(article, value: 'upvote'), method: :post, class: 'button' %> <%= button_to 'Vote Down', article_votes_path(article, value: 'downvote'), class: 'button', data: 'downvote'%></div></tr>
         <br>
       <% end %>
