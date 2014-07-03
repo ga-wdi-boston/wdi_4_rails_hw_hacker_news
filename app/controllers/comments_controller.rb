@@ -1,14 +1,10 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only:[:new, :create,:edit,:update,:destroy]
 
-  before_action :set_article
+  before_action :set_article, :score_count
 
   def index
     @comments = @article.comments
-    @comments.each do |comment|
-      score = comment.votes.where(vote: true).count - comment.votes.where(vote: false).count
-      comment.score = score
-    end
   end
 
   def new
@@ -43,6 +39,14 @@ class CommentsController < ApplicationController
 
   def set_article
     @article = Article.find(params[:article_id])
+  end
+
+  def score_count
+    @article.comments.each do |comment|
+        score = comment.votes.where(vote: true).count - comment.votes.where(vote: false).count
+        comment.score = score
+        comment.save!
+    end
   end
 
 end
