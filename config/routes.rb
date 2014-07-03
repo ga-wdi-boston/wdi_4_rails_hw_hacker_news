@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :articles
-end
+  resources :articles, only: [:show, :new, :create] do
+    resources :comments, only: [:new, :create]
+    resources :likes, only: [:create, :destroy]
+  end
 
-# Create views, to enable login, to complete step 1
+  root 'home#show'
+end

@@ -1,0 +1,6 @@
+<a href="<%= article.url %>" target="_blank"> <%= article.title %> </a>
+<i>
+  &mdash; <%= article.user.email %>
+  <%= time_ago_in_words(article.created_at) %> ago
+</i>
+

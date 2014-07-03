@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wdi4RailsHwTddHackerNews</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Hacker News (lite)</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+  <%= javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<h3>Hacker News (lite)</h3>
+<% if user_signed_in? %>
+     Signed in as <%= current_user.email %>
+    | <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  <% else %>
+    | <%= link_to 'Sign in', new_user_session_path %>
+  <% end %>
+<ul class="nav nav-pills">
+  <li class="active"><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'New Article', new_article_path %></li>
+</ul>
 
-<div>
-     <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
- </div>
+
+<p class="notice"><%= flash[:notice] %></p>
+<p class="alert"><%= flash[:alert] %></p>
+
+<hr>
 
 <%= yield %>
 

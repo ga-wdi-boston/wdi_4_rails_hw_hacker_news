@@ -1,0 +1,7 @@
+<h3>Articles</h3>
+<% @articles.each do |article| %>
+  <p>
+    <%= render article %>
+    | <%= link_to 'comments', article %> (<%= article.comments.count %>)
+  </p>
+<% end %>
