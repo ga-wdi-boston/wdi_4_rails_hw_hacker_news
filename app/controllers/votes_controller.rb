@@ -3,12 +3,12 @@ class VotesController < ApplicationController
 
   def create
     @voteable = voteable
-    @vote =Vote.new
+    @vote = Vote.new
     @vote.user = current_user
     @vote.voteable = @voteable
 
     if @vote.save
-      redirect_to @voteable, notice: "voted!"
+      redirect_to :back, notice: "voted!"
     else
       flash.now[:alert] = @vote.errors.full_messages.join(', ')
       redirect_to @voteable
@@ -36,7 +36,7 @@ class VotesController < ApplicationController
 
   def voteable_type
     # this will return either status or link based on which is there
-    %w(status link).detect{ |type| params["#{type}_id"].present?}
+    %w(article comment).detect{ |type| params["#{type}_id"].present?}
   end
 
 end

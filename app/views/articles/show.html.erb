@@ -13,6 +13,15 @@
         </p>
       </div>
 
+      <h4>
+        # of Upvotes <%= @article.votes.count %>
+        <% if current_user.has_vote_for(@article).present? %>
+          <%= button_to 'Undo Upvote', article_vote_path(@article, current_user.has_vote_for(@article)), method: :delete %>
+        <% else %>
+          <%= button_to 'Upvote', article_votes_path(@article), method: :post %>
+        <% end %>
+
+      </h4>
 
       <% if user_signed_in? %>
         <% if current_user.id.equal?(@article.user_id) %>
@@ -28,13 +37,19 @@
         <% @article.comments.each do |comment| %>
           <p>
             <%= comment.user.email %> said: <%=comment.content %><br>
-            submitted: <%= comment.created_at %>
+            submitted: <%= comment.created_at %><br>
+            # of Upvotes: <%=comment.votes.count %>
+
+            <% if current_user.has_vote_for(comment).present? %>
+              <%= button_to 'Undo Upvote', comment_vote_path(comment, current_user.has_vote_for(comment)), method: :delete %>
+            <% else %>
+              <%= button_to 'Upvote', comment_votes_path(comment), method: :post %>
+            <% end %>
           </p>
         <% end %>
 
-        <%= link_to 'Add a comment', new_article_comment_path(@article) %>
-        <%= render @article.votes%>
-         <%= button_to 'Upvote', article_votes_path(@article), method: :post %>
+
+        <%= link_to 'Add a comment', new_article_comment_path(@article) %><br><br>
 
       <% end %>
 

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :votes, only:[:create, :destroy]
   end
 
+  resources :comments, only:[:new, :create, :destroy] do
+    resources :votes, only:[:create, :destroy]
+  end
 
   root 'articles#index'
 end
