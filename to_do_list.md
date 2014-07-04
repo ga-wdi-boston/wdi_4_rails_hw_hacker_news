@@ -1,10 +1,3 @@
-
-DOING RIGHT NOW: putting comments in a grid
-
-
-
-
-
 SPECS
 - users exist -- yep
 - articles exist -- yep
