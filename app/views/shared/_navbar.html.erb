@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar>
   <div class="stuff">
   <ul class="title-area">
-    <li class="name"><h1><%= link_to "HackerNews", root_path %> </h1></li>
+    <li class="name"><h1><%= link_to "hacker news", root_path %> </h1></li>
   </ul>
   <% if user_signed_in? %>
     <section class="top-bar-section">
@@ -20,7 +20,7 @@
     <section class="top-bar-section">
     <ul class="right">
       <li><%= link_to "register", new_user_registration_path %></li>
-      <li><a href="#"> or </a></li>
+      <li><a href="#" class="fake-link"> or </a></li>
       <li><%= link_to "log in", new_user_session_path %></li>
     </ul>
     </section>

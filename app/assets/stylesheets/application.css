@@ -21,7 +21,16 @@ next darker --- 237,219,185
 more neutral -- 223,208,181
 cooler color -- 203,200,175
 medium aqua --- 157,199,175
+
+new colors
+dark purple: #3F1551
+medium purp: #670E60;
+pink: #BF2071;
+cream: #FEE0B9;
+indigo: #28163D;
+
 */
+
 
 .stuff {
   max-width: 800px;
@@ -36,14 +45,22 @@ medium aqua --- 157,199,175
 
 .article_box {
   width: 100%;
-  margin: 8px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #FEE0B9;
 }
 
-.article_box .main {
-    background: rgba(243,235,196, 0.5);
-    padding: 8px;
+.article_box .main .article-title {
+  padding-bottom: 8px;
 }
 
+.article_box .main .article-title a {
+  color: black;
+  font-size: 1.2em;
+}
+
+.article_box .article-details a {
+  color: #BF2071;
+}
 
 /***** VOTE STYLES ********/
 
@@ -80,15 +97,20 @@ medium aqua --- 157,199,175
 
 /****** NAVBAR OVERRIDE STUFF *********/
 
+.top-bar .name h1 {
+  font-family: "Nixie One";
+  font-size: 1.2em;
+}
+
 .top-bar, .top-bar-section li:not(.has-form) a:not(.button) {
-  background: rgba(157,199,175, 1);
+  background: #28163D;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
-  background: rgba(203, 200, 175, 1);
+  background: #670E60;
 }
 .top-bar-section li:not(.has-form) a.fake-link:not(.button):hover {
-  background: rgba(157,199,175, 1);
+  background: #28163D;
 }
 
 
