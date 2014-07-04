@@ -1,5 +1,6 @@
-<div class="vote-buttons">
 <% if user_signed_in? %>
+<div class="small-1 columns">
+<div class="vote-buttons">
   <% if article.present? %>
     <%= button_to votes_path, method: :post, params: {value: 1, article_id: article.id} do %>
     <i class="fa fa-chevron-up up-vote"></i>
@@ -14,7 +15,7 @@
     <%= button_to votes_path, method: :post, params: {value: -1, comment_id: comment.id} do %>
       <i class="fa fa-chevron-down down-vote"></i>
     <% end %>
-
   <% end %>
-<% end %>
 </div>
+</div>
+<% end %>
