@@ -18,10 +18,11 @@
 
 <div class="row stuff main-things">
 
-  <% flash.each do |name, msg| %>
-    <% if msg.is_a?(String) %>
-      <%= content_tag :div, msg, :class => "flash_#{name} alert-box" %>
-    <% end %>
+<% if flash[:notice].present? %>
+  <div class="alert-box notice"><%= flash[:notice] %> </div>
+  <% end %>
+  <% if flash[:alert].present? %>
+  <div class="alert-box alert"><%= flash[:alert] %> </div>
   <% end %>
 
   <div class="small-12 columns">

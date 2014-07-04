@@ -19,8 +19,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
-      redirect_to articles_path
+      redirect_to articles_path, notice: "Link posted!"
     else
+      flash.now[:alert] = @article.errors.full_messages.join(", ")
       render :new
     end
   end
