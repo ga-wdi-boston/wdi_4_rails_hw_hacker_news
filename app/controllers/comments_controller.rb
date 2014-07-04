@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :set_article
 
   def create
@@ -13,9 +14,6 @@ class CommentsController < ApplicationController
       flash.now[:alert] = @comment.errors.full_messages.join(", ")
       redirect_to @article
     end
-  end
-
-  def destroy
   end
 
   private

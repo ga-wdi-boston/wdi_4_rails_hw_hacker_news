@@ -1,5 +1,7 @@
 class VotesController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     @voted_upon = voteable
 

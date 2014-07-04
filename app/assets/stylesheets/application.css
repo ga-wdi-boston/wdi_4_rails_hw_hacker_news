@@ -58,7 +58,7 @@ indigo: #28163D;
   font-size: 1.2em;
 }
 
-.article_box .article-details a {
+.article_box .article-details, .article_box .article-details a {
   color: #BF2071;
 }
 
@@ -95,12 +95,33 @@ indigo: #28163D;
   color: red;
 }
 
+/****** BUTTONS YAY ******/
+
 input[type="submit"] {
   background-color: #670E60;
   color: white;
   font-size: 1em;
   border-width: 0px;
   padding: 10px;
+}
+
+input[type="submit"]:hover {
+  background-color: #BF2071;
+}
+
+/***** COMMENT STYLE STUFF *****/
+
+label[for="comment_content"] {
+  font-family: "Nixie One";
+  font-size: 1em;
+}
+
+.comment-form {
+  margin-top: 10px;
+}
+
+.comment-details {
+  color: #BF2071;
 }
 
 /****** NAVBAR OVERRIDE STUFF *********/

@@ -2,11 +2,11 @@
 <div class="small-1 columns vote-count">
   <%= comment.score %>
 </div>
-<div class="small-1 columns vote-vuttons">
+<div class="small-1 columns vote-buttons">
   <%= render 'shared/vote_buttons', comment: comment, article: nil %>
 </div>
 <div class="small-10 columns comment-text">
-  <p><i><%= comment.user.email %> posted: </i></p>
+  <i class="comment-details"><%= comment.user.email %> posted: </i>
   <p><%= comment.content %></p>
 </div>
 </div>
