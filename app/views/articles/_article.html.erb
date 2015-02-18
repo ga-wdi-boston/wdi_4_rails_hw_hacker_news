@@ -1,0 +1,26 @@
+<hr>
+<div class="article">
+
+  <h4>
+  <%= link_to article.url, target: "blank" do %><%= "#{@articles.index(article) + 1}. #{article.title}" %><% end %>
+
+  <% if user_signed_in? %>
+    <% if !current_user.vote_for(article).present? %>
+    | <%= link_to article_votes_path(article, is_up: true), method: :post, title: "upvote" do %><i class="fi-arrow-up unselected"></i><% end %>
+     <%= link_to article_votes_path(article, is_up: false), method: :post, title: "downvote" do %><i class="fi-arrow-down unselected"></i><% end %>
+    <% elsif current_user.vote_for(article).is_up %>
+      | <%= link_to article_vote_path(article, current_user.vote_for(article)), method: :delete, title: "remove upvote" do %><i class="fi-arrow-up"></i><% end %>
+       <%= link_to article_vote_path(article, current_user.vote_for(article)), method: :patch, title: "downvote" do %><i class="fi-arrow-down unselected"></i><% end %>
+    <% else %>
+      | <%= link_to article_vote_path(article, current_user.vote_for(article)), method: :patch, title: "upvote" do %><i class="fi-arrow-up unselected"></i><% end %>
+       <%= link_to article_vote_path(article, current_user.vote_for(article)), method: :delete, title: "remove downvote" do %><i class="fi-arrow-down"></i><% end %>
+    <% end %>
+  <% end %>
+
+  </h4>
+
+  <p><%= "#{article.score} points" %>
+  | <%= "submitted #{((Time.now - article.created_at) / 1.hour).round} hours ago" %>
+  | <%= link_to "#{article.comments.count} comments", article_comments_path(article.id) %></p>
+
+</div>

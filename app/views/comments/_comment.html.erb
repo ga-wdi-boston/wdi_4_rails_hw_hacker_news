@@ -1,0 +1,22 @@
+<hr>
+<div>
+  <p><%= comment.body %></p>
+  <p>
+  <%= "#{comment.score} points" %>
+
+   <% if user_signed_in? %>
+    <% if !current_user.vote_for(comment).present? %>
+      | <%= link_to article_comment_votes_path(comment.article, comment, is_up: true), method: :post, title: "upvote" do %><i class="fi-arrow-up unselected"></i><% end %>
+       <%= link_to article_comment_votes_path(comment.article, comment, is_up: false), method: :post, title: "downvote" do %><i class="fi-arrow-down unselected"></i><% end %>
+    <% elsif current_user.vote_for(comment).is_up %>
+      | <%= link_to article_comment_vote_path(comment.article, comment, current_user.vote_for(comment)), method: :delete, title: "remove upvote" do %><i class="fi-arrow-up"></i><% end %>
+       <%= link_to article_comment_vote_path(comment.article, comment, current_user.vote_for(comment)), method: :patch, title: "downvote" do %><i class="fi-arrow-down unselected"></i><% end %>
+    <% else %>
+      | <%= link_to article_comment_vote_path(comment.article, comment, current_user.vote_for(comment)), method: :patch, title: "upvote" do %><i class="fi-arrow-up unselected"></i><% end %>
+       <%= link_to article_comment_vote_path(comment.article, comment, current_user.vote_for(comment)), method: :delete, title: "remove downvote" do %><i class="fi-arrow-down"></i><% end %>
+    <% end %>
+  <% end %>
+
+  </p>
+
+</div>

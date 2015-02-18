@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
+header {
+  margin: 0 0 1em 0;
+}
+
+.unselected {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.unselected:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.notice, .alert {
+  color: red;
+}
+
+.fi-plus.add {
+  font-size: 1.5rem;
+  padding: 0 0.2em;
+}
+
+.title-in-comments {
+  color: rgba(0, 0, 0, 0.5);
+}
