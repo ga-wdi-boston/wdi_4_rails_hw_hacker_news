@@ -1,0 +1,10 @@
+<div class="row comment-box">
+<div class="small-1 columns vote-count">
+  <%= comment.score %>
+</div>
+<%= render 'shared/vote_buttons', comment: comment, article: nil %>
+<div class="small-10 columns comment-text end">
+  <i class="comment-details"><%= comment.user.email %> posted: </i>
+  <p><%= comment.content %></p>
+</div>
+</div>

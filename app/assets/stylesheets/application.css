@@ -13,3 +13,133 @@
  *= require_tree .
  *= require_self
  */
+
+/*
+MY COLORS
+light cream --- 243,235,196
+next darker --- 237,219,185
+more neutral -- 223,208,181
+cooler color -- 203,200,175
+medium aqua --- 157,199,175
+
+new colors
+dark purple: #3F1551
+medium purp: #670E60;
+pink: #BF2071;
+cream: #FEE0B9;
+indigo: #28163D;
+
+*/
+
+
+.stuff {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.main-things {
+  margin-top: 10px;
+}
+
+/************ ARTICLES ***************/
+
+.article_box {
+  width: 100%;
+  padding: 8px 0;
+  border-bottom: 1px solid #FEE0B9;
+}
+
+.article_box .main .article-title {
+  padding-bottom: 8px;
+}
+
+.article_box .main .article-title a {
+  color: black;
+  font-size: 1.2em;
+}
+
+.article_box .article-details, .article_box .article-details a {
+  color: #BF2071;
+}
+
+/***** VOTE STYLES ********/
+
+.count-box, .vote-count {
+  min-height: 100%;
+  margin: 0;
+
+  font-family: "Nixie One";
+  font-size: 2em;
+  padding: 4px 0 4px 14px;
+  text-align: center;
+}
+
+.vote-buttons form {
+  margin: 0;
+}
+
+.vote-buttons button {
+  padding: 2px 0;
+  margin: -1px 0 0 0;
+  width: 100%;
+  border: 0;
+  background: none;
+  color: black;
+}
+
+.vote-buttons .up-vote:hover {
+  color: green;
+}
+
+.vote-buttons .down-vote:hover {
+  color: red;
+}
+
+/****** BUTTONS YAY ******/
+
+input[type="submit"] {
+  background-color: #670E60;
+  color: white;
+  font-size: 1em;
+  border-width: 0px;
+  padding: 10px;
+}
+
+input[type="submit"]:hover {
+  background-color: #BF2071;
+}
+
+/***** COMMENT STYLE STUFF *****/
+
+label[for="comment_content"] {
+  font-family: "Nixie One";
+  font-size: 1em;
+}
+
+.comment-form {
+  margin-top: 10px;
+}
+
+.comment-details {
+  color: #BF2071;
+}
+
+/****** NAVBAR OVERRIDE STUFF *********/
+
+.top-bar .name h1 {
+  font-family: "Nixie One";
+  font-size: 1.2em;
+}
+
+.top-bar, .top-bar-section li:not(.has-form) a:not(.button) {
+  background: #28163D;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  background: #670E60;
+}
+.top-bar-section li:not(.has-form) a.fake-link:not(.button):hover {
+  background: #28163D;
+}
+
+
