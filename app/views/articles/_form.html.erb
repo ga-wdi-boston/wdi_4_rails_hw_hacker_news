@@ -1,0 +1,19 @@
+<% if flash[:alert].present? %>
+  <p><%= flash[:alert] %></p>
+<% end %>
+
+<% if flash[:notice].present? %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<div class="well well-lg">
+  <%= bootstrap_form_for @article do |f| %>
+
+    <%= f.text_field :title, placeholder: "Enter title", label: "Title,yo." %>
+    <%= f.url_field :url, placeholder: "Enter URL" %><br>
+
+  <%= f.submit "Submit", class: "btn btn-primary btn-md" %>
+</div>
+
+
+<% end %>
