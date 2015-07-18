@@ -1,0 +1,15 @@
+<dl class='comments_nav'>
+  <% @selected_article_comments.each do |comment| %>
+    <dd class='comment_body'><%= comment.body %></dd>
+    <dd>by <%= comment.user.email %> | posted by <%= comment.user.email %> on <%=comment.created_at.strftime('%b %d, %Y') %> | <span class='vote_count'>Score: <%= comment.vote_count %></span></dd>
+    <dd>
+    <div class="row votes">
+      <div class='small-2 columns'>
+        <%= button_to 'Vote Up', comment_votes_path(comment, value: 'upvote'), method: :post, class: 'button' %>
+      </div>
+      <div class='small-2 columns end'>
+        <%= button_to 'Vote Down', comment_votes_path(comment, value: 'downvote'), class: 'button'%>
+      </div>
+    </dd>
+  <% end %>
+</dl>

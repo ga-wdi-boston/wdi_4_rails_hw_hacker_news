@@ -1,0 +1,40 @@
+<div class='row main_container'>
+  <div class='large-6 columns'>
+    <div class='row discussion'>
+      <h1>What's trending right now:</h1>
+    </div>
+    <div class='row'>
+      <ul class='side-nav'>
+      <% @articles.each do |article| %>
+        <tr><a href="<%= article.url %>" target="_blank"><%= article.title %></a> | <%= link_to "Show Comments",  root_path(article_id: article.id) %> | <%= link_to 'Add your own comment!', new_article_comment_path(article.id) %></tr>
+        <br>
+        <tr>
+          <span class='emails'>posted by <%= article.user.email %> on <%=article.created_at.strftime('%b %d, %Y') %>
+          </span> |
+          <span class='vote_count'>Score: <%= article.vote_count %>
+          </span>
+        </tr>
+        <tr>
+          <div class="row votes">
+            <div class='small-2 columns'><%= button_to 'Vote Up', article_votes_path(article, value: 'upvote'), method: :post, class: 'button' %>
+            </div>
+            <div class='small-2 columns end'><%= button_to 'Vote Down', article_votes_path(article, value: 'downvote'), class: 'button', data: 'downvote'%>
+            </div>
+          </div>
+        </tr>
+        <br>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class='large-6 columns'>
+    <div class='row'>
+      <h1>Currently discussing: <%= @selected_article.title %></h1>
+    </div>
+    <div class='row'>
+      <div class='comment-nav'>
+        <%= render 'comments' %>
+      </ul>
+    </div>
+  </div>
+

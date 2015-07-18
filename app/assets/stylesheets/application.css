@@ -1,15 +1,73 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+header {
+  background: rgba(236, 240, 241,1.0);
+  height: 120px;
+  text-align: center;
+}
+
+h3 {
+  margin: 0 auto;
+  font-family: 'Josefin Slab', serif;
+  color: rgba(22, 160, 133,1.0);
+  font-size: 40px;
+  margin-top: 25px;
+}
+
+.nav {
+  color: rgba(22, 160, 133,1.0);
+  text-align: right;
+  max-width: 87.5em;
+}
+
+body {
+  background: rgba(22, 160, 133,1.0);
+  color: white;
+}
+
+.main_container {
+  margin-left: none;
+  margin-right: none;
+  max-width: 1500px;
+}
+
+.button {
+  padding: 8px;
+  background-color: rgba(52, 152, 219,1.0);
+  font-family: 'Josefin Slab', serif;
+}
+
+.vote_count {
+  color: black;
+  font-weight: bold;
+}
+
+h1 {
+  color: white;
+  font-family: 'Josefin Slab', serif;
+}
+
+.side-nav {
+  background: rgba(236, 240, 241,1.0);
+  font-family: 'Josefin Slab', serif;
+  font-weight: bold;
+  padding-left: 18px;
+  font-size: 18px;
+  max-width: 500px;
+}
+
+.emails {
+  color: black;
+  font-size: 13px;
+}
+
+h2 {
+  font-family: 'Josefin Slab', serif;
+  color: white;
+}
+
+.comments_nav {
+  min-height: 200px;
+  background: rgba(236, 240, 241,1.0);
+  color: black;
+  font-family: 'Josefin Slab', serif;
+  padding-left: 18px;
+}
