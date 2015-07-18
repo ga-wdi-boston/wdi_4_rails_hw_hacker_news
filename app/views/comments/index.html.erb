@@ -1,0 +1,31 @@
+<%= render @article %>
+
+<%= form_for [@article, @comment] do |f| %>
+  <div class="field">
+    <%= f.label :body, 'Write a comment' %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <ul class="subhead list-inline">
+  <% if user_signed_in? %>
+    <%= link_to_if current_user.vote_for(comment).present? ? current_user.vote_for(comment).score != 1 : true, '<div class="glyphicon glyphicon-arrow-up"></div>'.html_safe, comment_votes_path(comment, score: 1), method: :post %>
+    <% if current_user.vote_for(comment).present? %>
+      <%= link_to '<div class="glyphicon glyphicon-minus"></div>'.html_safe, comment_vote_path(comment, current_user.vote_for(comment)), method: :delete %>
+    <% else %>
+      <div class="glyphicon glyphicon-minus"></div>
+    <% end %>
+    <%= link_to_if current_user.vote_for(comment).present? ? current_user.vote_for(comment).score != -1 : true, '<div class="glyphicon glyphicon-arrow-down"></div>'.html_safe, comment_votes_path(comment, score: -1), method: :post %>
+  <% end %>
+  <li><%= comment.points %> points </li>
+  <li>by <%= comment.user.email %></li>
+  <li><%= distance_of_time_in_words(comment.created_at, Time.now) %> ago</li>
+  </ul>
+  <p><%= comment.body %></p>
+  <br>
+<% end %>
+
