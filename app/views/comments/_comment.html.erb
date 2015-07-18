@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-8">
+        <%= comment.content %>
+      </div>
+      <div class="col-md-4 text-right">
+        <div class="btn-group">
+          <%= render 'buttons_comments', comment: comment %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="row">
+
+
+
+
+        <div class="col-md-11">
+
+            <p style="text-align: right; display:inline-block;">Posted by: <%= comment.user.username %> <%= time_ago_in_words(comment.created_at) %> ago.</p>
+            <span class="badge pull-right" style="margin-right: -40px; margin-top: 5px;"><%= Like.score(comment) %></span>
+        </div>
+
+  </div>
+</div>
+</div>

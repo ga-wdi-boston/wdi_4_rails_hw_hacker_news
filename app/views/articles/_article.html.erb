@@ -1,0 +1,18 @@
+<tr>
+  <td class="lead">
+   <span class="badge"><%= article.score %> </span> <%= link_to article.title, article.url %>
+  </td>
+  <td>
+    <p class = "text-center" style="font-size: 10px; margin-top:5px;"> posted by <%= article.user.username %> <%= time_ago_in_words(article.created_at) %> ago.</p>
+  </td>
+  <td class="text-right">
+    <div class="btn-group">
+      <%= link_to article, class: 'btn btn-default' do %>
+        <span class="glyphicon glyphicon-eye-open"></span>
+      <% end %>
+      <%= render 'buttons', article: article %>
+    </div>
+  </td>
+</tr>
+
+
