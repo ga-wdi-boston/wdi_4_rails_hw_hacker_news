@@ -1,0 +1,8 @@
+<ul>
+  <% @comments.each do |item| %>
+  <li>
+    <%= render 'comment', comment: item %><div class="comment-title-link"> on <%= link_to item.article.title, item.article %></div>
+    <div class="comment"><%= item.body %></div>
+  </li>
+  <% end %>
+</ul>

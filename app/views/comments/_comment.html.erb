@@ -1,0 +1,13 @@
+<div class="comhead">
+  <% if user_signed_in? && !current_user.get_vote(comment).nil? %>
+    <% if current_user.get_vote(comment).vote == 'upvote' %>
+    <%= link_to '-1', comment_vote_path(comment.id, current_user.get_vote(comment).id, vote: 'downvote'), method: :put %> |
+    <%= link_to 'Neutralize', comment_vote_path(comment.id, current_user.get_vote(comment).id), method: :delete %>
+    <% else %>
+    <%= link_to '+1', comment_vote_path(comment.id, current_user.get_vote(comment).id, vote: 'upvote'), method: :put %> |
+    <%= link_to 'Neutralize', comment_vote_path(comment.id, current_user.get_vote(comment).id), method: :delete %>
+    <% end %>
+  <% else %>
+  <%= link_to '+1', comment_votes_path(comment.id, vote: 'upvote'), method: :post %>
+  <% end %> | <%= comment.score %> by <%= link_to comment.user.email, author_path(comment.user.id) %> <%= time_ago_in_words(comment.created_at) %> ago | <%= link_to 'link',article_comment_path(comment.article, comment) %>
+</div>

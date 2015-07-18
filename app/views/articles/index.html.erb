@@ -1,0 +1,7 @@
+<ol>
+  <% @articles.each do |item| %>
+  <li>
+    <%= render 'article', article: item %>
+  </li>
+  <% end %>
+</ol>

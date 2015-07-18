@@ -1,0 +1,13 @@
+<%= render 'articles/article', article: @article %>
+
+<div class=""><%= link_to 'add comment', new_article_comment_path %></div>
+<ul>
+  <% @comments.each do |item| %>
+  <li>
+    <%= render 'comment', comment: item %>
+    <div class="comment"><%= item.body %></div>
+  </li>
+  <% end %>
+</ul>
+
+
