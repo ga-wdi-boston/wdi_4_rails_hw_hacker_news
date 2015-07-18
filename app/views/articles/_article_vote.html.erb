@@ -1,0 +1,38 @@
+<% if article.vote_count > 0 %>
+<div class="block score pos_score">
++
+<% else %>
+<div class="block score neg_score">
+<% end %>
+<%= article.vote_count %>
+</div>
+
+
+<div class="block">
+<% if user_signed_in? %>
+  <% current_user_vote = current_user.vote_for(article) %>
+  <% if current_user_vote.present? %>
+  <% if current_user_vote.upvote %>
+
+  <%= button_to "upvote", article_vote_path(article, current_user_vote), method: :delete, class: "btn btn-warning" %>
+  <div class="btn btn-default">downvote</div>
+  <% else %>
+  <div class="btn btn-default">upvote</div>
+  <%= button_to "downvote", article_vote_path(article, current_user_vote), method: :delete, class: "btn btn-primary" %>
+  <% end %>
+  <% else %>
+  <div>
+    <%= button_to "upvote", article_votes_path(article, upvote: true), method: :post, class: "btn btn-warning" %>
+  </div>
+  <div>
+    <%= button_to "downvote", article_votes_path(article, upvote: false), method: :post, class: "btn btn-primary" %>
+  </div>
+  <% end %>
+  <% else %>
+  <div>
+      <div class="btn btn-default">upvote</div>
+      <br>
+      <div class="btn btn-default">downvote</div>
+  </div>
+  <% end %>
+</div>
