@@ -1,0 +1,23 @@
+<h1> Hacker News </h1>
+
+<% if user_signed_in? == false %>
+<%= link_to 'User Login', new_user_session_path %>
+<% end %>
+
+
+<% if user_signed_in? %>
+<%= link_to 'Add an Article', new_article_path %>
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+<% end %>
+
+<ol>
+  <% @articles.each do |article| %>
+        <% if user_signed_in? %>
+            <%= button_to 'Vote +', article_votes_path(@article), method: :post %>
+            <% end %>
+  <li>  <%= link_to(article.title, article.url, :target => "_blank") %> </li>
+  <small> <%= article.created_at %> </small>
+  <small> <%= article.user.email %> </small>
+  <%= link_to('Comments', article_comments_path(@article)) %>
+  <% end %>
+</ol>
