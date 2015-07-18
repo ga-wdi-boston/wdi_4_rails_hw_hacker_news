@@ -1,0 +1,14 @@
+<p><% @comments.each do |comment| %>
+  <i><%= comment.user.email %> commented:</i><br>
+  <%= comment.body %>
+  created at: <%= comment.created_at %>
+  <p><% if user_signed_in? %>
+  <% if current_user.vote_for(comment).present? %>
+    <%= button_to 'downvote', comment_vote_path(comment, current_user.vote_for(comment)), method: :delete %>
+  <% else %>
+    <%= button_to 'upvote', comment_votes_path(comment), method: :post %>
+  <% end %>
+<% end %></p>
+  <% end %>
+</p>
+
